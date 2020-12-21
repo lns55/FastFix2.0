@@ -21,19 +21,7 @@
 
     @RenderBody();
 
-    <!-- BEGIN: Vendor JS-->
-    <script src="~/js/vendors.min.js"></script>
-    <!-- BEGIN Vendor JS-->
-    <!-- BEGIN: Page Vendor JS-->
-    <script src="~/lib/iCheck/icheck.min.js"></script>
-    <!-- END: Page Vendor JS-->
-    <!-- BEGIN: Theme JS-->
-    <script src="~/js/app-menu.min.js"></script>
-    <script src="~/js/app.min.js"></script>
-    <!-- END: Theme JS-->
-    <!-- BEGIN: Page JS-->
-    <script src="~/js/form-login-register.js"></script>
-    <!-- END: Page JS-->
-
+    <partial name="Home/_HomeScripts/_HomeScripts" />
+    <partial name="Shared/_Scripts/_RequiredScripts"/>
 </body>
 </html>
