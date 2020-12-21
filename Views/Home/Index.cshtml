@@ -1,8 +1,83 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@*@model FF1.ViewModels.Identity.LoginViewModel*@
+@{
+    ViewData["Title"] = "HomePage";
+    Layout = "_HomeLayout/_HomeLayout";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="app-content content">
+    <div class="content-wrapper">
+        <div class="content-body">
+            <section class="row flexbox-container">
+                <div class="col-12 d-flex align-items-center justify-content-center">
+                    <div class="col-lg-4 col-md-8 col-10 box-shadow-2 p-0">
+                        <div class="card border-grey border-lighten-3 m-0">
+                            <div class="card-header border-0">
+                                <div class="card-title text-center">
+                                    <a asp-controller="Home" asp-action="Index">
+                                        <div class="p-1"><img src="~/images/logo/fastfix_logo.png" alt="branding logo"></div>
+                                        <h2>FastFix</h2>
+                                    </a>
+                                </div>
+                                <h6 class="card-subtitle line-on-side text-muted text-center font-small-3 pt-2">
+                                    <span>
+                                        Login WITH
+                                    </span>
+                                </h6>
+                            </div>
+                            <div class="card-content">
+                                <div class="card-body pt-0 text-center">
+                                    <a href="#" class="btn btn-social mb-1 mr-1 btn-outline-facebook"><span class="fa fa-facebook"></span> <span class="px-1">Facebook</span> </a>
+                                    <a href="#" class="btn btn-social mb-1 mr-1 btn-outline-google"><span class="fa fa-google-plus font-medium-4"></span> <span class="px-1">Google</span> </a>
+                                </div>
+                                <p class="card-subtitle line-on-side text-muted text-center font-small-3 mx-2">
+                                    <span>
+                                        OR Using
+                                        Account Details
+                                    </span>
+                                </p>
+                                <div class="card-body pt-0">
+                                    <form asp-action="Login" asp-antiforgery="true">
+                                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                                        @*@Html.HiddenFor(model => model.ReturnUrl)*@
+
+                                        <fieldset class="form-group floating-label-form-group">
+                                            <label for="user-name">Your Username</label>
+                                            @*<input asp-for="UserName" class="form-control" id="user-name" placeholder="Your Username">*@
+                                            <div asp-validation-for="UserName" class="text-danger"></div>
+                                        </fieldset>
+                                        <fieldset class="form-group floating-label-form-group mb-1">
+                                            <label for="user-password">Enter Password</label>
+                                            @*<input asp-for="Password" class="form-control" id="user-password" placeholder="Enter Password">*@
+                                            <div asp-validation-for="Password" class="text-danger"></div>
+                                        </fieldset>
+                                        <div class="form-group row">
+                                            <div class="col-sm-6 col-12 text-center text-sm-left">
+                                                <fieldset>
+                                                    @*<input asp-for="RememberMe" type="checkbox" id="remember-me" class="chk-remember">*@
+                                                    @*<label asp-for="RememberMe" for="remember-me"> Remember Me</label>*@
+                                                </fieldset>
+                                            </div>
+                                            <div class="col-sm-6 col-12 float-sm-left text-center text-sm-right"><a asp-controller="Account" asp-action="ForgotPassword" class="card-link">Forgot Password?</a></div>
+                                        </div>
+                                        <button type="submit" class="btn btn-outline-primary btn-block"><i class="feather icon-unlock"></i> Login</button>
+                                        <button type="submit" class="btn btn-outline-primary btn-block"><i class="feather icon-home"></i> Home</button>
+                                    </form>
+                                </div>
+                                <p class="card-subtitle line-on-side text-muted text-center font-small-3 mx-2 my-1">
+                                    <span>
+                                        New to
+                                        FastFix ?
+                                    </span>
+                                </p>
+                                <div class="card-body">
+                                    <a asp-controller="Account" asp-action="Register" class="btn btn-outline-danger btn-block"><i class="feather icon-user"></i> Register</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
 </div>
