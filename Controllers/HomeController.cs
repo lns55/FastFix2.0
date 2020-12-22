@@ -1,4 +1,5 @@
-﻿using FastFix2._0.Models;
+﻿using FastFix2._0.Areas.Identity;
+using FastFix2._0.Models;
 using FastFix2._0.ViewModels.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
