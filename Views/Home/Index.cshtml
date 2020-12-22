@@ -1,4 +1,4 @@
-﻿@*@model FF1.ViewModels.Identity.LoginViewModel*@
+﻿@model FastFix2._0.ViewModels.Identity.LoginViewModel
 @{
     ViewData["Title"] = "HomePage";
     Layout = "_HomeLayout/_HomeLayout";
@@ -39,23 +39,23 @@
                                     <form asp-action="Login" asp-antiforgery="true">
                                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-                                        @*@Html.HiddenFor(model => model.ReturnUrl)*@
+                                        @Html.HiddenFor(model => model.ReturnUrl)
 
                                         <fieldset class="form-group floating-label-form-group">
                                             <label for="user-name">Your Username</label>
-                                            @*<input asp-for="UserName" class="form-control" id="user-name" placeholder="Your Username">*@
+                                            <input asp-for="UserName" class="form-control" id="user-name" placeholder="Your Username">
                                             <div asp-validation-for="UserName" class="text-danger"></div>
                                         </fieldset>
                                         <fieldset class="form-group floating-label-form-group mb-1">
                                             <label for="user-password">Enter Password</label>
-                                            @*<input asp-for="Password" class="form-control" id="user-password" placeholder="Enter Password">*@
+                                            <input asp-for="Password" class="form-control" id="user-password" placeholder="Enter Password">
                                             <div asp-validation-for="Password" class="text-danger"></div>
                                         </fieldset>
                                         <div class="form-group row">
                                             <div class="col-sm-6 col-12 text-center text-sm-left">
                                                 <fieldset>
-                                                    @*<input asp-for="RememberMe" type="checkbox" id="remember-me" class="chk-remember">*@
-                                                    @*<label asp-for="RememberMe" for="remember-me"> Remember Me</label>*@
+                                                    <input asp-for="RememberMe" type="checkbox" id="remember-me" class="chk-remember">
+                                                    <label asp-for="RememberMe" for="remember-me"> Remember Me</label>
                                                 </fieldset>
                                             </div>
                                             <div class="col-sm-6 col-12 float-sm-left text-center text-sm-right"><a asp-controller="Account" asp-action="ForgotPassword" class="card-link">Forgot Password?</a></div>
