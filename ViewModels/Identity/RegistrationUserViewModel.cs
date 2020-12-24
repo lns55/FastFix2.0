@@ -4,7 +4,7 @@ namespace FastFix2._0.ViewModels.Identity
 {
     public class RegistrationUserViewModel
     {
-        [Required, MaxLength(20)]
+        [Required, MaxLength(256)]
         [Display(Name="User Name")]
         public string UserName { get; set; }
 
@@ -27,6 +27,7 @@ namespace FastFix2._0.ViewModels.Identity
         [Required]
         [Display(Name ="Password Confirmation")]
         [Compare(nameof(Password))]
+        [DataType(DataType.Password)]
         public string PasswordConfirm { get; set; }
 
         [Display(Name ="Remember Me")]

@@ -10,7 +10,7 @@ namespace FastFix2._0.Controllers
 {
     public class HomeController : Controller
     {
-
+        //Login method is also ENTER method in app(Index). App is starting from this method.
         #region LOGIN
 
         private readonly UserManager<User> _UserManager;
@@ -68,7 +68,7 @@ namespace FastFix2._0.Controllers
             if(registration_result.Succeeded)
             {
                 await _SignInManager.SignInAsync(user, true);
-                return RedirectToAction("Login", "Home");
+                return RedirectToAction("Index", "Home");
             }
 
             foreach (var error in registration_result.Errors)
