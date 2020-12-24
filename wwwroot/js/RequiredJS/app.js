@@ -267,64 +267,64 @@
                         a = 0
 
                     // getting json data from file for search results
-                    $.getJSON("../../../app-assets/data/" + $filename + ".json", function (
-                        data
-                    ) {
-                        for (var i = 0; i < data.listItems.length; i++) {
+        //            $.getJSON("../../../app-assets/data/" + $filename + ".json", function (
+        //                data
+        //            ) {
+        //                for (var i = 0; i < data.listItems.length; i++) {
 
-                            // Search list item start with entered letters and create list
-                            if (
-                                data.listItems[i].name.toLowerCase().indexOf(value) == 0 &&
-                                a < 10 || !(data.listItems[i].name.toLowerCase().indexOf(value) == 0) &&
-                                data.listItems[i].name.toLowerCase().indexOf(value) > -1 &&
-                                a < 10
-                            ) {
-                                if (a === 0) {
-                                    $activeItemClass = "current_item"
-                                } else {
-                                    $activeItemClass = ""
-                                }
-                                $startList +=
-                                    '<li class="auto-suggestion d-flex align-items-center justify-content-between cursor-pointer ' +
-                                    $activeItemClass +
-                                    '">' +
-                                    '<a class="d-flex align-items-center justify-content-between w-100" href=' +
-                                    data.listItems[i].url +
-                                    ">" +
-                                    '<div class="d-flex justify-content-start">' +
-                                    '<span class="mr-75 ' +
-                                    data.listItems[i].icon +
-                                    '"></span>' +
-                                    "<span>" +
-                                    data.listItems[i].name +
-                                    "</span>" +
-                                    "</div>"
-                                a++
-                            }
-                        }
-                        if ($startList == "" && $otherList == "") {
-                            $otherList =
-                                '<li class="auto-suggestion d-flex align-items-center justify-content-between cursor-pointer">' +
-                                '<a class="d-flex align-items-center justify-content-between w-100">' +
-                                '<div class="d-flex justify-content-start">' +
-                                '<span class="mr-75"></span>' +
-                                "<span>No results found.</span>" +
-                                "</div>" +
-                                "</a>" +
-                                "</li>"
-                        }
+        //                    // Search list item start with entered letters and create list
+        //                    if (
+        //                        data.listItems[i].name.toLowerCase().indexOf(value) == 0 &&
+        //                        a < 10 || !(data.listItems[i].name.toLowerCase().indexOf(value) == 0) &&
+        //                        data.listItems[i].name.toLowerCase().indexOf(value) > -1 &&
+        //                        a < 10
+        //                    ) {
+        //                        if (a === 0) {
+        //                            $activeItemClass = "current_item"
+        //                        } else {
+        //                            $activeItemClass = ""
+        //                        }
+        //                        $startList +=
+        //                            '<li class="auto-suggestion d-flex align-items-center justify-content-between cursor-pointer ' +
+        //                            $activeItemClass +
+        //                            '">' +
+        //                            '<a class="d-flex align-items-center justify-content-between w-100" href=' +
+        //                            data.listItems[i].url +
+        //                            ">" +
+        //                            '<div class="d-flex justify-content-start">' +
+        //                            '<span class="mr-75 ' +
+        //                            data.listItems[i].icon +
+        //                            '"></span>' +
+        //                            "<span>" +
+        //                            data.listItems[i].name +
+        //                            "</span>" +
+        //                            "</div>"
+        //                        a++
+        //                    }
+        //                }
+        //                if ($startList == "" && $otherList == "") {
+        //                    $otherList =
+        //                        '<li class="auto-suggestion d-flex align-items-center justify-content-between cursor-pointer">' +
+        //                        '<a class="d-flex align-items-center justify-content-between w-100">' +
+        //                        '<div class="d-flex justify-content-start">' +
+        //                        '<span class="mr-75"></span>' +
+        //                        "<span>No results found.</span>" +
+        //                        "</div>" +
+        //                        "</a>" +
+        //                        "</li>"
+        //                }
 
-                        $htmlList = $startList.concat($otherList) // merging start with and other list
-                        $("ul.search-list").html($htmlList) // Appending list to <ul>
-                    })
-                } else {
-                    // if search input blank, hide overlay
-                    if ($(".app-content").hasClass("show-overlay")) {
-                        $(".app-content").removeClass("show-overlay")
-                    }
-                }
-            }
-        })
+        //                $htmlList = $startList.concat($otherList) // merging start with and other list
+        //                $("ul.search-list").html($htmlList) // Appending list to <ul>
+        //            })
+        //        } else {
+        //            // if search input blank, hide overlay
+        //            if ($(".app-content").hasClass("show-overlay")) {
+        //                $(".app-content").removeClass("show-overlay")
+        //            }
+        //        }
+        //    }
+        //})
 
         // Add class on hover of the list
         $(document).on("mouseenter", ".search-list li", function (e) {
@@ -541,20 +541,20 @@
     // main menu internationalization
 
     // init i18n and load language file
-    i18next
-        .use(window.i18nextXHRBackend)
-        .init({
-                debug: false,
-                fallbackLng: "en",
-                backend: {
-                    loadPath: "../../../app-assets/data/locales/{{lng}}.json",
-                },
-                returnObjects: true
-            },
-            function (err, t) {
-                // resources have been loaded
-                jqueryI18next.init(i18next, $);
-            });
+    //i18next
+    //    .use(window.i18nextXHRBackend)
+    //    .init({
+    //            debug: false,
+    //            fallbackLng: "en",
+    //            backend: {
+    //                loadPath: "../../../app-assets/data/locales/{{lng}}.json",
+    //            },
+    //            returnObjects: true
+    //        },
+    //        function (err, t) {
+    //            // resources have been loaded
+    //            jqueryI18next.init(i18next, $);
+    //        });
 
     // change language according to data-language of dropdown item
     $(".dropdown-language .dropdown-item").on("click", function () {
