@@ -79,6 +79,17 @@ namespace FastFix2._0.Controllers
 
         #endregion
 
+        #region LOGOUT
+
+        public async Task<IActionResult> Logout()
+        {
+            await _SignInManager.SignOutAsync();
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        #endregion
+
         #region ErrorHandler
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
