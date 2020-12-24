@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace FastFix2._0.ViewModels
+namespace FastFix2._0.ViewModels.Identity
 {
     public class RegistrationUserViewModel
     {

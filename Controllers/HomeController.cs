@@ -51,7 +51,31 @@ namespace FastFix2._0.Controllers
 
         #region REGISTRATION
 
-        public IActionResult Register() => View(new RegistartionUserViewModel());
+        public IActionResult Register() => View(new RegistrationUserViewModel());
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> Registration(RegistrationUserViewModel model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+
+            var user = new User
+            {
+                UserName = model.UserName
+            };
+
+            var registration_result = await _UserManager.CreateAsync(user, model.Password);
+            if(registration_result.Succeeded)
+            {
+                await _SignInManager.SignInAsync(user, true);
+                return RedirectToAction("Login", "Home");
+            }
+
+            foreach (var error in registration_result.Errors)
+                ModelState.AddModelError(string.Empty, error.Description);
+
+            return View(model);
+        }
 
         #endregion
 
