@@ -72,7 +72,24 @@ namespace FastFix2._0
 #endif
             });
 
-#endregion
+            #endregion
+
+            #region Cookie Options
+
+            services.ConfigureApplicationCookie(opt =>
+            {
+                opt.Cookie.Name = "FastFix-Cookies";
+                opt.Cookie.HttpOnly = true;
+                opt.ExpireTimeSpan = TimeSpan.FromDays(7);
+
+                opt.LoginPath = "Home/Index";
+                opt.LogoutPath = "Home/Logout";
+                opt.AccessDeniedPath = "Home/AccessDenied";
+
+                opt.SlidingExpiration = true;
+            });
+
+            #endregion
 
             services.AddControllersWithViews();
             services.AddRazorPages();
