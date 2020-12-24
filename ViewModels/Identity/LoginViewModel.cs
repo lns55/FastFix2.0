@@ -6,7 +6,7 @@ namespace FastFix2._0.ViewModels.Identity
     public class LoginViewModel
     {
         [Required]
-        [MaxLength(20)]
+        [MaxLength(256)]
         [Display(Name ="User Name")]
         public string UserName { get; set; }
 

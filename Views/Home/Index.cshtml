@@ -13,7 +13,7 @@
                         <div class="card border-grey border-lighten-3 m-0">
                             <div class="card-header border-0">
                                 <div class="card-title text-center">
-                                    <a asp-controller="Home" asp-action="Index">
+                                    <a asp-controller="Home" asp-action="Login">
                                         <div class="p-1"><img src="~/images/logo/fastfix_logo.png" alt="branding logo"></div>
                                         <h2>FastFix</h2>
                                     </a>
@@ -36,7 +36,7 @@
                                     </span>
                                 </p>
                                 <div class="card-body pt-0">
-                                    <form asp-action="Login" asp-antiforgery="true">
+                                    <form asp-action="Index" asp-antiforgery="true">
                                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
                                         @Html.HiddenFor(model => model.ReturnUrl)

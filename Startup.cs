@@ -30,7 +30,7 @@ namespace FastFix2._0
             services.AddDbContext<FastFixDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<FastFix2._0.Areas.Identity.User>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<FastFixDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
@@ -62,7 +62,7 @@ namespace FastFix2._0
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Login}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
         }

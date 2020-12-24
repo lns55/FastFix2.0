@@ -22,10 +22,10 @@ namespace FastFix2._0.Controllers
             _SignInManager = SignInManager;
         }
 
-        public IActionResult Login(string ReturnUrl) => View(new LoginViewModel { ReturnUrl = ReturnUrl });
+        public IActionResult Index(string ReturnUrl) => View(new LoginViewModel { ReturnUrl = ReturnUrl });
 
         [HttpPost, ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(LoginViewModel model)
+        public async Task<IActionResult> Index(LoginViewModel model)
         {
             if (!ModelState.IsValid) return View(model);
 
@@ -51,7 +51,7 @@ namespace FastFix2._0.Controllers
 
         #region REGISTRATION
 
-        public IActionResult Register() => View(new RegistrationUserViewModel());
+        public IActionResult Registration() => View(new RegistrationUserViewModel());
 
         [HttpPost, ValidateAntiForgeryToken]
         public async Task<IActionResult> Registration(RegistrationUserViewModel model)
