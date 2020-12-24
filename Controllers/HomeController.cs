@@ -3,7 +3,6 @@ using FastFix2._0.Models;
 using FastFix2._0.ViewModels.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 using System.Threading.Tasks;
 
@@ -11,16 +10,8 @@ namespace FastFix2._0.Controllers
 {
     public class HomeController : Controller
     {
-        #region LOGGER
 
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
-
-        #endregion
+        #region LOGIN
 
         private readonly UserManager<User> _UserManager;
         private readonly SignInManager<User> _SignInManager;
@@ -30,13 +21,6 @@ namespace FastFix2._0.Controllers
             _UserManager = UserManager;
             _SignInManager = SignInManager;
         }
-
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-        #region LOGIN
 
         public IActionResult Login(string ReturnUrl) => View(new LoginViewModel { ReturnUrl = ReturnUrl });
 
@@ -65,10 +49,19 @@ namespace FastFix2._0.Controllers
 
         #endregion
 
+        #region REGISTRATION
+
+        public IActionResult Register() => View(new RegistartionUserViewModel());
+
+        #endregion
+
+        #region ErrorHandler
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        #endregion 
     }
 }
