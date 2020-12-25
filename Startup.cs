@@ -82,9 +82,9 @@ namespace FastFix2._0
                 opt.Cookie.HttpOnly = true;
                 opt.ExpireTimeSpan = TimeSpan.FromDays(7);
 
-                opt.LoginPath = "Home/Index";
-                opt.LogoutPath = "Home/Logout";
-                opt.AccessDeniedPath = "Home/AccessDenied";
+                opt.LoginPath = "/Home/Index";
+                opt.LogoutPath = "/Home/Logout";
+                opt.AccessDeniedPath = "/Home/AccessDenied";
 
                 opt.SlidingExpiration = true;
             });
