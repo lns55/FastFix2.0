@@ -1,10 +1,12 @@
 using FastFix2._0.Areas.Identity;
 using FastFix2._0.Data;
+using FastFix2._0.Infrastructure.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -88,6 +90,13 @@ namespace FastFix2._0
 
                 opt.SlidingExpiration = true;
             });
+
+            #endregion
+
+            #region EmailSender Options
+
+            services.AddTransient<IEmailSender, EmailSender>();
+            services.Configure<AuthMessageSenderOptions>(Configuration);
 
             #endregion
 

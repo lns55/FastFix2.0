@@ -1,8 +1,11 @@
 ﻿using FastFix2._0.Areas.Identity;
 using FastFix2._0.Models;
 using FastFix2._0.ViewModels.Identity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Diagnostics;
 using System.Threading.Tasks;
 
@@ -10,17 +13,19 @@ namespace FastFix2._0.Controllers
 {
     public class HomeController : Controller
     {
-        //Login method is also ENTER method in app(Index). App is starting from this method.
-        #region LOGIN
 
         private readonly UserManager<User> _UserManager;
         private readonly SignInManager<User> _SignInManager;
+        private readonly IEmailSender _sender;
 
-        public HomeController(UserManager<User> UserManager, SignInManager<User> SignInManager)
+        public HomeController(UserManager<User> UserManager, SignInManager<User> SignInManager, IEmailSender sender)
         {
             _UserManager = UserManager;
             _SignInManager = SignInManager;
+            _sender = sender;
         }
+        //Login method is also ENTER method in app(Index). App is starting from this method.
+        #region LOGIN
 
         public IActionResult Index(string ReturnUrl) => View(new LoginViewModel { ReturnUrl = ReturnUrl });
 
@@ -75,6 +80,13 @@ namespace FastFix2._0.Controllers
                 ModelState.AddModelError(string.Empty, error.Description);
 
             return View(model);
+        }
+
+        //Email Confirmation Method Starts Here
+        [AllowAnonymous]
+        public class RegisterConfirmationModel : PageModel
+        {
+            
         }
 
         #endregion
