@@ -90,6 +90,12 @@ namespace FastFix2._0.Controllers
 
         #endregion
 
+        #region PASSWORD RECOVERY
+
+        public IActionResult ForgotPassword() => View();
+
+        #endregion
+
         #region ErrorHandler
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
