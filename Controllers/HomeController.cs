@@ -1,4 +1,5 @@
 ﻿using FastFix2._0.Areas.Identity;
+using FastFix2._0.Infrastructure.Services;
 using FastFix2._0.Models;
 using FastFix2._0.ViewModels.Identity;
 using Microsoft.AspNetCore.Authorization;
@@ -63,14 +64,27 @@ namespace FastFix2._0.Controllers
 
             var user = new User
             {
-                UserName = model.UserName
+                UserName = model.UserName,
+                Email = model.Email
             };
 
             var registration_result = await _UserManager.CreateAsync(user, model.Password);
             if (registration_result.Succeeded)
             {
-                await _SignInManager.SignInAsync(user, true);
-                return RedirectToAction("Index", "Home");
+                var Code = await _UserManager.GenerateEmailConfirmationTokenAsync(user);
+
+                var CallbackUrl = Url.Action(
+                    "ConfirmEmail",
+                    "Home",
+                    new { userId = user.Id, code = Code },
+                    protocol: HttpContext.Request.Scheme);
+
+                EmailService emailService = new EmailService();
+
+                await emailService.SendEmailAsync(model.Email, "Confirm your account",
+                    "Confirm registration following this <a href='{CallbackUrl}'>link</a>");
+
+                return Content("For completing registartion check your email and follow the sended link!");
             }
 
             foreach (var error in registration_result.Errors)
@@ -80,10 +94,28 @@ namespace FastFix2._0.Controllers
         }
 
         //Email Confirmation Method Starts Here
+        [HttpGet]
         [AllowAnonymous]
-        public class RegisterConfirmationModel : PageModel
+        public async Task<IActionResult> ConfirmEmail(string userId, string code)
         {
+            if(userId == null || code == null)
+            {
+                return View("Error");
+            }
 
+            var user = await _UserManager.FindByIdAsync(userId);
+
+            if(user == null)
+            {
+                return View("Error");
+            }
+
+            var result = await _UserManager.ConfirmEmailAsync(user, code);
+
+            if (result.Succeeded)
+                return RedirectToAction("Index", "Home");
+            else
+                return View("Error");
         }
 
         #endregion

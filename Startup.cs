@@ -93,13 +93,6 @@ namespace FastFix2._0
 
             #endregion
 
-            #region EmailSender Options
-
-            services.AddTransient<IEmailSender, EmailSender>();
-            services.Configure<AuthMessageSenderOptions>(Configuration);
-
-            #endregion
-
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
