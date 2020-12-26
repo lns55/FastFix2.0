@@ -1,9 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 
 namespace FastFix2._0.ViewModels.Identity
 {
     public class CarRepairDataRegistrationViewModel
     {
+        [HiddenInput(DisplayValue = false)]
+        public int Id { get; set; }
+
         [Required]
         [Display(Name ="Company Name")]
         public string CoName { get; set; }

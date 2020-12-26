@@ -156,15 +156,15 @@ namespace FastFix2._0.Controllers
         #region CAR REPAIR DATA REGISTARTION
         public IActionResult CarRepairDataRegistration() => View(new CarRepairDataRegistrationViewModel());
 
-        [HttpPost, ValidateAntiForgeryToken]
-        public async Task<IActionResult> CarRepairDataRegistration(CarRepairDataRegistrationViewModel model)
-        {
-            if (!ModelState.IsValid)
-                return View(model);
+        //[HttpPost, ValidateAntiForgeryToken]
+        //public async Task<IActionResult> CarRepairDataRegistration(CarRepairDataRegistrationViewModel model)
+        //{
+        //    if (!ModelState.IsValid)
+        //        return View(model);
 
-            var CarRepairUser = new Use
+        //    var CarRepairUser = new Use
 
-        }
+        //}
 
         #endregion
 
