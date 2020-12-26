@@ -3,7 +3,6 @@ using FastFix2._0.Models;
 using FastFix2._0.ViewModels.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Diagnostics;
@@ -16,13 +15,11 @@ namespace FastFix2._0.Controllers
 
         private readonly UserManager<User> _UserManager;
         private readonly SignInManager<User> _SignInManager;
-        private readonly IEmailSender _sender;
 
-        public HomeController(UserManager<User> UserManager, SignInManager<User> SignInManager, IEmailSender sender)
+        public HomeController(UserManager<User> UserManager, SignInManager<User> SignInManager)
         {
             _UserManager = UserManager;
             _SignInManager = SignInManager;
-            _sender = sender;
         }
         //Login method is also ENTER method in app(Index). App is starting from this method.
         #region LOGIN
@@ -70,7 +67,7 @@ namespace FastFix2._0.Controllers
             };
 
             var registration_result = await _UserManager.CreateAsync(user, model.Password);
-            if(registration_result.Succeeded)
+            if (registration_result.Succeeded)
             {
                 await _SignInManager.SignInAsync(user, true);
                 return RedirectToAction("Index", "Home");
@@ -86,7 +83,7 @@ namespace FastFix2._0.Controllers
         [AllowAnonymous]
         public class RegisterConfirmationModel : PageModel
         {
-            
+
         }
 
         #endregion
