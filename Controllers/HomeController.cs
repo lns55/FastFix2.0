@@ -65,10 +65,12 @@ namespace FastFix2._0.Controllers
             var user = new User
             {
                 UserName = model.UserName,
-                Email = model.Email
+                Email = model.Email,
+                IsCarRepair = model.IsCarRepair
             };
 
             var registration_result = await _UserManager.CreateAsync(user, model.Password);
+
             if (registration_result.Succeeded)
             {
                 var Code = await _UserManager.GenerateEmailConfirmationTokenAsync(user);
@@ -76,7 +78,7 @@ namespace FastFix2._0.Controllers
                 var CallbackUrl = Url.Action(
                     "ConfirmEmail",
                     "Home",
-                    new { userId = user.Id, code = Code },
+                    new { userId = user.Id, code = Code, isCarRepair = user.IsCarRepair},
                     protocol: HttpContext.Request.Scheme);
 
                 EmailService emailService = new EmailService();
@@ -84,7 +86,7 @@ namespace FastFix2._0.Controllers
                 await emailService.SendEmailAsync(model.Email, "Confirm your account",
                     $"Confirm registration following this <a href='{CallbackUrl}'>link</a>");
 
-                return Content("For completing registartion check your email and follow the sended link!");
+                return RedirectToAction("EmailVerification","Home");
             }
 
             foreach (var error in registration_result.Errors)
@@ -96,8 +98,9 @@ namespace FastFix2._0.Controllers
         //Email Confirmation Method Starts Here
         [HttpGet]
         [AllowAnonymous]
-        public async Task<IActionResult> ConfirmEmail(string userId, string code)
+        public async Task<IActionResult> ConfirmEmail(string userId, string code, bool IsCarRepair)
         {
+
             if(userId == null || code == null)
             {
                 return View("Error");
@@ -113,7 +116,14 @@ namespace FastFix2._0.Controllers
             var result = await _UserManager.ConfirmEmailAsync(user, code);
 
             if (result.Succeeded)
-                return RedirectToAction("Index", "Home");
+            {
+                if (IsCarRepair == true)
+                {
+                    return RedirectToAction("CarRepairDataRegistration", "Home");
+                }
+                else
+                    return RedirectToAction("Index", "Home");
+            }
             else
                 return View("Error");
         }
@@ -134,6 +144,17 @@ namespace FastFix2._0.Controllers
         #region PASSWORD RECOVERY
 
         public IActionResult ForgotPassword() => View();
+
+        #endregion
+
+        #region EMAIL VERIFICATION
+
+        public IActionResult EmailVerification() => View();
+
+        #endregion
+
+        #region CAR REPAIR DATA REGISTARTION
+        public IActionResult CarRepairDataRegistration() => View();
 
         #endregion
 

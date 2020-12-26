@@ -30,6 +30,9 @@ namespace FastFix2._0.ViewModels.Identity
         [DataType(DataType.Password)]
         public string PasswordConfirm { get; set; }
 
+        [Display(Name = "Check if you are Car Repair Shop")]
+        public bool IsCarRepair { get; set; }
+
         [Display(Name ="Remember Me")]
         public bool RememberMe { get; set; }
     }

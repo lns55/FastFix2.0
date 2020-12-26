@@ -72,7 +72,13 @@
                                                     <label asp-for="RememberMe" for="remember-me"> Remember Me</label>
                                                 </fieldset>
                                             </div>
-                                            <div class="col-sm-6 col-12 float-sm-left text-center text-sm-right"><a asp-controller="Account" asp-action="ForgotPassword" class="card-link">Forgot Password?</a></div>
+                                            <div class="col-sm-11 col-12 text-center text-sm-left pr-0">
+                                                <fieldset>
+                                                    <input asp-for="IsCarRepair" type="checkbox" id="is-car-repair" class="chk-remember">
+                                                    <label asp-for="IsCarRepair" for="is-car-repair"> <b>Check if you want to register as car repair shop</b></label>
+                                                </fieldset>
+                                            </div> 
+                                            <div class="col-12 text-center text-sm-right"><a asp-controller="Home" asp-action="ForgotPassword" class="card-link">Forgot Password?</a></div>
                                         </div>
                                         <button type="submit" class="btn btn-outline-primary btn-block"><i class="feather icon-user"></i> Register</button>
                                     </form>
