@@ -10,6 +10,7 @@ namespace FastFix2._0.Data
         public FastFixDbContext(DbContextOptions<FastFixDbContext> options)
             : base(options)
         {
+            Database.EnsureCreated();
         }
     }
 }
