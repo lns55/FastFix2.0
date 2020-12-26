@@ -82,7 +82,7 @@ namespace FastFix2._0.Controllers
                 EmailService emailService = new EmailService();
 
                 await emailService.SendEmailAsync(model.Email, "Confirm your account",
-                    "Confirm registration following this <a href='{CallbackUrl}'>link</a>");
+                    $"Confirm registration following this <a href='{CallbackUrl}'>link</a>");
 
                 return Content("For completing registartion check your email and follow the sended link!");
             }
