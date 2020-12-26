@@ -17,10 +17,18 @@ namespace FastFix2._0.Controllers
         private readonly UserManager<User> _UserManager;
         private readonly SignInManager<User> _SignInManager;
 
-        public HomeController(UserManager<User> UserManager, SignInManager<User> SignInManager)
+        private readonly UserManager<CarRepairUser> _CarRepairUserManager;
+        private readonly SignInManager<CarRepairUser> _CarRepairSignInManager;
+
+        public HomeController(
+            UserManager<User> UserManager, SignInManager<User> SignInManager, 
+            UserManager<CarRepairUser> CarRepairUser, SignInManager<CarRepairUser> CarRepairSignInManager)
         {
             _UserManager = UserManager;
             _SignInManager = SignInManager;
+
+            _CarRepairUserManager = CarRepairUser;
+            _CarRepairSignInManager = CarRepairSignInManager;
         }
         //Login method is also ENTER method in app(Index). App is starting from this method.
         #region LOGIN
@@ -156,15 +164,29 @@ namespace FastFix2._0.Controllers
         #region CAR REPAIR DATA REGISTARTION
         public IActionResult CarRepairDataRegistration() => View(new CarRepairDataRegistrationViewModel());
 
-        //[HttpPost, ValidateAntiForgeryToken]
-        //public async Task<IActionResult> CarRepairDataRegistration(CarRepairDataRegistrationViewModel model)
-        //{
-        //    if (!ModelState.IsValid)
-        //        return View(model);
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> CarRepairDataRegistration(CarRepairDataRegistrationViewModel model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
 
-        //    var CarRepairUser = new Use
+            var CarRepairUser = new CarRepairUser
+            {
+                CoName = model.CoName
+            };
 
-        //}
+            var registrationResult = await _CarRepairUserManager.CreateAsync(CarRepairUser);
+            if (registrationResult.Succeeded)
+            {
+                await _CarRepairSignInManager.SignInAsync(CarRepairUser, true);
+                return RedirectToAction("CarRepairWorkshop", "CarRepair");
+            }
+
+            foreach (var error in registrationResult.Errors)
+                ModelState.AddModelError(string.Empty, error.Description);
+
+            return View(model);
+        }
 
         #endregion
 
