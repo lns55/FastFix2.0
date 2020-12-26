@@ -4,5 +4,58 @@
     Layout = "~/Views/Home/_HomeLayout/_HomeLayout.cshtml";
 }
 
-<h1>CarRepairDataRegistration</h1>
+<div class="app-content content">
+    <div class="content-wrapper">
+        <div class="content-body">
+            <section class="row flexbox-container">
+                <div class="col-12 d-flex align-items-center justify-content-center">
+                    <div class="col-lg-4 col-md-8 col-10 box-shadow-2 p-0">
+                        <div class="card border-grey border-lighten-3 px-1 py-1 m-0">
+                            <div class="card-header border-0 pb-0">
+                                <div class="card-title text-center">
+                                    <a asp-controller="Home" asp-action="Index">
+                                        <div class="p-1"><img src="~/images/logo/fastfix_logo.png" alt="branding logo"></div>
+                                        <h2>FastFix</h2>
+                                    </a>
+                                </div>
+                                <p class="card-subtitle line-on-side text-muted text-center font-small-3 mx-2 my-1">
+                                        <h6>Tell us about your company</h6>
+                                </p>
+                                <div class="card-body pt-0">
+                                    <form class="form-horizontal" asp-action="Registration" asp-antiforgery="true">
+                                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
+                                        <fieldset class="form-group floating-label-form-group">
+                                            <label for="co-name">Company Name</label>
+                                            <input asp-for="CoName" class="form-control" id="co-name" placeholder="Company Name">
+                                            <div asp-validation-for="CoName" class="text-danger"></div>
+                                        </fieldset>
+                                        <fieldset class="form-group floating-label-form-group">
+                                            <label for="co-adress">Adress where your company situated</label>
+                                            <input asp-for="CoAdress" class="form-control" id="co-adress" placeholder="Company Home Adress">
+                                            <div asp-validation-for="CoAdress" class="text-danger"></div>
+                                        </fieldset>
+                                        <fieldset class="form-group floating-label-form-group">
+                                            <label for="co-phone-number">Company phone number</label>
+                                            <input asp-for="CoPhoneNumber" class="form-control" id="co-phone-number" placeholder="Phone Number">
+                                            <div asp-validation-for="CoPhoneNumber" class="text-danger"></div>
+                                        </fieldset>
+                                        <fieldset class="form-group floating-label-form-group mb-1">
+                                            <label for="co-email">Company Email Adress</label>
+                                            <input asp-for="CoEmail" class="form-control" id="co-email" placeholder="Email">
+                                            <div asp-validation-for="Password" class="text-danger"></div>
+                                        </fieldset>
+                                        <button type="submit" class="btn btn-outline-primary btn-block"><i class="feather icon-briefcase"></i> Register</button>
+                                    </form>
+                                </div>
+                                <div class="card-body pt-0">
+                                    <a asp-controller="Home" asp-action="Index" class="btn btn-outline-primary btn-block"><i class="feather icon-home"></i> Home</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
