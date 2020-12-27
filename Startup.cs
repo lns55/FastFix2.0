@@ -1,6 +1,8 @@
 using FastFix2._0.Areas.Identity;
 using FastFix2._0.Data;
+using FastFix2._0.Infrastructure.Interfaces;
 using FastFix2._0.Infrastructure.Services;
+using FastFix2._0.Infrastructure.Services.InSql;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -95,6 +97,8 @@ namespace FastFix2._0
 
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            services.AddScoped<ICarRepairData, SqlCarRepairData>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

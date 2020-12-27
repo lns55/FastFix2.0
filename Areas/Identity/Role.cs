@@ -6,7 +6,7 @@ namespace FastFix2._0.Areas.Identity
     {
         public const string Administrator = "Administrators";
         public const string CarOwner = "Car Owners";
-        public const string CarRepair = "Car Repair Shops";
+        public const string CarRepairUser = "Car Repair Shops";
         public string Description { get; set; }
     }
 }

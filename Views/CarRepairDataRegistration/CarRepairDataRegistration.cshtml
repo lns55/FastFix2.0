@@ -1,7 +1,7 @@
 ﻿@model FastFix2._0.ViewModels.Identity.CarRepairDataRegistrationViewModel 
 @{
     ViewData["Title"] = "CarRepairDataRegistration";
-    Layout = "~/Views/Home/_HomeLayout/_HomeLayout.cshtml";
+    Layout = "~/Views/CarRepairDataRegistration/_CarRepairDataRegistrationLayout/_CarRepairDataRegistrationLayout.cshtml";
 }
 
 <div class="app-content content">
@@ -22,12 +22,12 @@
                                         <h6>Tell us about your company</h6>
                                 </div>
                                 <div class="card-body pt-0">
-                                    <form class="form-horizontal" asp-action="Registration" asp-antiforgery="true">
+                                    <form class="form-horizontal" asp-action="CarRepairDataRegistration" asp-antiforgery="true">
                                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
                                         <fieldset class="form-group floating-label-form-group">
                                             <label for="co-name">Company Name</label>
-                                            <input asp-for="CoName" class="form-control" id="co-name" placeholder="Company Name">
+                                            <input asp-for="CoName" class="form-control" id="co-name" placeholder="Company Name" />
                                             <div asp-validation-for="CoName" class="text-danger"></div>
                                         </fieldset>
                                         <fieldset class="form-group floating-label-form-group">

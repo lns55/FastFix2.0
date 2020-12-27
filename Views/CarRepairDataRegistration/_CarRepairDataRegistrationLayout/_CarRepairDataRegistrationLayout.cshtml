@@ -14,15 +14,14 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i%7COpen+Sans:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
 
     <partial name="_Styles/_RequiredStyles" />
-    <partial name="Styles/_CarRepairWorkshopStyles" />
+    <partial name="Styles/_CRDRStyles" />
 </head>
 
-<body class="vertical-layout vertical-menu 2-columns bg-cyan bg-lighten-2 fixed-navbar" data-open="click" data-menu="vertical-menu" data-col="2-columns">
+<body class="bg-cyan bg-lighten-2">
 
+    @RenderBody();
 
-        @RenderBody();
-
-        <partial name="_Scripts/_RequiredScripts" />
-        <partial name="Scripts/_CarRepairWorkshopScripts" />
-    </body>
+    <partial name="_Scripts/_RequiredScripts" />
+    <partial name="Scripts/_CRDRScripts" />
+</body>
 </html>
