@@ -32,7 +32,17 @@
         </member>
         <member name="M:FastFix2._0.Controllers.HomeController.Index">
             <summary>
-            
+            Response for Login and it is also entry method(Index).
+            </summary>
+        </member>
+        <member name="M:FastFix2._0.Controllers.HomeController.Index(FastFix2._0.ViewModels.Identity.LoginViewModel)">
+            <summary>
+            Login method.
+            </summary>
+        </member>
+        <member name="M:FastFix2._0.Controllers.HomeController.Registration(FastFix2._0.ViewModels.Identity.RegistrationUserViewModel)">
+            <summary>
+            If registration result succeeded sending email confirmation letter to the user.
             </summary>
         </member>
         <member name="P:FastFix2._0.Data.FastFixDbContext.carRepairUsers">
@@ -40,9 +50,19 @@
             Context of data for CarRepair companies.
             </summary>
         </member>
+        <member name="T:FastFix2._0.Infrastructure.Interfaces.ICarRepairData">
+            <summary>
+            Inherits CarRepair company data model and initializing methods to work with this data.
+            </summary>
+        </member>
         <member name="T:FastFix2._0.Infrastructure.Services.EmailService">
             <summary>
             Service with required parameters for sending email from website. E.g. Email confirmation, Password reset, Notifications.
+            </summary>
+        </member>
+        <member name="T:FastFix2._0.Infrastructure.Services.InSql.SqlCarRepairData">
+            <summary>
+            Inherits and implements methods for working with CarRepair company data.
             </summary>
         </member>
     </members>

@@ -7,7 +7,10 @@ using FastFix2._0.Infrastructure.Interfaces;
 using System;
 
 namespace FastFix2._0.Infrastructure.Services.InSql
-{
+{   
+    /// <summary>
+    /// Inherits and implements methods for working with CarRepair company data.
+    /// </summary>
     public class SqlCarRepairData : ICarRepairData
     {
         private readonly FastFixDbContext _db;

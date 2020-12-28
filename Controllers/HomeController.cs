@@ -25,12 +25,15 @@ namespace FastFix2._0.Controllers
 
 
         /// <summary>
-        /// 
+        /// Response for Login and it is also entry method(Index).
         /// </summary>
         #region LOGIN
 
         public IActionResult Index() => View();
 
+        /// <summary>
+        /// Login method.
+        /// </summary>
         [HttpPost, ValidateAntiForgeryToken]
         public async Task<IActionResult> Index(LoginViewModel model)
         {
@@ -57,7 +60,9 @@ namespace FastFix2._0.Controllers
         #region REGISTRATION
 
         public IActionResult Registration() => View(new RegistrationUserViewModel());
-
+        /// <summary>
+        /// If registration result succeeded sending email confirmation letter to the user.
+        /// </summary>
         [HttpPost, ValidateAntiForgeryToken]
         public async Task<IActionResult> Registration(RegistrationUserViewModel model)
         {
@@ -70,9 +75,9 @@ namespace FastFix2._0.Controllers
                 Email = model.Email,
                 IsCarRepair = model.IsCarRepair
             };
-
+            
             var registration_result = await _UserManager.CreateAsync(user, model.Password);
-
+            
             if (registration_result.Succeeded)
             {
                 var Code = await _UserManager.GenerateEmailConfirmationTokenAsync(user);
