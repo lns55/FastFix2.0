@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FastFix2.0</name>
+    </assembly>
+    <members>
+        <member name="T:FastFix2._0.Areas.Identity.CarRepairUser">
+            <summary>
+            Model of CarRepair Companies. Intended for second step of registration.
+            </summary>
+        </member>
+        <member name="T:FastFix2._0.Controllers.CarRepair.CarRepairDataRegistrationController">
+            <summary>
+            Responsibility of this controller is validating data from second step of CarRepairShop registration and add this data to database.
+            </summary>
+        </member>
+        <member name="M:FastFix2._0.Controllers.CarRepair.CarRepairDataRegistrationController.CarRepairDataRegistration(System.Int32)">
+            <summary>
+            Returns data from view.
+            </summary>
+            <param name="id">Stands for CarRepairShops data.</param>
+        </member>
+        <member name="M:FastFix2._0.Controllers.CarRepair.CarRepairDataRegistrationController.CarRepairDataRegistration(FastFix2._0.ViewModels.Identity.CarRepairDataRegistrationViewModel)">
+            <summary>
+            Adding CarRepair data to database.
+            </summary>
+        </member>
+        <member name="T:FastFix2._0.Controllers.CarRepairWorkshopController">
+            <summary>
+            After car repair company fill out form with their data, they will get into this controller(their Private Cabinet).
+            </summary>
+        </member>
+        <member name="M:FastFix2._0.Controllers.HomeController.Index">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:FastFix2._0.Data.FastFixDbContext.carRepairUsers">
+            <summary>
+            Context of data for CarRepair companies.
+            </summary>
+        </member>
+        <member name="T:FastFix2._0.Infrastructure.Services.EmailService">
+            <summary>
+            Service with required parameters for sending email from website. E.g. Email confirmation, Password reset, Notifications.
+            </summary>
+        </member>
+    </members>
+</doc>

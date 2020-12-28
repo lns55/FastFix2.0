@@ -6,7 +6,11 @@ namespace FastFix2._0.Data
 {
     public class FastFixDbContext : IdentityDbContext<User, Role, string>
     {
+        /// <summary>
+        /// Context of data for CarRepair companies.
+        /// </summary>
         public DbSet<CarRepairUser> carRepairUsers { get; set; }
+
         public FastFixDbContext(DbContextOptions<FastFixDbContext> options)
             : base(options)
         {

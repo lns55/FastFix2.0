@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FastFix2.0 Doc</name>
+    </assembly>
+    <members>
+        <member name="T:FastFix2._0.Controllers.CarRepair.CarRepairDataRegistrationController">
+            <summary>
+            Responsibility of this controll is validating data from second step of CarRepairShop registration and add this data to database.
+            </summary>
+        </member>
+    </members>
+</doc>

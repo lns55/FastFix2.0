@@ -4,7 +4,10 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace FastFix2._0.Areas.Identity
-{
+{   
+    /// <summary>
+    /// Model of CarRepair Companies. Intended for second step of registration.
+    /// </summary>
     public class CarRepairUser
     {
         public int Id { get; set; }

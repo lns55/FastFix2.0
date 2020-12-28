@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace FastFix2._0.Controllers.CarRepair
 {
+    /// <summary>
+    /// Responsibility of this controller is validating data from second step of CarRepairShop registration and add this data to database.
+    /// </summary>
     public class CarRepairDataRegistrationController : Controller
     {
 
@@ -16,6 +19,10 @@ namespace FastFix2._0.Controllers.CarRepair
 
         public CarRepairDataRegistrationController(ICarRepairData carRepair) => _carRepair = carRepair;
 
+        /// <summary>
+        /// Returns data from view.
+        /// </summary>
+        /// <param name="id">Stands for CarRepairShops data.</param>
         [HttpGet]
         public IActionResult CarRepairDataRegistration(int id)
         {
@@ -28,8 +35,10 @@ namespace FastFix2._0.Controllers.CarRepair
             return View(new CarRepairDataRegistrationViewModel());
         }
 
+        /// <summary>
+        /// Adding CarRepair data to database.
+        /// </summary>
         [HttpPost, ValidateAntiForgeryToken]
-
         public  IActionResult CarRepairDataRegistration(CarRepairDataRegistrationViewModel model)
         {
             if (!ModelState.IsValid)

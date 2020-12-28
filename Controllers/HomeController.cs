@@ -22,10 +22,14 @@ namespace FastFix2._0.Controllers
             _UserManager = UserManager;
             _SignInManager = SignInManager;
         }
-        //Login method is also ENTER method in app(Index). App is starting from this method.
+
+
+        /// <summary>
+        /// 
+        /// </summary>
         #region LOGIN
 
-        public IActionResult Index(string ReturnUrl) => View(new LoginViewModel { ReturnUrl = ReturnUrl });
+        public IActionResult Index() => View();
 
         [HttpPost, ValidateAntiForgeryToken]
         public async Task<IActionResult> Index(LoginViewModel model)
@@ -40,8 +44,6 @@ namespace FastFix2._0.Controllers
 
             if (login_result.Succeeded)
             {
-                if (Url.IsLocalUrl(model.ReturnUrl))
-                    return Redirect(model.ReturnUrl);
                 return RedirectToAction("Index", "Home");
             }
 

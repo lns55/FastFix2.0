@@ -1,10 +1,14 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UserSecretsId>aspnet-FastFix2._0-BF1B858C-B7C2-493B-8895-B3578153F936</UserSecretsId>
     <RootNamespace>FastFix2._0</RootNamespace>
     <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Users\Aljona\source\repos\FastFix2.0\FastFix2.0.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

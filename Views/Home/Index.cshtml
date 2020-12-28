@@ -39,8 +39,6 @@
                                     <form asp-action="Index" asp-antiforgery="true">
                                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-                                        @Html.HiddenFor(model => model.ReturnUrl)
-
                                         <fieldset class="form-group floating-label-form-group">
                                             <label for="user-name">Your Username</label>
                                             <input asp-for="UserName" class="form-control" id="user-name" placeholder="Your Username">
