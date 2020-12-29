@@ -42,6 +42,7 @@ namespace FastFix2._0
 
             services.AddIdentity<User, Role>(opt => { })
                 .AddEntityFrameworkStores<FastFixDbContext>()
+                .AddRoles<Role>()
                 .AddDefaultTokenProviders();
 
             services.Configure<IdentityOptions>(opt =>

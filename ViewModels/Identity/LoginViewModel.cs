@@ -17,6 +17,5 @@ namespace FastFix2._0.ViewModels.Identity
 
         [Display(Name ="Remember Me")]
         public bool RememberMe { get; set; }
-
     }
 }

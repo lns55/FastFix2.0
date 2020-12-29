@@ -93,6 +93,8 @@ namespace FastFix2._0.Controllers
                 await emailService.SendEmailAsync(model.Email, "Confirm your account",
                     $"Confirm registration following this <a href='{CallbackUrl}'>link</a>");
 
+                await _UserManager.AddToRoleAsync(user, "CarRepair");
+
                 return RedirectToAction("EmailVerification","Home");
             }
 
