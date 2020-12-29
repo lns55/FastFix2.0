@@ -3,35 +3,35 @@
     Layout = "~/Views/CarRepairWorkshop/_LayoutCarRepairWorkshop/_CarRepairWorkshopLayout.cshtml";
 }
 
-<partial name="Partial/_Header" />
 
-<partial name="Partial/_MainMenu" />
 
-<div class="app-content content">
-    <div class="content-overlay"></div>
-    <div class="content-wrapper">
-        <div class="content-header row">
-        </div>
-        <div class="content-body">
+<body class="vertical-layout vertical-menu 2-columns   fixed-navbar" data-open="click" data-menu="vertical-menu" data-col="2-columns">
 
-            @*<partial name="Partial/_Statistics" />
-
-            <div class="row match-height">
-                <div class="col-xl-8 col-lg-12">
-                    <partial name="Partial/_LatestApplicationsCard" />
-                </div>
-
-                <partial name="Partial/_MyTaskTimelineCard" />
+    <div class="app-content content">
+        <div class="content-overlay"></div>
+        <div class="content-wrapper">
+            <div class="content-header row">
             </div>
+            <div class="content-body">
+                <partial name="Partial/_Statistics" />
+                <div class="row match-height">
+                    <div class="col-xl-8 col-lg-12">
+                        <partial name="Partial/_LatestApplicationsCard" />
+                    </div>
 
-            <div class="row minimal-modern-charts">
-                <partial name="Partial/_WeekActivityChart" />
+                    <partial name="Partial/_MyTaskTimelineCard" />
+                </div>
+                <div class="row minimal-modern-charts">
+                    <partial name="Partial/_WeekActivityChart" />
 
-                <partial name="Partial/_MonthActivityChart" />
+                    <partial name="Partial/_MonthActivityChart" />
 
-                <partial name="Partial/_ApplicationStatisticsChart" />*@
-            <!--</div>-->
+                    <partial name="Partial/_ApplicationStatisticsChart" />
+                </div>
+            </div>
         </div>
     </div>
-</div>
+
+</body>
+
 

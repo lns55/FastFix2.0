@@ -16,13 +16,16 @@
     <partial name="_Styles/_RequiredStyles" />
     <partial name="Styles/_CarRepairWorkshopStyles" />
 </head>
+<body>
+    <partial name="Partial/_Header" />
 
-<body class="vertical-layout vertical-menu 2-columns bg-cyan bg-lighten-2 fixed-navbar" data-open="click" data-menu="vertical-menu" data-col="2-columns">
+    <partial name="Partial/_MainMenu" />
 
+    @RenderBody();
 
-        @RenderBody();
+    <partial name="Partial/_Footer" />
 
-        <partial name="_Scripts/_RequiredScripts" />
-        <partial name="Scripts/_CarRepairWorkshopScripts" />
-    </body>
+    <partial name="_Scripts/_RequiredScripts" />
+    <partial name="Scripts/_CarRepairWorkshopScripts" />
+</body>
 </html>
