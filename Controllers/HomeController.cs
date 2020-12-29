@@ -47,7 +47,14 @@ namespace FastFix2._0.Controllers
 
             if (login_result.Succeeded)
             {
-                return RedirectToAction("Index", "Home");
+                if (User.IsInRole("CarRepair"))
+                {
+                    return RedirectToAction("CarRepairWorkshop", "CarRepairWorkshop");
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Home");
+                }
             }
 
             ModelState.AddModelError(string.Empty, "Wrong User Name or Password");
