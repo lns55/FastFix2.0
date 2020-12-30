@@ -1,0 +1,86 @@
+﻿<div class="main-menu menu-fixed menu-light menu-accordion menu-shadow" data-scroll-to-active="true">
+    <div class="main-menu-content">
+        <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+            <li class="navigation-header">
+                <span>Applications</span><i class=" feather icon-minus" data-toggle="tooltip" data-placement="right" data-original-title="Applications"></i>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="Applications" asp-action="New"><i class="feather icon-file"></i><span class="menu-title" data-i18n="New">New</span><span class="badge badge badge-primary badge-pill float-right mr-2">3</span></a>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="Applications" asp-action="Active"><i class="feather icon-play"></i><span class="menu-title" data-i18n="Active">Active</span></a>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="Applications" asp-action="Waiting"><i class="feather icon-pause"></i><span class="menu-title" data-i18n="Waiting for response">Waiting for response</span></a>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="Applications" asp-action="Completed"><i class="feather icon-check-square"></i><span class="menu-title" data-i18n="Completed">Completed</span></a>
+            </li>
+
+            <li class="navigation-header">
+                <span>Job features</span><i class=" feather icon-minus" data-toggle="tooltip" data-placement="right" data-original-title="Job features"></i>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="JobFeatures" asp-action="Email"><i class="feather icon-mail"></i><span class="menu-title" data-i18n="E-mail">E-mail</span></a>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="JobFeatures" asp-action="Chat"><i class="feather icon-message-square"></i><span class="menu-title" data-i18n="Chat">Chat</span></a>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="JobFeatures" asp-action="ToDo"><i class="feather icon-check-square"></i><span class="menu-title" data-i18n="To-Do list">To-Do list</span></a>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="JobFeatures" asp-action="Calendar"><i class="feather icon-calendar"></i><span class="menu-title" data-i18n="Calendar">Calendar</span></a>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="JobFeatures" asp-action="Contacts"><i class="feather icon-users"></i><span class="menu-title" data-i18n="Contacts">Contacts</span></a>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="JobFeatures" asp-action="Invoice"><i class="feather icon-credit-card"></i><span class="menu-title" data-i18n="Invoice">Invoice</span></a>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="JobFeatures" asp-action="ProjectSummary"><i class="feather icon-airplay"></i><span class="menu-title" data-i18n="Project Summary">Project Summary</span></a>
+            </li>
+
+            <li class="navigation-header">
+                <span>Other features</span><i class=" feather icon-minus" data-toggle="tooltip" data-placement="right" data-original-title="Other features"></i>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="OtherFeatures" asp-action="AccountSettings"><i class="feather icon-settings"></i><span class="menu-title" data-i18n="Account setting">Account settings</span></a>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="OtherFeatures" asp-action="ConnectedAccounts"><i class="feather icon-users"></i><span class="menu-title" data-i18n="Connected accounts">Connected accounts</span></a>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="OtherFeatures" asp-action="Weather"><i class="feather icon-cloud"></i><span class="menu-title" data-i18n="Weather">Weather</span></a>
+            </li>
+            <li class="nav-item">
+                <a href="#"><i class="feather icon-droplet"></i><span class="menu-title" data-i18n="Theme color">Theme color</span></a>
+                <ul class="menu-content">
+                    <li>
+                        <a class="menu-item" href="#" data-i18n="Primary palette">Standart</a>
+                    </li>
+                    <li>
+                        <a class="menu-item" href="#" data-i18n="Danger palette">Red and white</a>
+                    </li>
+                    <li>
+                        <a class="menu-item" href="#" data-i18n="Success palette">Green</a>
+                    </li>
+                    <li>
+                        <a class="menu-item" href="#" data-i18n="Warning palette">Gradient</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="navigation-header">
+                <span>Have questions?</span><i class=" feather icon-minus" data-toggle="tooltip" data-placement="right" data-original-title="Others"></i>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="OtherFeatures" asp-action="Support"><i class="feather icon-life-buoy"></i><span class="menu-title" data-i18n="Raise Support">Support</span></a>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="OtherFeatures" asp-action="Faq"><i class="feather icon-help-circle"></i><span class="menu-title" data-i18n="FAQ">FAQ</span></a>
+            </li>
+        </ul>
+    </div>
+</div>

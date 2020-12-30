@@ -42,7 +42,7 @@
         </member>
         <member name="M:FastFix2._0.Controllers.HomeController.Registration(FastFix2._0.ViewModels.Identity.RegistrationUserViewModel)">
             <summary>
-            If registration result succeeded sending email confirmation letter to the user.
+            If registration result succeeded sending email confirmation letter to the user and adding to certain role.
             </summary>
         </member>
         <member name="P:FastFix2._0.Data.FastFixDbContext.carRepairUsers">

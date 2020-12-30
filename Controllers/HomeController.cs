@@ -53,7 +53,7 @@ namespace FastFix2._0.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("CarOwnerGarage", "CarOwnerGarage");
                 }
             }
 
@@ -138,7 +138,7 @@ namespace FastFix2._0.Controllers
                     return RedirectToAction("CarRepairDataRegistration", "CarRepairDataRegistration");
                 }
                 else
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("CarOwnerGarage", "CarOwnerGarage");
             }
             else
                 return View("Error");
