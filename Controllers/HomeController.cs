@@ -68,7 +68,7 @@ namespace FastFix2._0.Controllers
 
         public IActionResult Registration() => View(new RegistrationUserViewModel());
         /// <summary>
-        /// If registration result succeeded sending email confirmation letter to the user.
+        /// If registration result succeeded sending email confirmation letter to the user and adding to certain role.
         /// </summary>
         [HttpPost, ValidateAntiForgeryToken]
         public async Task<IActionResult> Registration(RegistrationUserViewModel model)
