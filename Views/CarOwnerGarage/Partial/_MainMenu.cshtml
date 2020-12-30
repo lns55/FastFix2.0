@@ -5,7 +5,7 @@
                 <span>Applications</span><i class=" feather icon-minus" data-toggle="tooltip" data-placement="right" data-original-title="Applications"></i>
             </li>
             <li class="nav-item">
-                <a asp-controller="Applications" asp-action="New"><i class="feather icon-file"></i><span class="menu-title" data-i18n="New">New</span><span class="badge badge badge-primary badge-pill float-right mr-2">3</span></a>
+                <a asp-controller="Applications" asp-action="New"><i class="feather icon-file"></i><span class="menu-title" data-i18n="New">New</span></a>
             </li>
             <li class="nav-item">
                 <a asp-controller="Applications" asp-action="Active"><i class="feather icon-play"></i><span class="menu-title" data-i18n="Active">Active</span></a>
@@ -16,12 +16,17 @@
             <li class="nav-item">
                 <a asp-controller="Applications" asp-action="Completed"><i class="feather icon-check-square"></i><span class="menu-title" data-i18n="Completed">Completed</span></a>
             </li>
-
             <li class="navigation-header">
-                <span>Job features</span><i class=" feather icon-minus" data-toggle="tooltip" data-placement="right" data-original-title="Job features"></i>
+                <span>Garage</span><i class=" feather icon-minus" data-toggle="tooltip" data-placement="right" data-original-title="Other features"></i>
             </li>
             <li class="nav-item">
-                <a asp-controller="JobFeatures" asp-action="Email"><i class="feather icon-mail"></i><span class="menu-title" data-i18n="E-mail">E-mail</span></a>
+                <a asp-controller="Garage" asp-action="MyCars"><i class="feather icon-home"></i><span class="menu-title" data-i18n="My-Car">My cars</span></a>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="Garage" asp-action="AddCar"><i class="feather icon-plus"></i><span class="menu-title" data-i18n="Add-Car">Add car</span></a>
+            </li>
+            <li class="navigation-header">
+                <span>Features</span><i class=" feather icon-minus" data-toggle="tooltip" data-placement="right" data-original-title="Job features"></i>
             </li>
             <li class="nav-item">
                 <a asp-controller="JobFeatures" asp-action="Chat"><i class="feather icon-message-square"></i><span class="menu-title" data-i18n="Chat">Chat</span></a>
@@ -33,23 +38,13 @@
                 <a asp-controller="JobFeatures" asp-action="Calendar"><i class="feather icon-calendar"></i><span class="menu-title" data-i18n="Calendar">Calendar</span></a>
             </li>
             <li class="nav-item">
-                <a asp-controller="JobFeatures" asp-action="Contacts"><i class="feather icon-users"></i><span class="menu-title" data-i18n="Contacts">Contacts</span></a>
+                <a asp-controller="JobFeatures" asp-action="Statistics"><i class="feather icon-bar-chart"></i><span class="menu-title" data-i18n="Statistics">Statistics</span></a>
             </li>
-            <li class="nav-item">
-                <a asp-controller="JobFeatures" asp-action="Invoice"><i class="feather icon-credit-card"></i><span class="menu-title" data-i18n="Invoice">Invoice</span></a>
-            </li>
-            <li class="nav-item">
-                <a asp-controller="JobFeatures" asp-action="ProjectSummary"><i class="feather icon-airplay"></i><span class="menu-title" data-i18n="Project Summary">Project Summary</span></a>
-            </li>
-
             <li class="navigation-header">
                 <span>Other features</span><i class=" feather icon-minus" data-toggle="tooltip" data-placement="right" data-original-title="Other features"></i>
             </li>
             <li class="nav-item">
                 <a asp-controller="OtherFeatures" asp-action="AccountSettings"><i class="feather icon-settings"></i><span class="menu-title" data-i18n="Account setting">Account settings</span></a>
-            </li>
-            <li class="nav-item">
-                <a asp-controller="OtherFeatures" asp-action="ConnectedAccounts"><i class="feather icon-users"></i><span class="menu-title" data-i18n="Connected accounts">Connected accounts</span></a>
             </li>
             <li class="nav-item">
                 <a asp-controller="OtherFeatures" asp-action="Weather"><i class="feather icon-cloud"></i><span class="menu-title" data-i18n="Weather">Weather</span></a>
