@@ -1,0 +1,136 @@
+﻿
+@{
+    ViewData["Title"] = "New";
+    Layout = "_MyApplicationLayout/_MyApplicationLayout.cshtml";
+}
+
+<body class="vertical-layout vertical-menu 2-column   fixed-navbar" data-open="click" data-menu="vertical-menu" data-col="2-column">
+
+    <!-- BEGIN: Content-->
+    <div class="app-content content">
+        <div class="content-overlay">
+        </div>
+        <div class="content-wrapper">
+            <div class="content-header row">
+            </div>
+            <div class="content-body">
+                <div class="col-lg-12">
+                    <div class="card active-users">
+                        <div class="card-header border-0">
+                            <h4 class="card-title">Create new application</h4>
+                            <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+                            <div class="heading-elements">
+                                <ul class="list-inline mb-0">
+                                    <li><a data-action="reload"><i class="feather icon-rotate-cw"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-content border-2">
+                            <div class="card-body">
+                                <div class="card-text">
+                                    <p>
+                                        Fill in the breakdown details. The type of work is optional. Also you can attach photos at the end of the application.
+                                    </p>
+                                </div>
+                                <form class="form">
+                                    <div class="form-body">
+                                        <div class="row">
+                                            <div class="form-group col-12 mb-2">
+                                                <label class="sr-only" for="issueinput1">Issue Title</label>
+                                                <input type="text" id="issueinput1" class="form-control" placeholder="Issue title" name="issuetitle" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Issue Title">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-12 mb-2">
+                                                <label class="sr-only" for="issueinput5">Select Car</label>
+                                                <select id="issueinput5" name="priority" class="form-control" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Select a Car">
+                                                    <option value="BMW">BMW</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-md-6 mb-2">
+                                                <label class="sr-only" for="issueinput3">Date Opened</label>
+                                                <input type="date" id="issueinput3" class="form-control" name="dateopened" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Date of repair start">
+                                            </div>
+                                            <div class="form-group col-md-6 mb-2">
+                                                <label class="sr-only" for="issueinput4">Date Fixed</label>
+                                                <input type="date" id="issueinput4" class="form-control" name="datefixed" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Date when car is fixed">
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group col-12 mb-2">
+                                                <label class="sr-only" for="issueinput5">City</label>
+                                                <select id="issueinput5" name="priority" class="form-control" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="City">
+                                                    <option value="tartu">Tartu</option>
+                                                    <option value="tallinn">Tallinn</option>
+                                                    <option value="parnu">Parnu</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group col-12 mb-2">
+                                                <label class="sr-only" for="issueinput6">Select the type of work</label>
+                                                <select id="issueinput6" name="status" class="form-control" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Select the type of work. Not required.">
+                                                    <option value="electrical">Electrical</option>
+                                                    <option value="Engine">Engine</option>
+                                                    <option value="wheels">Wheels and tires</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group col-12 mb-2">
+                                                <label class="sr-only" for="issueinput8">Describe the problem</label>
+                                                <textarea id="issueinput8" rows="5" class="form-control" name="comments" placeholder="Describe the problem" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Describe the problem"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group col-12 mb-2 file-repeater">
+                                        <div data-repeater-list="repeater-list">
+                                            <div data-repeater-item>
+                                                <div class="row mb-1">
+                                                    <div class="col-9 col-xl-10">
+                                                        <label class="file center-block">
+                                                            <input type="file" id="file">
+                                                            <span class="file-custom"></span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-2 col-xl-1">
+                                                        <button type="button" data-repeater-delete class="btn btn-icon btn-danger mr-1"><i class="feather icon-x"></i></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <button type="button" data-repeater-create class="btn btn-primary">
+                                            <i class="icon-plus4"></i> Add new file
+                                        </button>
+                                    </div>
+
+                                    <div class="form-actions">
+                                        <button type="button" class="btn btn-warning mr-1">
+                                            <i class="feather icon-x"></i> Cancel
+                                        </button>
+                                        <button type="submit" class="btn btn-primary">
+                                            <i class="fa fa-check-square-o"></i> Save
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+        </div>
+    <!-- END: Content-->
+
+</body>
+
+
+
