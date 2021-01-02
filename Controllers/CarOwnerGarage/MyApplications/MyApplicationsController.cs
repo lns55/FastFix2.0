@@ -41,8 +41,9 @@ namespace FastFix2._0.Controllers.CarOwnerGarage.MyApplications
                 Description = model.Description
             };
 
-            if (model.Id == 0)
-                db.Add(new NewApplications());
+            if (model.Id == 0) {
+                db.Add(app); 
+            }
 
             db.SaveChanges();
 

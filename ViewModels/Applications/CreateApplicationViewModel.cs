@@ -19,16 +19,18 @@ namespace FastFix2._0.ViewModels.Applications
         [Display(Name = "Car Model")]
         public string Car { get; set; }
 
-        public int RepairFrom { get; set; }
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(DataFormatString = "0:dd'/'MM'/'yyyy")]
+        public DateTime RepairFrom { get; set; }
 
-        public int RepairTill { get; set; }
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(DataFormatString = "0:dd'/'MM'/'yyyy")]
+        public DateTime RepairTill { get; set; }
 
         public string City { get; set; }
 
         public string TypeOfWork { get; set; }
-
-        [Required(ErrorMessage = "You need to describe your problem")]
-        [RegularExpression(@"([A-Z][a-z])", ErrorMessage = "You must describe your problem with lattin letters.")]
+        [Required]
         public string Description { get; set; }
     }
 }

@@ -40,14 +40,14 @@
                                         <div class="row">
                                             <div class="form-group col-12 mb-2">
                                                 <label asp-for="IssueTitle" class="sr-only" for="issueinput1">Issue Title</label>
-                                                <input asp-for="IssueTitle" type="text" id="issueinput1" class="form-control" placeholder="Issue title" name="issuetitle" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Issue Title">
+                                                <input asp-for="IssueTitle" type="text" id="issueinput1" class="form-control" placeholder="Issue title" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Issue Title">
                                                 <span asp-validation-for="IssueTitle" class="text-danger"></span>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-12 mb-2">
                                                 <label asp-for="Car" class="sr-only" for="issueinput5">Select Car</label>
-                                                <select asp-for="Car" id="issueinput5" name="priority" class="form-control" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Select a Car">
+                                                <select asp-for="Car" id="issueinput5" class="form-control" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Select a Car">
                                                     <option value="BMW">BMW</option>
                                                 </select>
                                                 <span asp-validation-for="Car" class="text-danger"></span>
@@ -56,12 +56,12 @@
                                         <div class="row">
                                             <div class="form-group col-md-6 mb-2">
                                                 <label asp-for="RepairFrom" class="sr-only" for="issueinput3">Repair Date From</label>
-                                                <input asp-for="RepairFrom" type="date" id="issueinput3" class="form-control" name="dateopened" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Date of repair start">
+                                                <input asp-for="RepairFrom" type="date" id="issueinput3" class="form-control" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Date of repair start">
                                                 <span asp-validation-for="RepairFrom" class="text-danger"></span>
                                             </div>
                                             <div class="form-group col-md-6 mb-2">
                                                 <label asp-for="RepairTill" class="sr-only" for="issueinput4">Repair Till</label>
-                                                <input asp-for="RepairTill" type="date" id="issueinput4" class="form-control" name="datefixed" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Date when car is fixed">
+                                                <input asp-for="RepairTill" type="date" id="issueinput4" class="form-control" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Date when car is fixed">
                                                 <span asp-validation-for="RepairTill" class="text-danger"></span>
                                             </div>
                                         </div>
@@ -69,7 +69,7 @@
                                         <div class="row">
                                             <div class="form-group col-12 mb-2">
                                                 <label asp-for="City" class="sr-only" for="issueinput5">City</label>
-                                                <select asp-for="City" id="issueinput5" name="priority" class="form-control" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="City">
+                                                <select asp-for="City" id="issueinput5" class="form-control" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="City">
                                                     <option value="tartu">Tartu</option>
                                                     <option value="tallinn">Tallinn</option>
                                                     <option value="parnu">Parnu</option>
@@ -81,7 +81,7 @@
                                         <div class="row">
                                             <div class="form-group col-12 mb-2">
                                                 <label asp-for="TypeOfWork" class="sr-only" for="issueinput6">Select the type of work</label>
-                                                <select asp-for="TypeOfWork" id="issueinput6" name="status" class="form-control" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Select the type of work. Not required.">
+                                                <select asp-for="TypeOfWork" id="issueinput6" class="form-control" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Select the type of work. Not required.">
                                                     <option value="electrical">Electrical</option>
                                                     <option value="Engine">Engine</option>
                                                     <option value="wheels">Wheels and tires</option>
@@ -93,7 +93,7 @@
                                         <div class="row">
                                             <div class="form-group col-12 mb-2">
                                                 <label asp-for="Description" class="sr-only" for="issueinput8">Describe the problem</label>
-                                                <textarea asp-for="Description" id="issueinput8" rows="5" class="form-control" name="comments" placeholder="Describe the problem" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Describe the problem"></textarea>
+                                                <textarea asp-for="Description" id="issueinput8" rows="5" class="form-control" placeholder="Describe the problem" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Describe the problem"></textarea>
                                                 <span asp-validation-for="Description" class="text-danger"></span>
                                             </div>
                                         </div>
