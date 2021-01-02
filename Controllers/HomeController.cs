@@ -1,4 +1,5 @@
 ﻿using FastFix2._0.Areas.Identity;
+using FastFix2._0.Data;
 using FastFix2._0.Infrastructure.Services;
 using FastFix2._0.Models;
 using FastFix2._0.ViewModels.Identity;
@@ -16,9 +17,11 @@ namespace FastFix2._0.Controllers
 
         private readonly UserManager<User> _UserManager;
         private readonly SignInManager<User> _SignInManager;
+        private readonly FastFixDbContext db;
 
-        public HomeController(UserManager<User> UserManager, SignInManager<User> SignInManager)
+        public HomeController(UserManager<User> UserManager, SignInManager<User> SignInManager, FastFixDbContext context)
         {
+            db = context;
             _UserManager = UserManager;
             _SignInManager = SignInManager;
         }
@@ -45,9 +48,13 @@ namespace FastFix2._0.Controllers
                 model.RememberMe,
                 false);
 
+            var user = await _UserManager.FindByNameAsync(model.UserName);
+
+            var isCarRepair = await _UserManager.IsInRoleAsync(user, "CarRepair");
+
             if (login_result.Succeeded)
             {
-                if (User.IsInRole("CarRepair"))
+                if (isCarRepair == true)
                 {
                     return RedirectToAction("CarRepairWorkshop", "CarRepairWorkshop");
                 }
@@ -100,7 +107,10 @@ namespace FastFix2._0.Controllers
                 await emailService.SendEmailAsync(model.Email, "Confirm your account",
                     $"Confirm registration following this <a href='{CallbackUrl}'>link</a>");
 
-                await _UserManager.AddToRoleAsync(user, "CarRepair");
+                if (user.IsCarRepair == true)
+                {
+                    await _UserManager.AddToRoleAsync(user, "CarRepair");
+                }
 
                 return RedirectToAction("EmailVerification","Home");
             }
