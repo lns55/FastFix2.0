@@ -9,6 +9,26 @@
             Model of CarRepair Companies. Intended for second step of registration.
             </summary>
         </member>
+        <member name="T:FastFix2._0.Areas.Identity.User">
+            <summary>
+            Model for User.
+            </summary>
+        </member>
+        <member name="P:FastFix2._0.Areas.Identity.User.IsCarRepair">
+            <summary>
+            If returns true it means that user wants to register as CarRepair Company.
+            </summary>
+        </member>
+        <member name="T:FastFix2._0.Controllers.CarOwnerGarage.CarOwnerGarageController">
+            <summary>
+            Controller for CarOwners personal area.
+            </summary>
+        </member>
+        <member name="M:FastFix2._0.Controllers.CarOwnerGarage.CarOwnerGarageController.CarOwnerGarage">
+            <summary>
+            Returns View of CarOwners personal area.
+            </summary>
+        </member>
         <member name="T:FastFix2._0.Controllers.CarRepair.CarRepairDataRegistrationController">
             <summary>
             Responsibility of this controller is validating data from second step of CarRepairShop registration and add this data to database.
@@ -28,6 +48,11 @@
         <member name="T:FastFix2._0.Controllers.CarRepairWorkshopController">
             <summary>
             After car repair company fill out form with their data, they will get into this controller(their Private Cabinet).
+            </summary>
+        </member>
+        <member name="T:FastFix2._0.Controllers.HomeController">
+            <summary>
+            Controller for the home page. Conatains Login, Registration, Error and Forgot password methods.
             </summary>
         </member>
         <member name="M:FastFix2._0.Controllers.HomeController.Index">
