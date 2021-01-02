@@ -11,13 +11,20 @@ namespace FastFix2._0.Controllers.CarOwnerGarage.MyApplications
 {
     public class MyApplicationsController : Controller
     {
+        private readonly FastFixDbContext db;
+
+        public MyApplicationsController(FastFixDbContext context)
+        {
+            db = context;
+        }
+
         /// <summary>
         /// This method is resopnsible for creating new applications from CarOwners to CarReparis.
         /// </summary>
         public IActionResult New() => View(new CreateApplicationViewModel());
 
         [HttpPost, ValidateAntiForgeryToken]
-        public async Task<IActionResult> New(CreateApplicationViewModel model)
+        public IActionResult New(CreateApplicationViewModel model)
         {
             if (!ModelState.IsValid)
                 return View(model);
@@ -34,8 +41,12 @@ namespace FastFix2._0.Controllers.CarOwnerGarage.MyApplications
                 Description = model.Description
             };
 
-            if (model.Id == 0) 
-                
+            if (model.Id == 0)
+                db.Add(new NewApplications());
+
+            db.SaveChanges();
+
+            return RedirectToAction("CarOwnerGarage", "CarOwnerGarage");
         }
 
 
