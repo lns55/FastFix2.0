@@ -4,6 +4,11 @@
         <name>FastFix2.0</name>
     </assembly>
     <members>
+        <member name="P:FastFix2._0.Data.FastFixDbContext.carRepairUsers">
+            <summary>
+            Context of data for CarRepair companies.
+            </summary>
+        </member>
         <member name="T:FastFix2._0.Areas.Identity.CarRepairUser">
             <summary>
             Model of CarRepair Companies. Intended for second step of registration.
@@ -27,6 +32,11 @@
         <member name="M:FastFix2._0.Controllers.CarOwnerGarage.CarOwnerGarageController.CarOwnerGarage">
             <summary>
             Returns View of CarOwners personal area.
+            </summary>
+        </member>
+        <member name="M:FastFix2._0.Controllers.CarOwnerGarage.MyApplications.MyApplicationsController.New">
+            <summary>
+            This method is resopnsible for creating new applications from CarOwners to CarReparis.
             </summary>
         </member>
         <member name="T:FastFix2._0.Controllers.CarRepair.CarRepairDataRegistrationController">
@@ -68,11 +78,6 @@
         <member name="M:FastFix2._0.Controllers.HomeController.Registration(FastFix2._0.ViewModels.Identity.RegistrationUserViewModel)">
             <summary>
             If registration result succeeded sending email confirmation letter to the user and adding to certain role.
-            </summary>
-        </member>
-        <member name="P:FastFix2._0.Data.FastFixDbContext.carRepairUsers">
-            <summary>
-            Context of data for CarRepair companies.
             </summary>
         </member>
         <member name="T:FastFix2._0.Infrastructure.Interfaces.ICarRepairData">
