@@ -7,8 +7,14 @@ using System.Threading.Tasks;
 
 namespace FastFix2._0.Controllers.CarOwnerGarage
 {
+    /// <summary>
+    /// Controller for CarOwners personal area.
+    /// </summary>
     public class CarOwnerGarageController : Controller
     {
+        /// <summary>
+        /// Returns View of CarOwners personal area.
+        /// </summary>
         public ActionResult CarOwnerGarage() => View();
     }
 }

@@ -12,6 +12,9 @@ using System.Threading.Tasks;
 
 namespace FastFix2._0.Controllers
 {
+    /// <summary>
+    /// Controller for the home page. Conatains Login, Registration, Error and Forgot password methods.
+    /// </summary>
     public class HomeController : Controller
     {
 
