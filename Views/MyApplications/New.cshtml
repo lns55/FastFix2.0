@@ -32,7 +32,7 @@
                                         Fill in the breakdown details. The type of work is optional. Also you can attach photos at the end of the application.
                                     </p>
                                 </div>
-                                <form class="form" asp-action="New">
+                                <form class="form" asp-action="New" asp-antiforgery="true">
                                     <div class="form-body">
                                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                                         <input asp-for="Id" type="hidden" />
