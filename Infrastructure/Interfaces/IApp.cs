@@ -1,4 +1,5 @@
-﻿using FastFix2._0.ViewModels.Applications;
+﻿using FastFix2._0.Data;
+using FastFix2._0.ViewModels.Applications;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,10 +9,9 @@ namespace FastFix2._0.Infrastructure.Interfaces
 {
     public interface IApp
     {
-        IEnumerable<CreateApplicationViewModel> Get();
-
-        CreateApplicationViewModel GetById(int Id);
-        int Add(CreateApplicationViewModel app);
+        IEnumerable<NewApplications> Get();
+        NewApplications GetById(int Id);
+        int Add(NewApplications app);
         bool Delete(int Id);
         void SaveChanges();
     }

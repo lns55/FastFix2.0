@@ -24,12 +24,12 @@ namespace FastFix2._0.ViewModels.Applications
         [DataType(DataType.DateTime)]
         [DisplayFormat(DataFormatString = "0:dd'/'MM'/'yyyy")]
         [Required(ErrorMessage = "Select date when you are ready to start repearing.")]
-        public DateTime RepairFrom { get; set; }
+        public int RepairFrom { get; set; }
 
         [DataType(DataType.DateTime)]
         [DisplayFormat(DataFormatString = "0:dd'/'MM'/'yyyy")]
         [Required(ErrorMessage = "Select date when the work must be done")]
-        public DateTime RepairTill { get; set; }
+        public int RepairTill { get; set; }
 
         [Required(ErrorMessage = "You need to choose a city")]
         public string City { get; set; }

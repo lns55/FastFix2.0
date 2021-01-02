@@ -99,6 +99,7 @@ namespace FastFix2._0
             services.AddRazorPages();
 
             services.AddScoped<ICarRepairData, SqlCarRepairData>();
+            services.AddScoped<IApp, SqlApp>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

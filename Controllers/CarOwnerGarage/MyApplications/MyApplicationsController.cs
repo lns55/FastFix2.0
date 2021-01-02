@@ -1,4 +1,5 @@
-﻿using FastFix2._0.ViewModels.Applications;
+﻿using FastFix2._0.Data;
+using FastFix2._0.ViewModels.Applications;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -21,7 +22,7 @@ namespace FastFix2._0.Controllers.CarOwnerGarage.MyApplications
             if (!ModelState.IsValid)
                 return View(model);
 
-            var app = new CreateApplicationViewModel
+            var app = new NewApplications
             {
                 Id = model.Id,
                 IssueTitle = model.IssueTitle,

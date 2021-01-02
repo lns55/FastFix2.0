@@ -11,6 +11,8 @@ namespace FastFix2._0.Data
         /// </summary>
         public DbSet<CarRepairUser> carRepairUsers { get; set; }
 
+        public DbSet<NewApplications> NewApplications { get; set; }
+
         public FastFixDbContext(DbContextOptions<FastFixDbContext> options)
             : base(options)
         {
