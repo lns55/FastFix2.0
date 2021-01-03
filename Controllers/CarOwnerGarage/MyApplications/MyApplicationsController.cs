@@ -50,7 +50,6 @@ namespace FastFix2._0.Controllers.CarOwnerGarage.MyApplications
             return RedirectToAction("CarOwnerGarage", "CarOwnerGarage");
         }
 
-
         public IActionResult Active() => View();
         public IActionResult Waiting() => View();
         public IActionResult Completed() => View();

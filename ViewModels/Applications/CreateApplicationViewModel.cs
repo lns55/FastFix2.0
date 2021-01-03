@@ -12,25 +12,29 @@ namespace FastFix2._0.ViewModels.Applications
         [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Name is required")]
-        [StringLength(100, ErrorMessage = "Invalid value")]
+        [Required(ErrorMessage = "Issue title is required")]
+        [StringLength(100, ErrorMessage = "Title must contain maximum 100 characters")]
         public string IssueTitle { get; set; }
 
+        [Required(ErrorMessage = "You must choose car to repair")]
         [Display(Name = "Car Model")]
         public string Car { get; set; }
 
-        [DataType(DataType.DateTime)]
-        [DisplayFormat(DataFormatString = "0:dd'/'MM'/'yyyy")]
+        [Required(ErrorMessage = "Choose the date of repair")]
+        [DataType(DataType.DateTime, ErrorMessage = "You must choose date of repair")]
+        [DisplayFormat(DataFormatString = "0:dd'/'MM'/'yyyy", ConvertEmptyStringToNull = true, NullDisplayText = "You must choose date of repair")]
         public DateTime RepairFrom { get; set; }
 
         [DataType(DataType.DateTime)]
-        [DisplayFormat(DataFormatString = "0:dd'/'MM'/'yyyy")]
+        [DisplayFormat(DataFormatString = "0:dd'/'MM'/'yyyy'", ConvertEmptyStringToNull = false)]
         public DateTime RepairTill { get; set; }
 
+        [Required(ErrorMessage = "You must choose city where you want to repair your car")]
         public string City { get; set; }
 
         public string TypeOfWork { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "Describe your issue")]
         public string Description { get; set; }
     }
 }
