@@ -1,4 +1,6 @@
-﻿<div class="card active-users">
+﻿@model List<FastFix2._0.Data.NewApplications>
+
+<div class="card active-users">
     <div class="card-header border-0">
         <h4 class="card-title">Latest applications</h4>
         <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
@@ -21,33 +23,39 @@
                     </tr>
                 </thead>
                 <tbody>
-                        <tr>
-                            <td class="text-truncate">
-                                <div class="avatar avatar-md mr-1">
-                                    <img class="rounded-circle" src="~/images/portrait/small/avatar-s-10.png" alt="Generic placeholder image">
+                    @foreach (var app in Model)
+                    {
+                    <tr>
+                        <td class="text-truncate">
+                            <div class="avatar avatar-md mr-1">
+                                <img class="rounded-circle" src="~/images/portrait/small/avatar-s-10.png" alt="Generic placeholder image">
+                            </div>
+                            <span class="text-truncate"></span>
+                        </td>
+                        <td class="align-middle">
+                            <span>@app.IssueTitle</span>
+                        </td>
+                        <td class="align-middle">
+                            <span>@app.Car</span>
+                        </td>
+                        <td class="align-middle">
+                            <span>@app.Description</span>
+                        </td>
+                        <td class="align-middle">
+                            <span>@app.RepairTill</span>
+                        </td>
+                        <td class="align-middle">
+                            <div class="dropdown">
+                                <span class="feather icon-more-vertical dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                </span>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                                    <a asp-controller="Applications" asp-action="AnwserPage">Anwser</a>
                                 </div>
-                                <span class="text-truncate"></span>
-                            </td>
-                            <td class="align-middle">
-                                <span></span>
-                            </td>
-                            <td class="align-middle">
-                                <span></span>
-                            </td>
-                            <td class="align-middle">
-                                <span></span>
-                            </td>
-                            <td class="align-middle">
-                                <div class="dropdown">
-                                    <span class="feather icon-more-vertical dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    </span>
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                                        <a asp-controller="Applications" asp-action="AnwserPage">Anwser</a>
-                                    </div>
-                                </div>
+                            </div>
 
-                            </td>
-                        </tr>
+                        </td>
+                    </tr>
+                    }
                 </tbody>
             </table>
         </div>

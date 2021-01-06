@@ -13,6 +13,6 @@ namespace FastFix2._0.Data
         public string City { get; set; }
         public string TypeOfWork { get; set; }
         public string Description { get; set; }
-        public User User { get; set; }
+        public virtual User User { get; set; }
     }
 }

@@ -20,11 +20,9 @@ namespace FastFix2._0.Controllers
 
         private readonly UserManager<User> _UserManager;
         private readonly SignInManager<User> _SignInManager;
-        private readonly FastFixDbContext db;
 
-        public HomeController(UserManager<User> UserManager, SignInManager<User> SignInManager, FastFixDbContext context)
+        public HomeController(UserManager<User> UserManager, SignInManager<User> SignInManager)
         {
-            db = context;
             _UserManager = UserManager;
             _SignInManager = SignInManager;
         }

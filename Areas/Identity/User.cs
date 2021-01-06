@@ -13,6 +13,6 @@ namespace FastFix2._0.Areas.Identity
         /// If returns true it means that user wants to register as CarRepair Company.
         /// </summary>
         public bool IsCarRepair { get; set; }
-        public List<NewApplications> NewApplications { get; set; }
+        public virtual ICollection<NewApplications> NewApplications { get; set; } = new List<NewApplications>();
     }
 }

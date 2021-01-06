@@ -29,7 +29,7 @@
             Controller for CarOwners personal area.
             </summary>
         </member>
-        <member name="M:FastFix2._0.Controllers.CarOwnerGarage.CarOwnerGarageController.CarOwnerGarage">
+        <member name="F:FastFix2._0.Controllers.CarOwnerGarage.CarOwnerGarageController._db">
             <summary>
             Returns View of CarOwners personal area.
             </summary>
