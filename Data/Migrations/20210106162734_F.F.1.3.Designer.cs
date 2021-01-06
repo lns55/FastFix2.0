@@ -4,14 +4,16 @@ using FastFix2._0.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FastFix2._0.Data.Migrations
 {
     [DbContext(typeof(FastFixDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210106162734_F.F.1.3")]
+    partial class FF13
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -166,12 +168,15 @@ namespace FastFix2._0.Data.Migrations
                     b.Property<string>("TypeOfWork")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserId")
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId1")
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UserId1");
 
                     b.ToTable("NewApplications");
                 });
@@ -283,8 +288,8 @@ namespace FastFix2._0.Data.Migrations
             modelBuilder.Entity("FastFix2._0.Data.NewApplications", b =>
                 {
                     b.HasOne("FastFix2._0.Areas.Identity.User", "User")
-                        .WithMany("NewApplications")
-                        .HasForeignKey("UserId");
+                        .WithMany("Applications")
+                        .HasForeignKey("UserId1");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

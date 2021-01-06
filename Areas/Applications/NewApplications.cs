@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FastFix2._0.Areas.Identity;
+using System;
 
 namespace FastFix2._0.Data
 {
@@ -12,5 +13,6 @@ namespace FastFix2._0.Data
         public string City { get; set; }
         public string TypeOfWork { get; set; }
         public string Description { get; set; }
+        public User User { get; set; }
     }
 }
