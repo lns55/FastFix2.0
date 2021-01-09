@@ -7,6 +7,7 @@ using FastFix2._0.Areas.Identity;
 using System.Linq;
 using System.Collections.Generic;
 using System;
+using Microsoft.AspNetCore.Identity;
 
 namespace FastFix2._0.Controllers.CarOwnerGarage
 {
@@ -19,13 +20,23 @@ namespace FastFix2._0.Controllers.CarOwnerGarage
         /// Returns View of CarOwners personal area.
         /// </summary>
         private readonly FastFixDbContext _db;
-        public CarOwnerGarageController(FastFixDbContext context) => _db = context;
+        private readonly UserManager<User> _UserManager;
+
+        public CarOwnerGarageController(FastFixDbContext context, UserManager<User> userManager)
+        {
+            _db = context;
+            _UserManager = userManager;
+        }
 
         public IActionResult CarOwnerGarage()
         {
-            var applications = _db.NewApplications.ToList();
+            var user = _UserManager.GetUserId(User);
 
-            return View(applications);
+            var test = from app in _db.NewApplications
+                       where app.UserId == user
+                       select app;
+
+            return View(test.ToList());
         }
     }
 }
