@@ -25,37 +25,38 @@
                 <tbody>
                     @foreach (var app in Model)
                     {
-                    <tr>
-                        <td class="text-truncate">
-                            <div class="avatar avatar-md mr-1">
-                                <img class="rounded-circle" src="~/images/portrait/small/avatar-s-10.png" alt="Generic placeholder image">
-                            </div>
-                            <span class="text-truncate"></span>
-                        </td>
-                        <td class="align-middle">
-                            <span>@app.IssueTitle</span>
-                        </td>
-                        <td class="align-middle">
-                            <span>@app.Car</span>
-                        </td>
-                        <td class="align-middle">
-                            <span>@app.Description</span>
-                        </td>
-                        <td class="align-middle">
-                            <span>@app.RepairTill</span>
-                        </td>
-                        <td class="align-middle">
-                            <div class="dropdown">
-                                <span class="feather icon-more-vertical dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                </span>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                                    <a asp-controller="Applications" asp-action="AnwserPage">Anwser</a>
-                                </div>
-                            </div>
-
-                        </td>
-                    </tr>
-                    }
+                            <tr>
+                                <td class="text-truncate">
+                                    <div class="avatar avatar-md mr-1">
+                                        <img class="rounded-circle" src="~/images/portrait/small/avatar-s-10.png" alt="Generic placeholder image">
+                                    </div>
+                                    <span class="text-truncate"></span>
+                                </td>
+                                <td class="align-middle">
+                                    <span>@app.IssueTitle</span>
+                                </td>
+                                <td class="align-middle">
+                                    <span>@app.Car</span>
+                                </td>
+                                <td class="align-middle">
+                                    <span>@app.Description</span>
+                                </td>
+                                <td class="align-middle">
+                                    <span>@app.RepairTill</span>
+                                </td>
+                                <td class="align-middle">
+                                    <div class="dropdown">
+                                        <span class="feather icon-more-vertical dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        </span>
+                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                                            <a asp-controller="Applications" asp-action="AnwserPage">Anwser</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                          @if (app.Id == 7)
+                              break;
+                        }
                 </tbody>
             </table>
         </div>
