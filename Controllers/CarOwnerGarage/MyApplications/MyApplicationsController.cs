@@ -1,9 +1,12 @@
-﻿using FastFix2._0.Data;
+﻿using FastFix2._0.Areas.Identity;
+using FastFix2._0.Data;
 using FastFix2._0.ViewModels.Applications;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -12,10 +15,12 @@ namespace FastFix2._0.Controllers.CarOwnerGarage.MyApplications
     public class MyApplicationsController : Controller
     {
         private readonly FastFixDbContext db;
+        private readonly UserManager<User> userManager;
 
-        public MyApplicationsController(FastFixDbContext context)
+        public MyApplicationsController(FastFixDbContext context, UserManager<User> UserManager)
         {
             db = context;
+            userManager = UserManager;
         }
 
         /// <summary>
@@ -29,6 +34,8 @@ namespace FastFix2._0.Controllers.CarOwnerGarage.MyApplications
             if (!ModelState.IsValid)
                 return View(model);
 
+            var user = userManager.GetUserId(User);
+
             var app = new NewApplications
             {
                 Id = model.Id,
@@ -38,11 +45,12 @@ namespace FastFix2._0.Controllers.CarOwnerGarage.MyApplications
                 RepairTill = model.RepairTill,
                 City = model.City,
                 TypeOfWork = model.TypeOfWork,
-                Description = model.Description
+                Description = model.Description,
+                UserId = user
             };
 
             if (model.Id == 0) {
-                db.Add(app); 
+                db.Add(app);
             }
 
             db.SaveChanges();

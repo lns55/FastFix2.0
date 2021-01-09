@@ -14,5 +14,7 @@ namespace FastFix2._0.Data
         public string TypeOfWork { get; set; }
         public string Description { get; set; }
         public virtual User User { get; set; }
+        public string UserId { get; set; }
+
     }
 }

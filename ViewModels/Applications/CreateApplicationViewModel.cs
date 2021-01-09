@@ -36,5 +36,8 @@ namespace FastFix2._0.ViewModels.Applications
 
         [Required(ErrorMessage = "Describe your issue")]
         public string Description { get; set; }
+
+        [HiddenInput(DisplayValue = false)]
+        public string UserId { get; set; }
     }
 }
