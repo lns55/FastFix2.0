@@ -13,6 +13,10 @@ namespace FastFix2._0.ViewModels.Identity
         public string CoName { get; set; }
 
         [Required]
+        [Display(Name = "City where company located")]
+        public string City { get; set; }
+
+        [Required]
         [Display(Name ="Company Adress")]
         public string CoAdress { get; set; }
 
@@ -25,5 +29,9 @@ namespace FastFix2._0.ViewModels.Identity
         [Display(Name ="Company Email Adress")]
         [DataType(DataType.EmailAddress)]
         public string CoEmail { get; set; }
+
+        [Required]
+        [Display(Name ="Select your type of work")]
+        public string TypeOfWork { get; set; }
     }
 }

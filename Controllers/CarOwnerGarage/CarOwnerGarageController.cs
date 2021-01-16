@@ -32,11 +32,11 @@ namespace FastFix2._0.Controllers.CarOwnerGarage
         {
             var user = _UserManager.GetUserId(User);
 
-            var test = from app in _db.NewApplications
+            var UserID = from app in _db.NewApplications
                        where app.UserId == user
                        select app;
 
-            return View(test.ToList());
+            return View(UserID.ToList());
         }
     }
 }

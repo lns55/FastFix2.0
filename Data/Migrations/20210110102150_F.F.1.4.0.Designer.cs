@@ -4,14 +4,16 @@ using FastFix2._0.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FastFix2._0.Data.Migrations
 {
     [DbContext(typeof(FastFixDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210110102150_F.F.1.4.0")]
+    partial class FF140
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -130,9 +132,6 @@ namespace FastFix2._0.Data.Migrations
                         .HasColumnType("nvarchar(256)")
                         .HasMaxLength(256);
 
-                    b.Property<int?>("carRepairUserId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedEmail")
@@ -142,8 +141,6 @@ namespace FastFix2._0.Data.Migrations
                         .IsUnique()
                         .HasName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
-
-                    b.HasIndex("carRepairUserId");
 
                     b.ToTable("AspNetUsers");
                 });
@@ -292,16 +289,9 @@ namespace FastFix2._0.Data.Migrations
 
             modelBuilder.Entity("FastFix2._0.Areas.Identity.CarRepairUser", b =>
                 {
-                    b.HasOne("FastFix2._0.Areas.Identity.User", null)
+                    b.HasOne("FastFix2._0.Areas.Identity.User", "User")
                         .WithMany("CarRepairUsers")
                         .HasForeignKey("UserId");
-                });
-
-            modelBuilder.Entity("FastFix2._0.Areas.Identity.User", b =>
-                {
-                    b.HasOne("FastFix2._0.Areas.Identity.CarRepairUser", "carRepairUser")
-                        .WithMany()
-                        .HasForeignKey("carRepairUserId");
                 });
 
             modelBuilder.Entity("FastFix2._0.Data.NewApplications", b =>

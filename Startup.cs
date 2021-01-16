@@ -56,7 +56,6 @@ namespace FastFix2._0
 
                 opt.User.RequireUniqueEmail = false;
 
-                opt.Lockout.AllowedForNewUsers = true;
 #endif
 
 #if RELEASE

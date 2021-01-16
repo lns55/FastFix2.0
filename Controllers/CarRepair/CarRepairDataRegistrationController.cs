@@ -1,6 +1,8 @@
 ﻿using FastFix2._0.Areas.Identity;
+using FastFix2._0.Data;
 using FastFix2._0.Infrastructure.Interfaces;
 using FastFix2._0.ViewModels.Identity;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -16,8 +18,18 @@ namespace FastFix2._0.Controllers.CarRepair
     {
 
         private readonly ICarRepairData _carRepair;
+        private readonly FastFixDbContext _db;
+        private readonly UserManager<User> _UserManager;
+        private readonly SignInManager<User> _SignInManager;
 
-        public CarRepairDataRegistrationController(ICarRepairData carRepair) => _carRepair = carRepair;
+        public CarRepairDataRegistrationController(ICarRepairData carRepair, FastFixDbContext context,
+            UserManager<User> userManager, SignInManager<User> signInManager)
+        {
+            _carRepair = carRepair;
+            _db = context;
+            _UserManager = userManager;
+            _SignInManager = signInManager;
+        }
 
         /// <summary>
         /// Returns data from view.
@@ -34,22 +46,26 @@ namespace FastFix2._0.Controllers.CarRepair
 
             return View(new CarRepairDataRegistrationViewModel());
         }
-
         /// <summary>
         /// Adding CarRepair data to database.
         /// </summary>
         [HttpPost, ValidateAntiForgeryToken]
-        public  IActionResult CarRepairDataRegistration(CarRepairDataRegistrationViewModel model)
+        public IActionResult CarRepairDataRegistration(CarRepairDataRegistrationViewModel model)
         {
             if (!ModelState.IsValid)
                 return View(model);
+
+            var userId = _UserManager.GetUserId(User);
 
             var carRepairData = new CarRepairUser
             {
                 CoName = model.CoName,
                 CoAdress = model.CoAdress,
                 CoPhoneNumber = model.CoPhoneNumber,
-                CoEmail = model.CoEmail
+                CoEmail = model.CoEmail,
+                City = model.City,
+                TypeOfWork = model.TypeOfWork,
+                UserId = userId
             };
 
             if (model.Id == 0)
@@ -57,7 +73,7 @@ namespace FastFix2._0.Controllers.CarRepair
 
             _carRepair.SaveChanges();
 
-            return RedirectToAction("CarRepairWorkshop","CarRepairWorkshop");
+            return RedirectToAction("CarRepairWorkshop", "CarRepairWorkshop");
         }
     }
 }

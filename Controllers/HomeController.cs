@@ -88,19 +88,22 @@ namespace FastFix2._0.Controllers
             {
                 UserName = model.UserName,
                 Email = model.Email,
-                IsCarRepair = model.IsCarRepair
+                IsCarRepair = model.IsCarRepair,
+                RememberMe = model.RememberMe
             };
-            
+
             var registration_result = await _UserManager.CreateAsync(user, model.Password);
-            
-            if (registration_result.Succeeded)
+
+            var reg_login = await _SignInManager.PasswordSignInAsync(user, model.Password, model.RememberMe, false);
+
+            if (registration_result.Succeeded && reg_login.Succeeded)
             {
                 var Code = await _UserManager.GenerateEmailConfirmationTokenAsync(user);
 
                 var CallbackUrl = Url.Action(
                     "ConfirmEmail",
                     "Home",
-                    new { userId = user.Id, code = Code, isCarRepair = user.IsCarRepair},
+                    new { userId = user.Id, code = Code, isCarRepair = user.IsCarRepair, rememberMe = user.RememberMe},
                     protocol: HttpContext.Request.Scheme);
 
                 EmailService emailService = new EmailService();
@@ -113,7 +116,7 @@ namespace FastFix2._0.Controllers
                     await _UserManager.AddToRoleAsync(user, "CarRepair");
                 }
 
-                return RedirectToAction("EmailVerification","Home");
+                return RedirectToAction("EmailVerification", "Home");
             }
 
             foreach (var error in registration_result.Errors)
@@ -128,14 +131,14 @@ namespace FastFix2._0.Controllers
         public async Task<IActionResult> ConfirmEmail(string userId, string code, bool IsCarRepair)
         {
 
-            if(userId == null || code == null)
+            if (userId == null || code == null)
             {
                 return View("Error");
             }
 
             var user = await _UserManager.FindByIdAsync(userId);
 
-            if(user == null)
+            if (user == null)
             {
                 return View("Error");
             }
