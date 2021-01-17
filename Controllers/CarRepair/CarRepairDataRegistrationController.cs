@@ -63,7 +63,6 @@ namespace FastFix2._0.Controllers.CarRepair
                 CoAdress = model.CoAdress,
                 CoPhoneNumber = model.CoPhoneNumber,
                 CoEmail = model.CoEmail,
-                City = model.City,
                 TypeOfWork = model.TypeOfWork,
                 UserId = userId
             };

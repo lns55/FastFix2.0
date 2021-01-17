@@ -13,10 +13,6 @@ namespace FastFix2._0.ViewModels.Identity
         public string CoName { get; set; }
 
         [Required]
-        [Display(Name = "City where company located")]
-        public string City { get; set; }
-
-        [Required]
         [Display(Name ="Company Adress")]
         public string CoAdress { get; set; }
 
