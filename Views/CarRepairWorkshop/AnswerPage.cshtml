@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewData["Title"] = "AnswerPage";
+    Layout = "~/Views/CarRepairWorkshop/_LayoutCarRepairWorkshop/_CarRepairWorkshopLayout.cshtml";
+}
+
+<body class="vertical-layout vertical-menu 2-columns   fixed-navbar" data-open="click" data-menu="vertical-menu" data-col="2-columns">
+
+    <div class="app-content content">
+        <div class="content-overlay"></div>
+        <div class="content-wrapper">
+            <div class="content-header row">
+            </div>
+            <div class="content-body">
+                <section class="users-view">
+                    <div class="row">
+                        <div class="col-12 col-sm-7">
+                            <div class="media mb-2">
+                                <a class="mr-1" href="#">
+                                    <img src="~/images/portrait/small/avatar-s-26.png" alt="users view avatar" class="users-avatar-shadow rounded-circle" height="64" width="64">
+                                </a>
+                                <div class="media-body pt-25">
+                                    <h4 class="media-heading"><span class="users-view-name"></span><span class="text-muted font-medium-1"></span><span class="users-view-username text-muted font-medium-1 "></span></h4>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-body">
+                                <div class="col-12">
+                                    <h5 class="mb-1"><i class="feather icon-info"></i> Application details</h5>
+                                    <table class="table table-borderless mb-0">
+                                        <tbody>
+                                            <tr>
+                                                <td>Due date:</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Car:</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Year:</td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <br>
+                                <div class="col-12">
+                                    <h5 class="mb-1"><i class="feather icon-check-circle"></i> What to do</h5>
+                                </div>
+                                <div class="col-12">
+                                    <p></p>
+                                </div>
+                                <div class="col-3">
+                                    <a href="success-anwser-page.html" class="btn white btn-success btn-success-lighten">Answer</a>
+                                    <a asp-controller="Applications" asp-action="New" class="btn white btn-warning btn-warning-lighten">Cancel</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+</body>

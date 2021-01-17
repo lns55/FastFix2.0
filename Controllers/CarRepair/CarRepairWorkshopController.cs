@@ -42,5 +42,8 @@ namespace FastFix2._0.Controllers
 
             return View(app.ToList());
         }
+
+        public IActionResult AnswerPage() => View();
     }
 }
+
