@@ -89,7 +89,8 @@ namespace FastFix2._0.Controllers
                 UserName = model.UserName,
                 Email = model.Email,
                 IsCarRepair = model.IsCarRepair,
-                RememberMe = model.RememberMe
+                RememberMe = model.RememberMe,
+                City = model.City
             };
 
             var registration_result = await _UserManager.CreateAsync(user, model.Password);

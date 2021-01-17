@@ -18,6 +18,8 @@
     <Compile Remove="Data\Migrations\20210108180119_F.F.1.3.3.Designer.cs" />
     <Compile Remove="Data\Migrations\20210112155547_F.F.1.5.0.cs" />
     <Compile Remove="Data\Migrations\20210112155547_F.F.1.5.0.Designer.cs" />
+    <Compile Remove="Data\Migrations\20210117075610_F.F.1.5..cs" />
+    <Compile Remove="Data\Migrations\20210117075610_F.F.1.5..Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

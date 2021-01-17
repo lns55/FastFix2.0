@@ -14,6 +14,7 @@ namespace FastFix2._0.Areas.Identity
         /// </summary>
         public bool IsCarRepair { get; set; }
         public bool RememberMe { get; set; }
+        public string City { get; set; }
         public virtual ICollection<NewApplications> NewApplications { get; set; } = new List<NewApplications>();
         public virtual ICollection<CarRepairUser> CarRepairUsers { get; set; } = new List<CarRepairUser>();
     }

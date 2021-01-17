@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using FastFix2._0.Data;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -20,5 +21,6 @@ namespace FastFix2._0.Areas.Identity
         public string CoPhoneNumber { get; set; }
         public string CoEmail { get; set; }
         public string TypeOfWork { get; set; }
+       
     }
 }

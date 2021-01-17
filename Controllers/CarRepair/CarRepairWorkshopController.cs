@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,42 +30,15 @@ namespace FastFix2._0.Controllers
 
         public IActionResult CarRepairWorkshop()
         {
-            //var userId = _UserManager.GetUserId(User);
+            var user = _UserManager.GetUserId(User);
 
-            //var user = from u in _db.carRepairUsers
-            //           where u.UserId == userId
-            //           select u;
+            var findUser = _db.Users.Find(user);
 
-            //var userCity = from uc in _db.carRepairUsers
-            //               select user;
-
-            //var appCity = from a in _db.NewApplications
-            //              select a.City;
-
-
-
-            var CarRepUser = from user in _db.Users
-                             join carRep in _db.carRepairUsers
-                             on user.Id equals
-                                carRep.UserId
-                             where user.Id == carRep.UserId
-                             select carRep.City.Single();
-
+            var userCity = findUser.City;
 
             var app = from a in _db.NewApplications
-                      where a.City == CarRepUser.ToString()
+                      where a.City == userCity
                       select a;
-
-            //var user = _db.carRepairUsers
-            //    .Where(u => u.City.Any())
-            //    .SelectMany(u);
-
-            //var app = _db.NewApplications
-            //    .Where(n => n.City.Any());
-
-            //var result = _db.NewApplications
-            //    .SelectMany(user == app);
-
 
             return View(app.ToList());
         }
