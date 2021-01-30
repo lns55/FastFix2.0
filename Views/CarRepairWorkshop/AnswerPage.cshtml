@@ -1,4 +1,4 @@
-﻿
+﻿@model FastFix2._0.Data.NewApplications; 
 @{
     ViewData["Title"] = "AnswerPage";
     Layout = "~/Views/CarRepairWorkshop/_LayoutCarRepairWorkshop/_CarRepairWorkshopLayout.cshtml";
@@ -11,6 +11,7 @@
         <div class="content-wrapper">
             <div class="content-header row">
             </div>
+            
             <div class="content-body">
                 <section class="users-view">
                     <div class="row">
@@ -35,15 +36,19 @@
                                         <tbody>
                                             <tr>
                                                 <td>Due date:</td>
-                                                <td></td>
+                                                <td>@Model.IssueTitle</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Due date:</td>
+                                                <td>@Model.RepairFrom</td>
                                             </tr>
                                             <tr>
                                                 <td>Car:</td>
-                                                <td></td>
+                                                <td>@Model.Car</td>
                                             </tr>
                                             <tr>
                                                 <td>Year:</td>
-                                                <td></td>
+                                                <td>@Model.TypeOfWork</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -53,11 +58,11 @@
                                     <h5 class="mb-1"><i class="feather icon-check-circle"></i> What to do</h5>
                                 </div>
                                 <div class="col-12">
-                                    <p></p>
+                                    <p>@Model.Description</p>
                                 </div>
                                 <div class="col-3">
-                                    <a href="success-anwser-page.html" class="btn white btn-success btn-success-lighten">Answer</a>
-                                    <a asp-controller="Applications" asp-action="New" class="btn white btn-warning btn-warning-lighten">Cancel</a>
+                                    <a asp-controller="CarRepairWorkshop" asp-action="Answer" class="btn white btn-success btn-success-lighten">Answer</a>
+                                    <a asp-controller="CarRepairWorkshop" asp-action="CarRepairWorkshop" class="btn white btn-warning btn-warning-lighten">Cancel</a>
                                 </div>
                             </div>
                         </div>

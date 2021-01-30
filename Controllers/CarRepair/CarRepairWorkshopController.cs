@@ -1,5 +1,6 @@
 ﻿using FastFix2._0.Areas.Identity;
 using FastFix2._0.Data;
+using FastFix2._0.ViewModels.Applications;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -22,7 +23,7 @@ namespace FastFix2._0.Controllers
         private readonly FastFixDbContext _db;
         private readonly UserManager<User> _UserManager;
 
-        public CarRepairWorkshopController(FastFixDbContext context, UserManager<User> userManager) 
+        public CarRepairWorkshopController(FastFixDbContext context, UserManager<User> userManager)
         {
             _db = context;
             _UserManager = userManager;
@@ -43,7 +44,12 @@ namespace FastFix2._0.Controllers
             return View(app.ToList());
         }
 
-        public IActionResult AnswerPage() => View();
+        public IActionResult AnswerPage(int Id)
+        {
+            var app = _db.NewApplications.Find(Id);
+
+            return View(app);
+        }
     }
 }
 
