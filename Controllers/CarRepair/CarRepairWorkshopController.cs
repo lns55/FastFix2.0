@@ -50,6 +50,8 @@ namespace FastFix2._0.Controllers
 
             return View(app);
         }
+
+        public IActionResult Waiting() => View();
     }
 }
 

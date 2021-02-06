@@ -38,5 +38,13 @@ namespace FastFix2._0.Controllers.CarOwnerGarage
 
             return View(app.ToList());
         }
+
+        [HttpGet]
+        public IActionResult Answers(int Id, int UserId)
+        {
+            var answer = _db.carRepairUsers.Find(User.Identity);
+
+            return View(answer);
+        }
     }
 }
