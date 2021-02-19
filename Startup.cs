@@ -3,6 +3,7 @@ using FastFix2._0.Data;
 using FastFix2._0.Infrastructure.Interfaces;
 using FastFix2._0.Infrastructure.Services;
 using FastFix2._0.Infrastructure.Services.InSql;
+using FastFix2._0.Hubs;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -17,6 +18,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.ResponseCompression;
 
 namespace FastFix2._0
 {
@@ -99,10 +101,19 @@ namespace FastFix2._0
 
             services.AddScoped<ICarRepairData, SqlCarRepairData>();
             services.AddScoped<IApp, SqlApp>();
+
+            services.AddSignalR();
+            services.AddResponseCompression(opts =>
+            {
+                opts.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(
+                    new[] { "application/octet-stream" });
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseResponseCompression();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -123,6 +134,7 @@ namespace FastFix2._0
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapHub<ResponseForApplicationHub>("/answers");
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
