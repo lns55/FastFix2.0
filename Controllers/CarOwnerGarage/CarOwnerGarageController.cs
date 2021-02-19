@@ -8,6 +8,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System;
 using Microsoft.AspNetCore.Identity;
+using System.Net;
 
 namespace FastFix2._0.Controllers.CarOwnerGarage
 {
@@ -39,12 +40,10 @@ namespace FastFix2._0.Controllers.CarOwnerGarage
             return View(app.ToList());
         }
 
-        [HttpGet]
-        public IActionResult Answers(int Id, int UserId)
+        public IActionResult Answers()
         {
-            var answer = _db.carRepairUsers.Find(User.Identity);
 
-            return View(answer);
+            return View();
         }
     }
 }

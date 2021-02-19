@@ -1,4 +1,4 @@
-﻿
+﻿@model List<FastFix2._0.Data.NewApplications>;
 <div class="card active-users">
     <div class="card-header border-0">
         <h4 class="card-title">Waiting for response</h4>
@@ -14,15 +14,16 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Name</th>
                         <th>Car model</th>
-                        <th>Year</th>
+                        <th>Repair Date</th>
                         <th>Description</th>
-                        <th>Date</th>
+                        <th>Type Of Work</th>
                         <th>More</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach (var app in Model)
+                    {
                         <tr>
                             <td class="text-truncate">
                                 <div class="avatar avatar-md mr-1">
@@ -31,21 +32,22 @@
                                 <span class="text-truncate"></span>
                             </td>
                             <td class="align-middle">
-                                <span></span>
+                                <span>@app.Car</span>
                             </td>
                             <td class="align-middle">
-                                <span></span>
+                                <span>@app.RepairTill</span>
                             </td>
                             <td class="align-middle">
-                                <span></span>
+                                <span>@app.Description</span>
                             </td>
                             <td class="align-middle">
-                                <span></span>
+                                <span>@app.TypeOfWork</span>
                             </td>
                             <td class="align-middle">
-                                <button class="btn white bg-amber-lighten-2 bg-amber">Waiting</button>
+                                <button class="btn white bg-amber-lighten-2 bg-amber">See Answers</button>
                             </td>
                         </tr>
+                    }
                 </tbody>
             </table>
         </div>

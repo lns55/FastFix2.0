@@ -6,9 +6,14 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Nest;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace FastFix2._0.Controllers
@@ -51,7 +56,15 @@ namespace FastFix2._0.Controllers
             return View(app);
         }
 
+        public IActionResult Answer(string User)
+        {
+           
+            return View();
+        }
+
         public IActionResult Waiting() => View();
+
+        
+        
     }
 }
-
