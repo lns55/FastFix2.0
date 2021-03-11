@@ -8,9 +8,9 @@ namespace FastFix2._0.Hubs
 {
     public class ResponseForApplicationHub : Hub
     {
-        public async Task SendAnswer(string UserName, string Date, string Comment, int Price)
+        public async Task Send(string message)
         {
-            await Clients.All.SendAsync("ReceiveAnswer", UserName, Date, Comment, Price);
+            await this.Clients.All.SendAsync("Send", message);
         }
     }
 }

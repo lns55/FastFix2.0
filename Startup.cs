@@ -134,7 +134,7 @@ namespace FastFix2._0
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapHub<ResponseForApplicationHub>("/answers");
+                endpoints.MapHub<ResponseForApplicationHub>("/AnswerPage");
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

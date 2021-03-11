@@ -63,12 +63,14 @@
                                 <div class="col-12">
                                     <h5 class="mb-1"><i class="feather icon-clipboard"></i> Your answer</h5>
                                 </div>
+                                <input type="text" id="message" />
                                 <div class="col-12">
                                 </div>
                                 <div class="col-3">
-                                    <a asp-controller="CarRepairWorkshop" asp-route-id="@User" asp-action="Answer" name="Answer" class="btn white btn-success btn-success-lighten">Answer</a>
+                                    <a @*asp-controller="CarRepairWorkshop" asp-route-id="@User" asp-action="Answer"*@ id="sendBtn" name="Answer" class="btn white btn-success btn-success-lighten">Answer</a>
                                     <a asp-controller="CarRepairWorkshop" asp-action="CarRepairWorkshop" class="btn white btn-warning btn-warning-lighten">Cancel</a>
                                 </div>
+                                <div id="answer"></div>
                             </div>
                         </div>
                     </div>
@@ -77,4 +79,25 @@
         </div>
     </div>
 
+    <script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+    <script>
+        const hubConnection = new signalR.HubConnectionBuilder()
+            .withUrl("/AnswerPage")
+            .build();
+
+        hubConnection.on("Send", function (data) {
+
+            let elem = document.createElement("p");
+            elem.appendChild(document.createTextNode(data));
+            let firstElem = document.getElementById("answer").firstChild;
+            document.getElementById("answer").insertBefore(elem, firstElem);
+        });
+
+        document.getElementById("sendBtn").addEventListener("click", function (e) {
+            let message = document.getElementById("message").value;
+            hubConnection.invoke("Send", message);
+        });
+
+        hubConnection.start();
+    </script>
 </body>
