@@ -134,7 +134,10 @@ namespace FastFix2._0
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapHub<ResponseForApplicationHub>("/CarRepairWorkshop");
+                endpoints.MapHub<ResponseForApplicationHub>("/New");
                 endpoints.MapHub<ResponseForApplicationHub>("/AnswerPage");
+                endpoints.MapHub<ResponseForApplicationHub>("/Waiting");
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

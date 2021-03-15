@@ -8,7 +8,7 @@ namespace FastFix2._0.Data
         public int Id { get; set; }
         public string IssueTitle { get; set; }
         public string Car { get; set; }
-        public DateTime RepairFrom { get; set; }
+        public string RepairFrom { get; set; }
         public DateTime RepairTill { get; set; }
         public string City { get; set; }
         public string TypeOfWork { get; set; }

@@ -1,4 +1,4 @@
-﻿using FastFix2._0.Areas.Identity;
+﻿ using FastFix2._0.Areas.Identity;
 using FastFix2._0.Data;
 using FastFix2._0.ViewModels.Applications;
 using Microsoft.AspNetCore.Http;
@@ -36,12 +36,16 @@ namespace FastFix2._0.Controllers.CarOwnerGarage.MyApplications
 
             var user = userManager.GetUserId(User);
 
+            var date = model.RepairFrom.ToShortDateString();
+
+            var Date = date.ToString();
+
             var app = new NewApplications
             {
                 Id = model.Id,
                 IssueTitle = model.IssueTitle,
                 Car = model.Car,
-                RepairFrom = model.RepairFrom,
+                RepairFrom = Date,
                 RepairTill = model.RepairTill,
                 City = model.City,
                 TypeOfWork = model.TypeOfWork,

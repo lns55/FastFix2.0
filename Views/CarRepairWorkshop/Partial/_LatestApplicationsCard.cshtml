@@ -1,5 +1,4 @@
 ﻿@model List<FastFix2._0.Data.NewApplications>
-
 <div class="card active-users">
     <div class="card-header border-0">
         <h4 class="card-title">Latest applications</h4>
@@ -15,50 +14,72 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Name</th>
+                        <th>Issue</th>
                         <th>Car model</th>
                         <th>Description</th>
-                        <th>Date</th>
                         <th>More</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="table">
                     @foreach (var app in Model)
                     {
-                    <tr>
-                        <td class="text-truncate">
-                            <div class="avatar avatar-md mr-1">
-                                <img class="rounded-circle" src="~/images/portrait/small/avatar-s-10.png" alt="Generic placeholder image">
-                            </div>
-                            <span class="text-truncate"></span>
-                        </td>
-                        <td class="align-middle">
-                            <span>@app.IssueTitle</span>
-                        </td>
-                        <td class="align-middle">
-                            <span>@app.Car</span>
-                        </td>
-                        <td class="align-middle">
-                            <span>@app.City</span>
-                        </td>
-                        <td class="align-middle">
-                            <span>@app.RepairFrom</span>
-                        </td>
-                        <td class="align-middle">
-                            <div class="dropdown">
-                                <span class="feather icon-more-vertical dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                </span>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" asp-route-id="@app.Id" asp-controller="CarRepairWorkshop" asp-action="AnswerPage"> Answer</a>
+                        <tr>
+                            <td class="align-middle">
+                                <span>@app.IssueTitle</span>
+                            </td>
+                            <td class="align-middle">
+                                <span>@app.Car</span>
+                            </td>
+                            <td class="align-middle">
+                                <span>@app.Description</span>
+                            </td>
+                            <td class="align-middle">
+                                <span>@app.RepairFrom</span>
+                            </td>
+                            <td class="align-middle">
+                                <div class="dropdown" id="more">
+                                    <span class="feather icon-more-vertical dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    </span>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" asp-route-id="@app.Id" asp-controller="CarRepairWorkshop" asp-action="AnswerPage"> Answer</a>
+                                    </div>
                                 </div>
-                            </div>
-                        </td>
-                    </tr>
-                        @if (app.Id == 7)
-                            break;
+                            </td>
+                        </tr>
+                         @if (app.Id == 7)
+                             break;
                     }
                 </tbody>
             </table>
         </div>
     </div>
 </div>
+<script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+<script>
+        const hubConnection = new signalR.HubConnectionBuilder()
+            .withUrl("/CarRepairWorkshop")
+            .build();
+
+        hubConnection.on("Send", function (issue, car, date, description) {
+
+            var table = document.getElementById("table");
+
+            var more = document.getElementById("more");
+
+            var row = table.insertRow(0);
+
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            var cell4 = row.insertCell(3);
+            var cell5 = row.insertCell(4);  
+
+            cell1.appendChild(document.createTextNode(issue));
+            cell2.appendChild(document.createTextNode(car));
+            cell3.appendChild(document.createTextNode(description));
+            cell4.appendChild(document.createTextNode(date));
+            cell5.appendChild(document.crea(more));
+        });
+
+        hubConnection.start();  
+</script>

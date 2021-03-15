@@ -1,4 +1,4 @@
-﻿@model List<FastFix2._0.Data.NewApplications>;
+﻿
 <div class="card active-users">
     <div class="card-header border-0">
         <h4 class="card-title">Waiting for response</h4>
@@ -22,34 +22,44 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var app in Model)
-                    {
-                        <tr>
-                            <td class="text-truncate">
-                                <div class="avatar avatar-md mr-1">
-                                    <img class="rounded-circle" src="~/images/portrait/small/avatar-s-11.png" alt="Generic placeholder image">
-                                </div>
-                                <span class="text-truncate"></span>
-                            </td>
-                            <td class="align-middle">
-                                <span>@app.Car</span>
-                            </td>
-                            <td class="align-middle">
-                                <span>@app.RepairTill</span>
-                            </td>
-                            <td class="align-middle">
-                                <span>@app.Description</span>
-                            </td>
-                            <td class="align-middle">
-                                <span>@app.TypeOfWork</span>
-                            </td>
-                            <td class="align-middle">
-                                <button class="btn white bg-amber-lighten-2 bg-amber">See Answers</button>
-                            </td>
-                        </tr>
-                    }
+                    <tr>
+                        <td class="text-truncate">
+                            <div class="avatar avatar-md mr-1">
+                                <img class="rounded-circle" src="~/images/portrait/small/avatar-s-11.png" alt="Generic placeholder image">
+                            </div>
+                            <span class="text-truncate"></span>
+                        </td>
+                        <td class="align-middle">
+                        </td>
+                        <td class="align-middle">
+                        </td>
+                        <td class="align-middle">
+                        </td>
+                        <td class="align-middle">
+                            <span id="answer"></span>
+                        </td>
+                        <td class="align-middle">
+                            <button class="btn white bg-amber-lighten-2 bg-amber">See Answers</button>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </div>
     </div>
 </div>
+<script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+<script>
+        const hubConnection = new signalR.HubConnectionBuilder()
+            .withUrl("/Waiting")
+            .build();
+
+        hubConnection.on("Send", function (message) {
+
+            let elem = document.createElement("p");
+            elem.appendChild(document.createTextNode(message));
+            let firstElem = document.getElementById("answer").firstChild;
+            document.getElementById("answer").insertBefore(elem, firstElem);
+        });
+
+        hubConnection.start();
+</script>

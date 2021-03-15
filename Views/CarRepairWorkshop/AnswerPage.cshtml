@@ -79,23 +79,28 @@
         </div>
     </div>
 
+
+    <input type="hidden" id="userId" value="@Model.UserId"/>
+
     <script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
     <script>
         const hubConnection = new signalR.HubConnectionBuilder()
             .withUrl("/AnswerPage")
             .build();
 
-        hubConnection.on("Send", function (data) {
+        hubConnection.on("Send", function (message, userId) {
+
 
             let elem = document.createElement("p");
-            elem.appendChild(document.createTextNode(data));
+            elem.appendChild(document.createTextNode(message));
             let firstElem = document.getElementById("answer").firstChild;
             document.getElementById("answer").insertBefore(elem, firstElem);
         });
 
         document.getElementById("sendBtn").addEventListener("click", function (e) {
             let message = document.getElementById("message").value;
-            hubConnection.invoke("Send", message);
+            let userId = document.getElementById("userId").value;
+            hubConnection.invoke("Send", message, userId);
         });
 
         hubConnection.start();

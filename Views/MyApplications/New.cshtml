@@ -6,7 +6,6 @@
 
 <body class="vertical-layout vertical-menu 2-column   fixed-navbar" data-open="click" data-menu="vertical-menu" data-col="2-column">
 
-    <!-- BEGIN: Content-->
     <div class="app-content content">
         <div class="content-overlay">
         </div>
@@ -38,15 +37,15 @@
                                         <input asp-for="Id" type="hidden" />
                                         <div class="row">
                                             <div class="form-group col-12 mb-2">
-                                                <label asp-for="IssueTitle" class="sr-only" for="issueinput1">Issue Title</label>
-                                                <input asp-for="IssueTitle" type="text" id="issueinput1" class="form-control" placeholder="Issue title" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Issue Title">
+                                                <label asp-for="IssueTitle" class="sr-only" for="issue">Issue Title</label>
+                                                <input asp-for="IssueTitle" type="text" id="issue" class="form-control" placeholder="Issue title" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Issue Title">
                                                 <span asp-validation-for="IssueTitle" class="text-danger"></span>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-12 mb-2">
-                                                <label asp-for="Car" class="sr-only" for="issueinput2">Select Car</label>
-                                                <select asp-for="Car" id="issueinput2" class="form-control" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Select a Car">
+                                                <label asp-for="Car" class="sr-only" for="car">Select Car</label>
+                                                <select asp-for="Car" id="car" class="form-control" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Select a Car">
                                                     <option value="BMW">BMW</option>
                                                 </select>
                                                 <span asp-validation-for="Car" class="text-danger"></span>
@@ -54,21 +53,21 @@
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-md-6 mb-2">
-                                                <label asp-for="RepairFrom" class="sr-only" for="issueinput3">Repair Date From</label>
-                                                <input asp-for="RepairFrom" type="date" value="@DateTime.Today" id="issueinput3" class="form-control" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Date of repair start">
+                                                <label asp-for="RepairFrom" class="sr-only" for="date">Repair Date From</label>
+                                                <input asp-for="RepairFrom" type="date"  id="date" class="form-control" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Date of repair start">
                                                 <span asp-validation-for="RepairFrom" class="text-danger"></span>
                                             </div>
                                             <div class="form-group col-md-6 mb-2">
-                                                <label asp-for="RepairTill" class="sr-only" for="issueinput4">Repair Till</label>
-                                                <input asp-for="RepairTill" type="date" value="@DateTime.Today" id="issueinput4" class="form-control" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Date when car is fixed">
+                                                <label asp-for="RepairTill" class="sr-only" for="date2">Repair Till</label>
+                                                <input asp-for="RepairTill" type="date" id="date2" class="form-control" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Date when car is fixed">
                                                 <span asp-validation-for="RepairTill" class="text-danger"></span>
                                             </div>
                                         </div>
 
                                         <div class="row">
                                             <div class="form-group col-12 mb-2">
-                                                <label asp-for="City" class="sr-only" for="issueinput5">City</label>
-                                                <select asp-for="City" id="issueinput5" class="form-control" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="City">
+                                                <label asp-for="City" class="sr-only" for="city">City</label>
+                                                <select asp-for="City" id="city" class="form-control" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="City">
                                                     <option value="tartu">Tartu</option>
                                                     <option value="tallinn">Tallinn</option>
                                                     <option value="parnu">Parnu</option>
@@ -80,8 +79,8 @@
 
                                         <div class="row">
                                             <div class="form-group col-12 mb-2">
-                                                <label asp-for="TypeOfWork" class="sr-only" for="issueinput6">Select the type of work</label>
-                                                <select asp-for="TypeOfWork" id="issueinput6" class="form-control" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Select the type of work. Not required.">
+                                                <label asp-for="TypeOfWork" class="sr-only" for="typeofwork">Select the type of work</label>
+                                                <select asp-for="TypeOfWork" id="typeofwork" class="form-control" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Select the type of work. Not required.">
                                                     <option value="electrical">Electrical</option>
                                                     <option value="Engine">Engine</option>
                                                     <option value="wheels">Wheels and tires</option>
@@ -92,54 +91,44 @@
 
                                         <div class="row">
                                             <div class="form-group col-12 mb-2">
-                                                <label asp-for="Description" class="sr-only" for="issueinput8">Describe the problem</label>
-                                                <textarea asp-for="Description" id="issueinput8" rows="5" class="form-control" placeholder="Describe the problem" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Describe the problem"></textarea>
+                                                <label asp-for="Description" class="sr-only" for="description">Describe the problem</label>
+                                                <textarea asp-for="Description" id="description" rows="5" class="form-control" placeholder="Describe the problem" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Describe the problem"></textarea>
                                                 <span asp-validation-for="Description" class="text-danger"></span>
                                             </div>
                                         </div>
-                                    </div>
-
-
-                                    <div class="form-group col-12 mb-2 file-repeater">
-                                        <div data-repeater-list="repeater-list">
-                                            <div data-repeater-item>
-                                                <div class="row mb-1">
-                                                    <div class="col-9 col-xl-10">
-                                                        <label class="file center-block">
-                                                            <input type="file" id="file">
-                                                            <span class="file-custom"></span>
-                                                        </label>
-                                                    </div>
-                                                    <div class="col-2 col-xl-1">
-                                                        <button type="button" data-repeater-delete class="btn btn-icon btn-danger mr-1"><i class="feather icon-x"></i></button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <button type="button" data-repeater-create class="btn btn-primary">
-                                            <i class="icon-plus4"></i> Add new file
-                                        </button>
                                     </div>
 
                                     <div class="form-actions">
                                         <button type="button" class="btn btn-warning mr-1">
                                             <i class="feather icon-x"></i> Cancel
                                         </button>
-                                        <button type="submit" class="btn btn-primary">
-                                            <i class="fa fa-check-square-o"></i> Save
+                                        <button type="submit" class="btn btn-primary" id="sendBtn">
+                                            <i class="fa fa-check-square-o"></i> Send
                                         </button>
                                     </div>
                                 </form>
                             </div>
                         </div>
-                        </div>
                     </div>
                 </div>
-              </div>
+            </div>
         </div>
-    <!-- END: Content-->
+    </div>
+    <script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+    <script>
+        const hubConnection = new signalR.HubConnectionBuilder()
+            .withUrl("/New")
+            .build();
 
+        document.getElementById("sendBtn").addEventListener("click", function (e) {
+            let issue = document.getElementById("issue").value;
+            let car = document.getElementById("car").value;
+            let date = document.getElementById("date").value;
+            let description = document.getElementById("description").value;
+            hubConnection.invoke("Send", issue, car, date, description);
+        });
+        hubConnection.start();
+    </script>
 </body>
 
 
