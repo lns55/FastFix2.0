@@ -68,9 +68,9 @@
                                             <div class="form-group col-12 mb-2">
                                                 <label asp-for="City" class="sr-only" for="city">City</label>
                                                 <select asp-for="City" id="city" class="form-control" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="City">
-                                                    <option value="tartu">Tartu</option>
-                                                    <option value="tallinn">Tallinn</option>
-                                                    <option value="parnu">Parnu</option>
+                                                    <option value="Tartu">Tartu</option>
+                                                    <option value="Tallinn">Tallinn</option>
+                                                    <option value="Parnu">Parnu</option>
                                                     <option value="Vantaa">Vantaa</option>
                                                 </select>
                                                 <span asp-validation-for="City" class="text-danger"></span>
@@ -124,8 +124,9 @@
             let issue = document.getElementById("issue").value;
             let car = document.getElementById("car").value;
             let date = document.getElementById("date").value;
+            let city = document.getElementById("city").value;
             let description = document.getElementById("description").value;
-            hubConnection.invoke("Send", issue, car, date, description);
+            hubConnection.invoke("Send", issue, car, city, date, description);
         });
         hubConnection.start();
     </script>
