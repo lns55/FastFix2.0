@@ -1,4 +1,5 @@
-﻿using FastFix2._0.Areas.Identity;
+﻿using FastFix2._0.Areas.Applications;
+using FastFix2._0.Areas.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,6 +13,8 @@ namespace FastFix2._0.Data
         public DbSet<CarRepairUser> carRepairUsers { get; set; }
 
         public DbSet<NewApplications> NewApplications { get; set; }
+
+        public DbSet<AnswersForApps> AnswersForApps { get; set; }
 
         public FastFixDbContext(DbContextOptions<FastFixDbContext> options)
             : base(options)

@@ -65,12 +65,15 @@
                                 </div>
                                 <input type="text" id="message" />
                                 <div class="col-12">
+                                    <h5 class="mb-1"><i class="feather icon-dollar-sign"></i> Price for the work</h5>
+                                </div>
+                                <input type="number" id="price" />
+                                <div class="col-12">
                                 </div>
                                 <div class="col-3">
-                                    <a @*asp-controller="CarRepairWorkshop" asp-route-id="@User" asp-action="Answer"*@ id="sendBtn" name="Answer" class="btn white btn-success btn-success-lighten">Answer</a>
+                                    <a @*asp-controller="CarRepairWorkshop" asp-action="CarRepairWorkshop"*@ id="sendBtn" name="Answer" class="btn white btn-success btn-success-lighten">Answer</a>
                                     <a asp-controller="CarRepairWorkshop" asp-action="CarRepairWorkshop" class="btn white btn-warning btn-warning-lighten">Cancel</a>
                                 </div>
-                                <div id="answer"></div>
                             </div>
                         </div>
                     </div>
@@ -79,28 +82,17 @@
         </div>
     </div>
 
-
-    <input type="hidden" id="userId" value="@Model.UserId"/>
-
     <script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
     <script>
         const hubConnection = new signalR.HubConnectionBuilder()
             .withUrl("/AnswerPage")
             .build();
 
-        hubConnection.on("Send", function (message, userId) {
-
-
-            let elem = document.createElement("p");
-            elem.appendChild(document.createTextNode(message));
-            let firstElem = document.getElementById("answer").firstChild;
-            document.getElementById("answer").insertBefore(elem, firstElem);
-        });
-
         document.getElementById("sendBtn").addEventListener("click", function (e) {
             let message = document.getElementById("message").value;
-            let userId = document.getElementById("userId").value;
-            hubConnection.invoke("Send", message, userId);
+            let price = document.getElementById("price").value;
+            let issueTitle = document.getElementById("issueTitle").value;
+            hubConnection.invoke("Answer", issueTitle, message, price);
         });
 
         hubConnection.start();

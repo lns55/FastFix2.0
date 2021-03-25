@@ -1,9 +1,11 @@
-﻿using FastFix2._0.Areas.Identity;
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace FastFix2._0.Areas.Applications
 {
-    public class NewApplications
+    public class AnswersForApps
     {
         public int Id { get; set; }
         public string IssueTitle { get; set; }
@@ -14,5 +16,8 @@ namespace FastFix2._0.Areas.Applications
         public string TypeOfWork { get; set; }
         public string Description { get; set; }
         public string UserId { get; set; }
+        public string Message { get; set; }
+        public int Price { get; set; }
+
     }
 }

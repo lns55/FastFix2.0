@@ -1,12 +1,9 @@
-﻿using System;
+﻿using FastFix2._0.Data;
+using Microsoft.AspNetCore.SignalR;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using FastFix2._0.Areas.Identity;
-using FastFix2._0.Data;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.SignalR;
-
 
 namespace FastFix2._0.Hubs
 {
@@ -19,21 +16,16 @@ namespace FastFix2._0.Hubs
             _db = context;
         }
 
-        public async Task Send(string issue, string car, string city, string date, string description)
+        public async Task Answer(string issueTitle, string message, int price)
         {
-            var appId = from a in _db.NewApplications
-                        where a.Description == description
-                        select a.Id;
 
-            //Need to do sorting by city and type of work. Leaving that tries here...hope you will find a better way...21.03.2021
-            //var sortByCity = from r in _db.carRepairUsers
-            //                 where r.City == city
-            //                 select r.UserId.ToString();
+            var getId = from u in _db.NewApplications
+                         where issueTitle == u.IssueTitle
+                         select u.UserId;
 
-            //var userID = sortByCity.ToList();
+            var userId = getId.ToString();
 
-            await Task.Delay(500);
-            await Clients.All.SendAsync("Send", issue, car, date, description, appId);
+            await Clients.User(userId).SendAsync("Answer", issueTitle, message, price);
         }
     }
 }
