@@ -56,10 +56,12 @@ namespace FastFix2._0.Controllers
             return View(app);
         }
 
-        public IActionResult Answer(string User)
+        public IActionResult Answer(int Id, )
         {
-           
-            return View();
+            
+
+
+            RedirectToAction("CarRepairWorkshop");
         }
 
         public IActionResult Waiting() => View();
