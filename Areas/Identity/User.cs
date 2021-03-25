@@ -1,4 +1,4 @@
-﻿using FastFix2._0.Data;
+﻿using FastFix2._0.Areas.Applications;
 using Microsoft.AspNetCore.Identity;
 using System.Collections.Generic;
 

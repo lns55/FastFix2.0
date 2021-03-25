@@ -1,14 +1,9 @@
-﻿ using FastFix2._0.Areas.Identity;
+﻿using FastFix2._0.Areas.Applications;
+using FastFix2._0.Areas.Identity;
 using FastFix2._0.Data;
 using FastFix2._0.ViewModels.Applications;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace FastFix2._0.Controllers.CarOwnerGarage.MyApplications
 {
@@ -53,7 +48,8 @@ namespace FastFix2._0.Controllers.CarOwnerGarage.MyApplications
                 UserId = user
             };
 
-            if (model.Id == 0) {
+            if (model.Id == 0)
+            {
                 db.Add(app);
             }
 

@@ -1,10 +1,8 @@
-﻿using FastFix2._0.Data;
+﻿using FastFix2._0.Areas.Applications;
+using FastFix2._0.Data;
 using FastFix2._0.Infrastructure.Interfaces;
-using FastFix2._0.ViewModels.Applications;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace FastFix2._0.Infrastructure.Services.InSql
 {
@@ -36,7 +34,7 @@ namespace FastFix2._0.Infrastructure.Services.InSql
                 return false;
 
             _db.Remove(app);
-                return true;
+            return true;
         }
 
         public void SaveChanges() => _db.SaveChanges();

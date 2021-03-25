@@ -1,9 +1,5 @@
-﻿using FastFix2._0.Data;
-using FastFix2._0.ViewModels.Applications;
-using System;
+﻿using FastFix2._0.Areas.Applications;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace FastFix2._0.Infrastructure.Interfaces
 {

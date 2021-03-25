@@ -10,7 +10,7 @@ namespace FastFix2._0.Data
         /// <summary>
         /// Context of data for CarRepair companies.
         /// </summary>
-        public DbSet<CarRepairUser> carRepairUsers { get; set; }
+        public DbSet<CarRepairUser> CarRepairUsers { get; set; }
 
         public DbSet<NewApplications> NewApplications { get; set; }
 

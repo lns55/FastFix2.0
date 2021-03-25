@@ -17,9 +17,9 @@ namespace FastFix2._0.Infrastructure.Services.InSql
 
         public SqlCarRepairData(FastFixDbContext db) => _db = db;
 
-        public IEnumerable<CarRepairUser> GetCarRepairUsers() => _db.carRepairUsers;
+        public IEnumerable<CarRepairUser> GetCarRepairUsers() => _db.CarRepairUsers;
 
-        public CarRepairUser GetById(int Id) => _db.carRepairUsers.Find(Id);
+        public CarRepairUser GetById(int Id) => _db.CarRepairUsers.Find(Id);
 
         public int Add(CarRepairUser carRepairUser)
         {
