@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -8,11 +9,15 @@ namespace FastFix2._0.ViewModels.Applications
 {
     public class AnswerForAppViewModel
     {
-        [Required(ErrorMessage = "You need to write your answer before sending it")]
+
+        [HiddenInput(DisplayValue = false)]
+        public int Id { get; set; }
+
         [StringLength(1000, ErrorMessage = "Answer must contain maximum 1000 characters")]
         public string Message { get; set; }
 
-        [Required(ErrorMessage = "You must write approximate price")]
         public int Price { get; set; }
+
+        public int AppID { get; set; }
     }
 }

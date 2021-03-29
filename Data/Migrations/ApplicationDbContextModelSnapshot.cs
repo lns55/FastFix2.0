@@ -26,35 +26,11 @@ namespace FastFix2._0.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Car")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("City")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("IssueTitle")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Message")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Price")
                         .HasColumnType("int");
-
-                    b.Property<string>("RepairFrom")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("RepairTill")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("TypeOfWork")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

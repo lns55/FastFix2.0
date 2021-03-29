@@ -7,7 +7,7 @@ namespace FastFix2._0.Infrastructure.Interfaces
     {
         IEnumerable<NewApplications> Get();
         NewApplications GetById(int Id);
-        int Add(NewApplications app);
+        string Add(NewApplications app);
         bool Delete(int Id);
         void SaveChanges();
     }

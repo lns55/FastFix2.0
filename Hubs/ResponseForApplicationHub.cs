@@ -16,16 +16,22 @@ namespace FastFix2._0.Hubs
             _db = context;
         }
 
-        public async Task Answer(string issueTitle, string message, int price)
-        {
+        public async Task Answer(string message, int price)
+        { 
+            var getId = from b in _db.AnswersForApps
+                        where message == b.Message
+                        select b.Id;
 
-            var getId = from u in _db.NewApplications
-                         where issueTitle == u.IssueTitle
-                         select u.UserId;
+            var Id = getId.ToString();
 
-            var userId = getId.ToString();
+            var getUser = from u in _db.NewApplications
+                          where Id == u.Id.ToString()
+                          select u.UserId;
 
-            await Clients.User(userId).SendAsync("Answer", issueTitle, message, price);
+            var userId = getUser.ToString();
+
+            await Task.Delay(500);
+            await Clients.User(userId).SendAsync("Answer", message, price);
         }
     }
 }

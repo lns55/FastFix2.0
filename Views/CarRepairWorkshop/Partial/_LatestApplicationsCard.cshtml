@@ -21,9 +21,9 @@
                         <th>More</th>
                     </tr>
                 </thead>
+                @foreach (var app in Model) 
+                {
                     <tbody id="table">
-                        @foreach (var app in Model)
-                        {
                             <tr id="tableRow">
                                 <td class="align-middle">
                                     <span>@app.IssueTitle</span>
@@ -41,8 +41,8 @@
                                     <a class="btn btn-outline-primary btn-block" asp-route-id="@app.Id" asp-controller="CarRepairWorkshop" asp-action="AnswerPage"> Answer</a>
                                 </td>
                             </tr>
-                        }
                     </tbody>
+                }
             </table>
         </div>
     </div>

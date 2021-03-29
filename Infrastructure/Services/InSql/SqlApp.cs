@@ -16,14 +16,14 @@ namespace FastFix2._0.Infrastructure.Services.InSql
 
         public NewApplications GetById(int Id) => _db.NewApplications.Find(Id);
 
-        public int Add(NewApplications app)
+        public string Add(NewApplications app)
         {
             if (app is null)
                 throw new ArgumentNullException(nameof(app));
 
             _db.Add(app);
 
-            return app.Id;
+            return app.Id.ToString();
         }
 
         public bool Delete(int Id)

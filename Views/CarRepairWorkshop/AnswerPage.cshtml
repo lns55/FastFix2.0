@@ -1,4 +1,4 @@
-﻿@model FastFix2._0.Areas.Applications.NewApplications;
+﻿@model FastFix2._0.ViewModels.Applications.AnswerForAppViewModel;
 @{
     ViewData["Title"] = "AnswerPage";
     Layout = "~/Views/CarRepairWorkshop/_LayoutCarRepairWorkshop/_CarRepairWorkshopLayout.cshtml";
@@ -11,7 +11,6 @@
         <div class="content-wrapper">
             <div class="content-header row">
             </div>
-
             <div class="content-body">
                 <section class="users-view">
                     <div class="row">
@@ -34,7 +33,7 @@
                                     <h5 class="mb-1"><i class="feather icon-info"></i> Application details</h5>
                                     <table class="table table-borderless mb-0">
                                         <tbody>
-                                            <tr>
+                                            @*<tr>
                                                 <td>Due date:</td>
                                                 <td>@Model.IssueTitle</td>
                                             </tr>
@@ -50,7 +49,7 @@
                                                 <td>Year:</td>
                                                 <td>@Model.TypeOfWork</td>
                                             </tr>
-                                        </tbody>
+                                        </tbody>*@
                                     </table>
                                 </div>
                                 <br>
@@ -58,22 +57,27 @@
                                     <h5 class="mb-1"><i class="feather icon-check-circle"></i> What to do</h5>
                                 </div>
                                 <div class="col-12">
-                                    <p>@Model.Description</p>
+                                    @*<p>@Model.Description</p>*@
                                 </div>
-                                <div class="col-12">
-                                    <h5 class="mb-1"><i class="feather icon-clipboard"></i> Your answer</h5>
-                                </div>
-                                <input type="text" id="message" />
-                                <div class="col-12">
-                                    <h5 class="mb-1"><i class="feather icon-dollar-sign"></i> Price for the work</h5>
-                                </div>
-                                <input type="number" id="price" />
-                                <div class="col-12">
-                                </div>
-                                <div class="col-3">
-                                    <a asp-controller="CarRepairWorkshop" asp-action="Answer" asp-route="@Model.Id" id="sendBtn" name="Answer" class="btn white btn-success btn-success-lighten">Answer</a>
-                                    <a asp-controller="CarRepairWorkshop" asp-action="CarRepairWorkshop" class="btn white btn-warning btn-warning-lighten">Cancel</a>
-                                </div>
+                                <form class="form" asp-action="AnswerPage" asp-antiforgery="true">
+                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                    <div class="col-12">
+                                        <h5 class="mb-1"><i class="feather icon-clipboard"></i> Your answer</h5>
+                                    </div>
+                                    <input asp-for="Message" type="text" id="message" />
+                                    <span asp-validation-for="Message"></span>
+                                    <div class="col-12">
+                                        <h5 class="mb-1"><i class="feather icon-dollar-sign"></i> Price for the work</h5>
+                                    </div>
+                                    <input asp-for="Price" type="text" id="price" />
+                                    <span asp-validation-for="Price"></span>
+                                    <div class="col-12">
+                                    </div>
+                                    <div class="col-3">
+                                        <button type="submit" id="sendBtn" class="btn white btn-success btn-success-lighten">Answer</button>
+                                        <a asp-controller="CarRepairWorkshop" asp-action="CarRepairWorkshop" class="btn white btn-warning btn-warning-lighten">Cancel</a>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -91,8 +95,7 @@
         document.getElementById("sendBtn").addEventListener("click", function (e) {
             let message = document.getElementById("message").value;
             let price = document.getElementById("price").value;
-            let issueTitle = document.getElementById("issueTitle").value;
-            hubConnection.invoke("Answer", issueTitle, message, price);
+            hubConnection.invoke("Answer", message, price);
         });
 
         hubConnection.start();

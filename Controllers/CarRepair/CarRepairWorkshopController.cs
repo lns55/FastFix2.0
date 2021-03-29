@@ -1,20 +1,11 @@
-﻿using FastFix2._0.Areas.Identity;
+﻿using FastFix2._0.Areas.Applications;
+using FastFix2._0.Areas.Identity;
 using FastFix2._0.Data;
 using FastFix2._0.ViewModels.Applications;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Nest;
-using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
+using System.Web;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FastFix2._0.Controllers
 {
@@ -49,24 +40,38 @@ namespace FastFix2._0.Controllers
             return View(app.ToList());
         }
 
-        public IActionResult AnswerPage(int Id)
+        //public IActionResult AnswerPage(int Id)
+        //{
+        //    var app = _db.NewApplications.Find(Id);
+
+        //    return View();
+        //}
+
+        public IActionResult AnswerPage() => View(new AnswerForAppViewModel());
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public IActionResult AnswerPage(AnswerForAppViewModel model, int Id)
         {
-            var app = _db.NewApplications.Find(Id);
+            if (!ModelState.IsValid)
+                return View(model);
 
-            return View(app);
-        }
+            var answer = new AnswersForApps
+            {
+                Id = model.Id,
+                AppID = Id,
+                Message = model.Message,
+                Price = model.Price
+            };
 
-        public IActionResult Answer(int Id, )
-        {
-            
+            _db.Add(answer);
+            _db.SaveChanges();
 
-
-            RedirectToAction("CarRepairWorkshop");
+           return RedirectToAction("CarRepairWorkshop", "CarRepairWorkshop");
         }
 
         public IActionResult Waiting() => View();
 
-        
-        
+
+
     }
 }

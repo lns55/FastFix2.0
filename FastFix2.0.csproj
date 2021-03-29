@@ -22,6 +22,8 @@
     <Compile Remove="Data\Migrations\20210117075610_F.F.1.5..Designer.cs" />
     <Compile Remove="Data\Migrations\20210325173243_F.F.1.6.cs" />
     <Compile Remove="Data\Migrations\20210325173243_F.F.1.6.Designer.cs" />
+    <Compile Remove="Data\Migrations\20210329142937_F.F.1.6.4.3.cs" />
+    <Compile Remove="Data\Migrations\20210329142937_F.F.1.6.4.3.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,7 +39,7 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.10" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.10" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
     <PackageReference Include="NEST" Version="7.11.0" />
   </ItemGroup>
 
