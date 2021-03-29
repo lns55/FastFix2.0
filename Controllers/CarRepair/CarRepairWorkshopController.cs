@@ -57,7 +57,6 @@ namespace FastFix2._0.Controllers
 
             var answer = new AnswersForApps
             {
-                Id = model.Id,
                 AppID = Id,
                 Message = model.Message,
                 Price = model.Price
@@ -70,8 +69,5 @@ namespace FastFix2._0.Controllers
         }
 
         public IActionResult Waiting() => View();
-
-
-
     }
 }
