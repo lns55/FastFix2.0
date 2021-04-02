@@ -46,7 +46,7 @@
             .withUrl("/Waiting")
             .build();
 
-            hubConnection.on("Answer", function (issueTitle, message, price) {
+            hubConnection.on("Answer", function (issueTitle, Message, Price) {
 
                 var table = document.getElementById("table");
 
@@ -58,8 +58,8 @@
                 var cell4 = row.insertCell(3);
 
                 cell1.appendChild(document.createTextNode(issueTitle));
-                cell2.appendChild(document.createTextNode(message));
-                cell3.appendChild(document.createTextNode(price));
+                cell2.appendChild(document.createTextNode(Message));
+                cell3.appendChild(document.createTextNode(Price));
 
                 var link = document.createElement("a");
                 link.setAttribute("class", "btn btn-outline-primary btn-block");
@@ -68,6 +68,5 @@
 
                 cell4.appendChild(link);
             });
-
-        hubConnection.start();
+            hubConnection.start();
 </script>

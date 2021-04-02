@@ -50,7 +50,7 @@
 <script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
 <script>
         const hubConnection = new signalR.HubConnectionBuilder()
-            .withUrl("/AnswerPage")
+            .withUrl("/Waiting")
             .build();
 
         hubConnection.on("Send", function (message) {

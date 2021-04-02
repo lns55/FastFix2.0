@@ -7,11 +7,10 @@ using System.Threading.Tasks;
 
 namespace FastFix2._0.ViewModels.Applications
 {
-    public class AnswerForAppViewModel
-    {
-
+    public class AnswerForAppViewModel : CreateApplicationViewModel
+    { 
         [HiddenInput(DisplayValue = false)]
-        public int Id { get; set; }
+        public new int Id { get; set; }
 
         [StringLength(1000, ErrorMessage = "Answer must contain maximum 1000 characters")]
         public string Message { get; set; }

@@ -1,24 +1,18 @@
 using FastFix2._0.Areas.Identity;
 using FastFix2._0.Data;
-using FastFix2._0.Infrastructure.Interfaces;
-using FastFix2._0.Infrastructure.Services;
-using FastFix2._0.Infrastructure.Services.InSql;
 using FastFix2._0.Hubs;
+using FastFix2._0.Infrastructure.Interfaces;
+using FastFix2._0.Infrastructure.Services.InSql;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
-using Microsoft.AspNetCore.Identity.UI.Services;
+using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.ResponseCompression;
 
 namespace FastFix2._0
 {
@@ -132,11 +126,11 @@ namespace FastFix2._0
             app.UseAuthentication();
             app.UseAuthorization();
 
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapHub<NewApplicationHub>("/CarRepairWorkshop");
                 endpoints.MapHub<NewApplicationHub>("/New");
-
                 endpoints.MapHub<ResponseForApplicationHub>("/AnswerPage");
                 endpoints.MapHub<ResponseForApplicationHub>("/Waiting");
 

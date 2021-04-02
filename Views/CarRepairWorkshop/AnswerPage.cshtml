@@ -33,7 +33,7 @@
                                     <h5 class="mb-1"><i class="feather icon-info"></i> Application details</h5>
                                     <table class="table table-borderless mb-0">
                                         <tbody>
-                                            @*<tr>
+                                            <tr>
                                                 <td>Due date:</td>
                                                 <td>@Model.IssueTitle</td>
                                             </tr>
@@ -49,7 +49,7 @@
                                                 <td>Year:</td>
                                                 <td>@Model.TypeOfWork</td>
                                             </tr>
-                                        </tbody>*@
+                                        </tbody>
                                     </table>
                                 </div>
                                 <br>
@@ -57,24 +57,22 @@
                                     <h5 class="mb-1"><i class="feather icon-check-circle"></i> What to do</h5>
                                 </div>
                                 <div class="col-12">
-                                    @*<p>@Model.Description</p>*@
+                                    <p>@Model.Description</p>
                                 </div>
                                 <form class="form" asp-action="AnswerPage" asp-antiforgery="true">
                                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                                    <div class="col-12">
-                                        <h5 class="mb-1"><i class="feather icon-clipboard"></i> Your answer</h5>
+                                    <div class="form-group col-8 mb-2">
+                                        <label asp-for="Message" class="sr-only" for="Message">Message</label>
+                                        <input asp-for="Message" type="text" id="Message" class="form-control" placeholder="Message" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Message">
+                                        <span asp-validation-for="Message" class="text-danger"></span>
                                     </div>
-                                    <input asp-for="Message" type="text" id="message" />
-                                    <span asp-validation-for="Message"></span>
-                                    <div class="col-12">
-                                        <h5 class="mb-1"><i class="feather icon-dollar-sign"></i> Price for the work</h5>
-                                    </div>
-                                    <input asp-for="Price" type="text" id="price" />
-                                    <span asp-validation-for="Price"></span>
-                                    <div class="col-12">
+                                    <div class="form-group col-8 mb-2">
+                                        <label asp-for="Price" class="sr-only" for="Price">Price</label>
+                                        <input asp-for="Price" type="number" id="Price" class="form-control" placeholder="Price" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Price">
+                                        <span asp-validation-for="Price" class="text-danger"></span>
                                     </div>
                                     <div class="col-3">
-                                        <button type="submit" id="sendBtn" class="btn white btn-success btn-success-lighten">Answer</button>
+                                        <button type="submit" id="sendButton" class="btn white btn-success btn-success-lighten">Answer</button>
                                         <a asp-controller="CarRepairWorkshop" asp-action="CarRepairWorkshop" class="btn white btn-warning btn-warning-lighten">Cancel</a>
                                     </div>
                                 </form>
@@ -92,12 +90,12 @@
             .withUrl("/AnswerPage")
             .build();
 
-        document.getElementById("sendBtn").addEventListener("click", function (e) {
-            let message = document.getElementById("message").value;
-            let price = document.getElementById("price").value;
-            hubConnection.invoke("Answer", message, price);
+        document.getElementById("sendButton").addEventListener("click", function (e) {
+            let Message = document.getElementById("Message").value;
+            let Price = document.getElementById("Price").value;
+            hubConnection.invoke("Answer", Message, Price)
         });
-
+        
         hubConnection.start();
     </script>
 </body>

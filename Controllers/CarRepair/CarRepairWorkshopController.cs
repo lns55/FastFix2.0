@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Web;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace FastFix2._0.Controllers
 {
@@ -40,21 +41,12 @@ namespace FastFix2._0.Controllers
             return View(app.ToList());
         }
 
-        //public IActionResult AnswerPage(int Id)
-        //{
-        //    var app = _db.NewApplications.Find(Id);
-
-        //    return View();
-        //}
 
         public IActionResult AnswerPage() => View(new AnswerForAppViewModel());
 
         [HttpPost, ValidateAntiForgeryToken]
         public IActionResult AnswerPage(AnswerForAppViewModel model, int Id)
         {
-            if (!ModelState.IsValid)
-                return View(model);
-
             var answer = new AnswersForApps
             {
                 AppID = Id,
@@ -65,7 +57,7 @@ namespace FastFix2._0.Controllers
             _db.Add(answer);
             _db.SaveChanges();
 
-           return RedirectToAction("CarRepairWorkshop", "CarRepairWorkshop");
+            return RedirectToAction("CarRepairWorkshop", "CarRepairWorkshop");
         }
 
         public IActionResult Waiting() => View();
