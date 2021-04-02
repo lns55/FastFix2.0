@@ -1,4 +1,4 @@
-﻿
+﻿@model List<FastFix2._0.Areas.Applications.NewApplications>
 <div class="card active-users">
     <div class="card-header border-0">
         <h4 class="card-title">Waiting for response</h4>
@@ -16,26 +16,29 @@
                     <tr>
                         <th>Issue Title</th>
                         <th>Repair Date</th>
-                        <th>Message</th>
-                        <th>Price</th>
+                        <th>Description</th>
                         <th>More</th>
                     </tr>
                 </thead>
-                <tbody id="table">
-                    <tr>
-                        <td class="align-middle">
-                        </td>
-                        <td class="align-middle">
-                        </td>
-                        <td class="align-middle">
-                        </td>
-                        <td class="align-middle">
-                        </td>
-                        <td class="align-middle">
-                            <button class="btn white bg-amber-lighten-2 bg-amber">See Answers</button>
-                        </td>
-                    </tr>
-                </tbody>
+                @foreach (var app in Model)
+                {
+                    <tbody id="table">
+                        <tr>
+                            <td class="align-middle">
+                                <span>@app.IssueTitle</span>
+                            </td>
+                            <td class="align-middle">
+                                <span>@app.RepairTill</span>
+                            </td>
+                            <td class="align-middle">
+                                <span>@app.Description</span>
+                            </td>
+                            <td class="align-middle">
+                                <button class="btn white bg-amber-lighten-2 bg-amber">See Answers</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                }
             </table>
         </div>
     </div>

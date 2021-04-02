@@ -4,18 +4,19 @@ using FastFix2._0.Data;
 using FastFix2._0.ViewModels.Applications;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace FastFix2._0.Controllers.CarOwnerGarage.MyApplications
 {
     public class MyApplicationsController : Controller
     {
-        private readonly FastFixDbContext db;
-        private readonly UserManager<User> userManager;
+        private readonly FastFixDbContext _db;
+        private readonly UserManager<User> _UserManager;
 
         public MyApplicationsController(FastFixDbContext context, UserManager<User> UserManager)
         {
-            db = context;
-            userManager = UserManager;
+            _db = context;
+            _UserManager = UserManager;
         }
 
         /// <summary>
@@ -29,7 +30,7 @@ namespace FastFix2._0.Controllers.CarOwnerGarage.MyApplications
             if (!ModelState.IsValid)
                 return View(model);
 
-            var user = userManager.GetUserId(User);
+            var user = _UserManager.GetUserId(User);
 
             var date = model.RepairFrom.ToShortDateString();
 
@@ -50,16 +51,27 @@ namespace FastFix2._0.Controllers.CarOwnerGarage.MyApplications
 
             if (model.Id == 0)
             {
-                db.Add(app);
+                _db.Add(app);
             }
 
-            db.SaveChanges();
+            _db.SaveChanges();
 
             return RedirectToAction("CarOwnerGarage", "CarOwnerGarage");
         }
 
+        public IActionResult Waiting()
+        {
+            var userId = _UserManager.GetUserId(User);
+
+            var app = from a in _db.NewApplications
+                      where userId == a.UserId
+                      select a;
+
+            return View(app.ToList());
+        }
+
         public IActionResult Active() => View();
-        public IActionResult Waiting() => View();
+      
         public IActionResult Completed() => View();
     }
 }
