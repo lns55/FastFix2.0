@@ -1,0 +1,61 @@
+﻿@model List<FastFix2._0.Areas.Applications.AnswersForApps>;
+@{
+    Layout = "~/Views/MyApplications/_MyApplicationLayout/_MyApplicationLayout.cshtml";
+}
+
+<body class="vertical-layout vertical-menu 2-columns   fixed-navbar" data-open="click" data-menu="vertical-menu" data-col="2-columns">
+
+    <div class="app-content content">
+        <div class="content-overlay"></div>
+        <div class="content-wrapper">
+            <div class="content-header row">
+            </div>
+            <div class="content-body">
+                <section class="users-view">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-body">
+                                <div class="col-12">
+                                    <h5 class="mb-1"><i class="feather icon-info"></i> Application details</h5>
+                                    @foreach (var answer in Model)
+                                    {
+                                        <span>@answer.Message</span>
+                                        <span>@answer.Price</span>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+
+@*</div>
+    <br>
+    <div class="col-12">
+        <h5 class="mb-1"><i class="feather icon-check-circle"></i> What to do</h5>
+    </div>
+    <div class="col-12">
+        <p>@Model.Description</p>
+    </div>
+    <form class="form" asp-action="AnswerPage" asp-antiforgery="true">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group col-8 mb-2">
+            <label asp-for="Message" class="sr-only" for="Message">Message</label>
+            <input asp-for="Message" type="text" id="Message" class="form-control" placeholder="Message" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Message">
+            <span asp-validation-for="Message" class="text-danger"></span>
+        </div>
+        <div class="form-group col-8 mb-2">
+            <label asp-for="Price" class="sr-only" for="Price">Price</label>
+            <input asp-for="Price" type="number" id="Price" class="form-control" placeholder="Price" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Price">
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+        <div class="col-3">
+            <button type="submit" id="sendButton" class="btn white btn-success btn-success-lighten">Answer</button>
+            <a asp-controller="CarRepairWorkshop" asp-action="CarRepairWorkshop" class="btn white btn-warning btn-warning-lighten">Cancel</a>
+        </div>
+    </form>*@

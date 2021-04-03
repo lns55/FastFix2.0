@@ -34,7 +34,7 @@
                                 <span>@app.Description</span>
                             </td>
                             <td class="align-middle">
-                                <button class="btn white bg-amber-lighten-2 bg-amber">See Answers</button>
+                                <a asp-action="SeeAnswers" asp-controller="MyApplications" asp-route-id="@app.Id" class="btn white bg-amber-lighten-2 bg-amber">See Answers</a>
                             </td>
                         </tr>
                     </tbody>

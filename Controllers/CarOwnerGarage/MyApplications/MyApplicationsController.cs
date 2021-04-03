@@ -70,6 +70,15 @@ namespace FastFix2._0.Controllers.CarOwnerGarage.MyApplications
             return View(app.ToList());
         }
 
+        public IActionResult SeeAnswers(int Id)
+        {
+            var answers = from a in _db.AnswersForApps
+                         where a.AppID == Id
+                         select a;
+
+            return View(answers.ToList());
+        }
+
         public IActionResult Active() => View();
       
         public IActionResult Completed() => View();
