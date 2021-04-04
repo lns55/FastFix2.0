@@ -112,8 +112,11 @@ namespace FastFix2._0.Controllers.CarOwnerGarage.MyApplications
       
         public IActionResult InProgress()
         {
+            var getUserId = _UserManager.GetUserId(User);
 
-            return View();
+            var app = _db.ApplicationsInProgress.Where(a => a.UserId == getUserId);
+
+            return View(app.ToList());
         }
 
         public IActionResult Completed() => View();
