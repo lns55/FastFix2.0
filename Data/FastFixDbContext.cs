@@ -16,6 +16,8 @@ namespace FastFix2._0.Data
 
         public DbSet<AnswersForApps> AnswersForApps { get; set; }
 
+        public DbSet<ApplicationsInProgress> ApplicationsInProgress { get; set; }
+
         public FastFixDbContext(DbContextOptions<FastFixDbContext> options)
             : base(options)
         {
