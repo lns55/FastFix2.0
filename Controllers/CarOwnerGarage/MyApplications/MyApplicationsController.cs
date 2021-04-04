@@ -79,7 +79,7 @@ namespace FastFix2._0.Controllers.CarOwnerGarage.MyApplications
             return View(answers.ToList());
         }
 
-        public IActionResult Active(int AppID)
+        public IActionResult Accept(int AppID)
         {
             var app = _db.NewApplications.Where(a => a.Id == AppID).FirstOrDefault();
             
@@ -101,9 +101,15 @@ namespace FastFix2._0.Controllers.CarOwnerGarage.MyApplications
 
                 _db.SaveChanges();
 
-                return View();
+                return RedirectToAction("InProgress", "MyApplications");
         }
       
+        public IActionResult InProgress()
+        {
+
+            return View();
+        }
+
         public IActionResult Completed() => View();
     }
 }
