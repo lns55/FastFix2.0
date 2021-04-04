@@ -79,7 +79,12 @@ namespace FastFix2._0.Controllers.CarOwnerGarage.MyApplications
             return View(answers.ToList());
         }
 
-        public IActionResult Active() => View();
+        public IActionResult Active(int AppId)
+        {
+
+
+            return View();
+        }
       
         public IActionResult Completed() => View();
     }
