@@ -96,7 +96,8 @@ namespace FastFix2._0.Controllers.CarOwnerGarage.MyApplications
                     TypeOfWork = app.TypeOfWork,
                     UserId = app.UserId,
                     Message = answer.Message,
-                    Price = answer.Price
+                    Price = answer.Price,
+                    CarRepairId = answer.UserId
                 };
 
                 _db.ApplicationsInProgress.Add(inProgress);

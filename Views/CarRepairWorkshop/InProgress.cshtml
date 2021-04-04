@@ -1,0 +1,52 @@
+﻿@model List<FastFix2._0.Areas.Applications.ApplicationsInProgress>;
+@{
+    ViewData["Title"] = "InProgress";
+    Layout = "~/Views/CarRepairWorkshop/_LayoutCarRepairWorkshop/_CarRepairWorkshopLayout.cshtml";
+}
+<body class="vertical-layout vertical-menu 2-columns   fixed-navbar" data-open="click" data-menu="vertical-menu" data-col="2-columns">
+
+    <div class="app-content content">
+        <div class="content-overlay"></div>
+        <div class="content-wrapper">
+            <div class="content-header row">
+            </div>
+            <div class="card-content">
+                <div id="audience-list-scroll" class="table-responsive position-relative">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Issue Title</th>
+                                <th>Message</th>
+                                <th>Price</th>
+                                <th>Status</th>
+                                <th>Approve end of work</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var app in Model)
+                            {
+                                <tr>
+                                    <td class="align-middle">
+                                        <span>@app.IssueTitle</span>
+                                    </td>
+                                    <td class="align-middle">
+                                        <span>@app.Message</span>
+                                    </td>
+                                    <td class="align-middle">
+                                        <span>@app.Price</span>
+                                    </td>
+                                    <td class="align-middle">
+                                        <a asp-controller="MyApplications" asp-action="SeeApp" asp-route-Id="@app.Id" class="btn white bg-cyan">In Progress</a>
+                                    </td>
+                                    <td class="align-middle">
+                                        <a class="btn white bg-success">Finished</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

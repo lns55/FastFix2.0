@@ -93,5 +93,19 @@ namespace FastFix2._0.Controllers
 
             return View(answer);
         }
+
+        public IActionResult InProgress()
+        {
+            var getUserId = _UserManager.GetUserId(User);
+
+            var checkAppStatus = _db.ApplicationsInProgress.Where(s => s.CarRepairId == getUserId);
+
+            if(checkAppStatus != null)
+            {
+                return View(checkAppStatus.ToList());
+            }
+
+            return View();
+        }
     }
 }

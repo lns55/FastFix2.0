@@ -18,5 +18,6 @@ namespace FastFix2._0.Areas.Applications
         public string UserId { get; set; }
         public string Message { get; set; }
         public int Price { get; set; }
+        public string CarRepairId { get; set; }
     }
 }
