@@ -1,0 +1,68 @@
+﻿@model List<FastFix2._0.Areas.Applications.NewApplications>;
+@{
+    ViewData["Title"] = "New";
+    Layout = "~/Views/CarRepairWorkshop/_LayoutCarRepairWorkshop/_CarRepairWorkshopLayout.cshtml";
+}
+
+<body class="vertical-layout vertical-menu 2-column   fixed-navbar" data-open="click" data-menu="vertical-menu" data-col="2-column">
+    <div class="app-content content">
+        <div class="content-overlay">
+        </div>
+        <div class="content-wrapper">
+            <div class="content-header row">
+            </div>
+            <div class="content-body">
+                <div class=" col-lg-12">
+                    <div class="card active-users">
+                        <div class="card-header border-0">
+                            <h4 class="card-title">New Applications</h4>
+                            <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+                            <div class="heading-elements">
+                                <ul class="list-inline mb-0">
+                                    <li><a data-action="reload"><i class="feather icon-rotate-cw"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <div id="audience-list-scroll" class="table-responsive position-relative">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Car model</th>
+                                            <th>Repair Date</th>
+                                            <th>Description</th>
+                                            <th>Type Of Work</th>
+                                            <th>Answer</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var app in Model)
+                                        {
+                                            <tr>
+                                                <td class="align-middle">
+                                                    <span>@app.Car</span>
+                                                </td>
+                                                <td class="align-middle">
+                                                    <span>@app.RepairTill</span>
+                                                </td>
+                                                <td class="align-middle">
+                                                    <span>@app.Description</span>
+                                                </td>
+                                                <td class="align-middle">
+                                                    <span>@app.TypeOfWork</span>
+                                                </td>
+                                                <td class="align-middle">
+                                                    <button asp-controller="CarRepairWorkshop" asp-action="AnswerPage" asp-route-Id="@app.Id" class="btn white bg-cyan">Answer</button>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

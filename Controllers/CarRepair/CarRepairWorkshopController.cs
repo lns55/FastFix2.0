@@ -41,6 +41,17 @@ namespace FastFix2._0.Controllers
             return View(app.ToList());
         }
 
+        public IActionResult New()
+        {
+            var getUserId = _UserManager.GetUserId(User);
+
+            var getUser = _db.Users.Where(u => u.IsCarRepair == true && u.Id == getUserId).FirstOrDefault();
+
+            var apps = _db.NewApplications.Where(a => a.City == getUser.City);
+
+            return View(apps.ToList());
+        }
+
 
         public IActionResult AnswerPage() => View(new AnswerForAppViewModel());
 
