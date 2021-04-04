@@ -103,6 +103,8 @@ namespace FastFix2._0.Controllers.CarOwnerGarage.MyApplications
 
                 _db.NewApplications.Remove(app);
 
+                _db.AnswersForApps.Remove(answer);
+
                 _db.SaveChanges();
 
                 return RedirectToAction("InProgress", "MyApplications");
