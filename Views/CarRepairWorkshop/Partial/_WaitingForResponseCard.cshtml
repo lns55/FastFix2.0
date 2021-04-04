@@ -1,4 +1,4 @@
-﻿@*@model List<FastFix2._0.Data.NewApplications>;*@
+﻿@model List<FastFix2._0.Areas.Applications.NewApplications>;
 <div class="card active-users">
     <div class="card-header border-0">
         <h4 class="card-title">Waiting for response</h4>
@@ -17,37 +17,31 @@
                         <th>Car model</th>
                         <th>Repair Date</th>
                         <th>Description</th>
-                        <th>Type Of Work</th>
-                        <th>More</th>
+                        <th>Type of work</th>
+                        <th>See answer</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @*@foreach (var app in Model)
-                    {*@
+                    @foreach (var app in Model)
+                    {
                         <tr>
-                            <td class="text-truncate">
-                                <div class="avatar avatar-md mr-1">
-                                    <img class="rounded-circle" src="~/images/portrait/small/avatar-s-11.png" alt="Generic placeholder image">
-                                </div>
-                                <span class="text-truncate"></span>
+                            <td class="align-middle">
+                                <span>@app.Car</span>
                             </td>
                             <td class="align-middle">
-                                <span>@*@app.Car*@</span>
+                                <span>@app.RepairFrom</span>
                             </td>
                             <td class="align-middle">
-                                <span>@*@app.RepairTill*@</span>
+                                <span>@app.Description</span>
                             </td>
                             <td class="align-middle">
-                                <span>@*@app.Description*@</span>
+                                <span>@app.TypeOfWork</span>
                             </td>
                             <td class="align-middle">
-                                <span>@*@app.TypeOfWork*@</span>
-                            </td>
-                            <td class="align-middle">
-                                <button class="btn white bg-amber-lighten-2 bg-amber">See Answers</button>
+                                <button class="btn white bg-amber-lighten-2 bg-amber">See Answer</button>
                             </td>
                         </tr>
-                    @*}*@
+                    }
                 </tbody>
             </table>
         </div>

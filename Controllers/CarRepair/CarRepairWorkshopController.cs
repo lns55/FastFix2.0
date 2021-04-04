@@ -58,19 +58,32 @@ namespace FastFix2._0.Controllers
         [HttpPost, ValidateAntiForgeryToken]
         public IActionResult AnswerPage(AnswerForAppViewModel model, int Id)
         {
+            var userId = _UserManager.GetUserId(User);
+            
             var answer = new AnswersForApps
             {
                 AppID = Id,
                 Message = model.Message,
-                Price = model.Price
+                Price = model.Price,
+                UserId = userId
             };
 
             _db.Add(answer);
             _db.SaveChanges();
 
-            return RedirectToAction("CarRepairWorkshop", "CarRepairWorkshop");
+            return RedirectToAction("Waiting", "CarRepairWorkshop");
         }
 
-        public IActionResult Waiting() => View();
+        public IActionResult Waiting()
+        {
+            var getUserId = _UserManager.GetUserId(User);
+
+            var getUserAnswer = _db.AnswersForApps.Where(a => a.UserId == getUserId).FirstOrDefault();
+
+            var getApps = _db.NewApplications.Where(a => a.Id == getUserAnswer.AppID);
+
+            return View(getApps.ToList());
+        }
+        
     }
 }
