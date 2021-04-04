@@ -1,4 +1,4 @@
-﻿
+﻿@model List<FastFix2._0.Areas.Applications.ApplicationsInProgress>;
 @{
     Layout = "~/Views/MyApplications/_MyApplicationLayout/_MyApplicationLayout.cshtml";
 }
@@ -15,23 +15,27 @@
                     <table class="table">
                         <thead>
                             <tr>
+                                <th>Issue Title</th>
                                 <th>Message</th>
                                 <th>Price</th>
                                 <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach (var app in Model)
+                            {
                                 <tr>
-                                    <td class="align-middle col-6">
-                                        <span></span>
+                                    <td class="align-middle">
+                                        <span>@app.IssueTitle</span>
                                     </td>
-                                    <td class="align-middle col-6">
+                                    <td class="align-middle">
                                         <span></span>
                                     </td>
                                     <td class="align-middle">
                                         <span class="btn white bg-cyan">In Progress</span>
                                     </td>
                                 </tr>
+                            }
                         </tbody>
                     </table>
                 </div>

@@ -16,5 +16,7 @@ namespace FastFix2._0.Areas.Applications
         public string TypeOfWork { get; set; }
         public string Description { get; set; }
         public string UserId { get; set; }
+        public string Message { get; set; }
+        public int Price { get; set; }
     }
 }

@@ -82,6 +82,8 @@ namespace FastFix2._0.Controllers.CarOwnerGarage.MyApplications
         public IActionResult Accept(int AppID)
         {
             var app = _db.NewApplications.Where(a => a.Id == AppID).FirstOrDefault();
+
+            var answer = _db.AnswersForApps.Where(a => a.AppID == AppID).FirstOrDefault();
             
                 ApplicationsInProgress inProgress = new ApplicationsInProgress
                 {
@@ -92,7 +94,9 @@ namespace FastFix2._0.Controllers.CarOwnerGarage.MyApplications
                     RepairFrom = app.RepairFrom,
                     RepairTill = app.RepairTill,
                     TypeOfWork = app.TypeOfWork,
-                    UserId = app.UserId
+                    UserId = app.UserId,
+                    Message = answer.Message,
+                    Price = answer.Price
                 };
 
                 _db.ApplicationsInProgress.Add(inProgress);
