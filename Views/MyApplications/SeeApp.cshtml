@@ -1,0 +1,113 @@
+﻿@model FastFix2._0.Areas.Applications.ApplicationsInProgress;
+@{
+    Layout = "~/Views/MyApplications/_MyApplicationLayout/_MyApplicationLayout.cshtml";
+}
+
+<body class="vertical-layout vertical-menu 2-columns   fixed-navbar" data-open="click" data-menu="vertical-menu" data-col="2-columns">
+    <div class="app-content content">
+        <div class="content-overlay"></div>
+        <div class="content-wrapper">
+            <div class="content-header row">
+            </div>
+            <div class="card-content">
+                <div class="col-12">
+                    <table class="table table-borderless col-12">
+                        <tbody>
+                            <tr>
+                                <td>Issue title:</td>
+                                <td class="users-view-username">@Model.IssueTitle</td>
+                            </tr>
+                            <tr>
+                                <td>Car:</td>
+                                <td class="users-view-name">@Model.Car</td>
+                            </tr>
+                            <tr>
+                                <td>Repair Date:</td>
+                                <td class="users-view-email">@Model.RepairFrom</td>
+                            </tr>
+                            <tr>
+                                <td>Type of work:</td>
+                                <td>@Model.TypeOfWork</td>
+                            </tr>
+                            <tr>
+                                <td>Description:</td>
+                                <td class="users-view-username">@Model.Description</td>
+                            </tr>
+                            <tr>
+                                <td>Car:</td>
+                                <td class="users-view-name">@Model.City</td>
+                            </tr>
+                            <tr>
+                                <td>Car repair answer:</td>
+                                <td class="users-view-email">@Model.Message</td>
+                            </tr>
+                            <tr>
+                                <td>Price:</td>
+                                <td>@Model.Price</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-borderless">
+                        <tbody>
+                            <tr>
+                                <td>Username:</td>
+                                <td class="users-view-username">dean3004</td>
+                            </tr>
+                            <tr>
+                                <td>Name:</td>
+                                <td class="users-view-name">Dean Stanley</td>
+                            </tr>
+                            <tr>
+                                <td>E-mail:</td>
+                                <td class="users-view-email">deanstanley@gmail.com</td>
+                            </tr>
+                            <tr>
+                                <td>Comapny:</td>
+                                <td>XYZ Corp. Ltd.</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                    <h5 class="mb-1"><i class="feather icon-link"></i> Social Links</h5>
+                    <table class="table table-borderless">
+                        <tbody>
+                            <tr>
+                                <td>Twitter:</td>
+                                <td><a href="#">https://www.twitter.com/</a></td>
+                            </tr>
+                            <tr>
+                                <td>Facebook:</td>
+                                <td><a href="#">https://www.facebook.com/</a></td>
+                            </tr>
+                            <tr>
+                                <td>Instagram:</td>
+                                <td><a href="#">https://www.instagram.com/</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h5 class="mb-1"><i class="feather icon-info"></i> Personal Info</h5>
+                    <table class="table table-borderless mb-0">
+                        <tbody>
+                            <tr>
+                                <td>Birthday:</td>
+                                <td>03/04/1990</td>
+                            </tr>
+                            <tr>
+                                <td>Country:</td>
+                                <td>USA</td>
+                            </tr>
+                            <tr>
+                                <td>Languages:</td>
+                                <td>English</td>
+                            </tr>
+                            <tr>
+                                <td>Contact:</td>
+                                <td>+(305) 254 24668</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

@@ -25,18 +25,18 @@
                             @foreach (var app in Model)
                             {
                                 <tr>
-                                    <td class="align-middle">
-                                        <span>@app.IssueTitle</span>
-                                    </td>
-                                    <td class="align-middle">
-                                        <span>@app.Price</span>
-                                    </td>
-                                    <td class="align-middle">
-                                        <span>@app.Price</span>
-                                    </td>
-                                    <td class="align-middle">
-                                        <span class="btn white bg-cyan">In Progress</span>
-                                    </td>
+                                        <td class="align-middle">
+                                            <span>@app.IssueTitle</span>
+                                        </td>
+                                        <td class="align-middle">
+                                            <span>@app.Message</span>
+                                        </td>
+                                        <td class="align-middle">
+                                            <span>@app.Price</span>
+                                        </td>
+                                        <td class="align-middle">
+                                            <a asp-controller="MyApplications" asp-action="SeeApp" asp-route-Id="@app.Id" class="btn white bg-cyan">In Progress</a>
+                                        </td>
                                 </tr>
                             }
                         </tbody>
