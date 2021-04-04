@@ -85,5 +85,13 @@ namespace FastFix2._0.Controllers
             return View(getApps.ToList());
         }
         
+        public IActionResult SeeAnswer(int Id)
+        {
+            var getUserId = _UserManager.GetUserId(User);
+
+            var answer = _db.AnswersForApps.Where(a => a.AppID == Id && a.UserId == getUserId).First();
+
+            return View(answer);
+        }
     }
 }

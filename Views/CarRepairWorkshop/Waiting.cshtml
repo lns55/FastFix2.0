@@ -1,4 +1,4 @@
-﻿
+﻿@model List<FastFix2._0.Areas.Applications.NewApplications>;
 @{
     ViewData["Title"] = "Waiting";
     Layout = "~/Views/CarRepairWorkshop/_LayoutCarRepairWorkshop/_CarRepairWorkshopLayout.cshtml";
@@ -13,7 +13,54 @@
             </div>
             <div class="content-body">
                 <div class=" col-lg-12">
-                    <partial name="Partial/_WaitingForResponseCard" />
+                    <div class="card active-users">
+                        <div class="card-header border-0">
+                            <h4 class="card-title">Waiting for response</h4>
+                            <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+                            <div class="heading-elements">
+                                <ul class="list-inline mb-0">
+                                    <li><a data-action="reload"><i class="feather icon-rotate-cw"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <div id="audience-list-scroll" class="table-responsive position-relative">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Car model</th>
+                                            <th>Repair Date</th>
+                                            <th>Description</th>
+                                            <th>Type of work</th>
+                                            <th>See answer</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var app in Model)
+                                        {
+                                            <tr>
+                                                <td class="align-middle">
+                                                    <span>@app.Car</span>
+                                                </td>
+                                                <td class="align-middle">
+                                                    <span>@app.RepairFrom</span>
+                                                </td>
+                                                <td class="align-middle">
+                                                    <span>@app.Description</span>
+                                                </td>
+                                                <td class="align-middle">
+                                                    <span>@app.TypeOfWork</span>
+                                                </td>
+                                                <td class="align-middle">
+                                                    <a asp-controller="CarRepairWorkshop" asp-action="SeeAnswer" asp-route-Id="@app.Id" class="btn white bg-amber-lighten-2 bg-amber">See Answer</a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,0 +1,30 @@
+﻿@model FastFix2._0.Areas.Applications.AnswersForApps;
+@{
+    ViewData["Title"] = "Waiting";
+    Layout = "~/Views/CarRepairWorkshop/_LayoutCarRepairWorkshop/_CarRepairWorkshopLayout.cshtml";
+}
+<body class="vertical-layout vertical-menu 2-columns   fixed-navbar" data-open="click" data-menu="vertical-menu" data-col="2-columns">
+    <div class="app-content content">
+        <div class="content-overlay"></div>
+        <div class="content-wrapper">
+            <div class="content-header row">
+            </div>
+            <div class="card-content">
+                <div class="col-12">
+                    <table class="table table-borderless col-12">
+                        <tbody>
+                            <tr>
+                                <td>Your answer:</td>
+                                <td class="users-view-email">@Model.Message</td>
+                            </tr>
+                            <tr>
+                                <td>Price:</td>
+                                <td>@Model.Price</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
