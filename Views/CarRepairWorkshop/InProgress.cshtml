@@ -39,7 +39,7 @@
                                         <a asp-controller="CarRepairWorkshop" asp-action="SeeApp" asp-route-Id="@app.Id" class="btn white bg-cyan">In Progress</a>
                                     </td>
                                     <td class="align-middle">
-                                        <a asp-controller="CarRepairWorkshop" asp-action="Finished" class="btn white bg-success">Finished</a>
+                                        <a asp-controller="CarRepairWorkshop" asp-action="Finished" asp-route-Id="@app.Id" class="btn white bg-success">Finished</a>
                                     </td>
                                 </tr>
                             }

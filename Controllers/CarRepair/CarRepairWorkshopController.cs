@@ -114,8 +114,16 @@ namespace FastFix2._0.Controllers
             return View(app);
         }
 
-        public IActionResult Finished()
+        public IActionResult Finished(int Id)
         {
+            var getApp = _db.ApplicationsInProgress.Where(c => c.Id == Id).First();
+
+            if(getApp != null)
+            {
+                getApp.IsFinished = true;
+
+                _db.SaveChanges();
+            }
 
             return View();
         }
