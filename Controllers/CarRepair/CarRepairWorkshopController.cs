@@ -85,7 +85,7 @@ namespace FastFix2._0.Controllers
             return View(getApps.ToList());
         }
         
-        public IActionResult SeeAnswer(int Id)
+        public IActionResult LookAnswer(int Id)
         {
             var getUserId = _UserManager.GetUserId(User);
 
@@ -126,6 +126,15 @@ namespace FastFix2._0.Controllers
             }
 
             return View();
+        }
+
+        public IActionResult Completed()
+        {
+            var userId = _UserManager.GetUserId(User);
+
+            var getApps = _db.CompletedApplications.Where(a => a.CarRepairId == userId);
+
+            return View(getApps.ToList());
         }
     }
 }

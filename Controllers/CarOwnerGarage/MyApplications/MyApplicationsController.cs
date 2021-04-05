@@ -70,7 +70,7 @@ namespace FastFix2._0.Controllers.CarOwnerGarage.MyApplications
             return View(app.ToList());
         }
 
-        public IActionResult SeeAnswers(int Id)
+        public IActionResult LookAnswers(int Id)
         {
             var answers = from a in _db.AnswersForApps
                          where a.AppID == Id
@@ -149,7 +149,7 @@ namespace FastFix2._0.Controllers.CarOwnerGarage.MyApplications
                     UserId = App.UserId,
                     Message = App.Message,
                     Price = App.Price,
-                    CarRepairId = App.UserId
+                    CarRepairId = App.CarRepairId
                 };
 
                 _db.CompletedApplications.Add(completed);
@@ -166,7 +166,7 @@ namespace FastFix2._0.Controllers.CarOwnerGarage.MyApplications
         {
             var userId = _UserManager.GetUserId(User);
 
-            var getApps = _db.CompletedApplications.Where(a => a.CarRepairId == userId);
+            var getApps = _db.CompletedApplications.Where(a => a.UserId == userId);
 
             return View(getApps.ToList());
         }
