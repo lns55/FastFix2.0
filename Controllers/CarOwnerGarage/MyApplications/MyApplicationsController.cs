@@ -129,14 +129,35 @@ namespace FastFix2._0.Controllers.CarOwnerGarage.MyApplications
 
         public IActionResult Finish(int Id) {
 
-            var getApp = _db.ApplicationsInProgress.Where(a => a.Id == Id).First();
+            var App = _db.ApplicationsInProgress.Where(a => a.Id == Id).First();
 
-            if(getApp.IsFinished == false)
+            if(App.IsFinished == false)
             {
                 return RedirectToAction("InProgress", "MyApplications");
-            }
+            } 
+            if(App.IsFinished == true)
+            {
+                CompletedApplications completed = new CompletedApplications
+                {
+                    Car = App.Car,
+                    City = App.City,
+                    Description = App.Description,
+                    IssueTitle = App.IssueTitle,
+                    RepairFrom = App.RepairFrom,
+                    RepairTill = App.RepairTill,
+                    TypeOfWork = App.TypeOfWork,
+                    UserId = App.UserId,
+                    Message = App.Message,
+                    Price = App.Price,
+                    CarRepairId = App.UserId
+                };
 
-            
+                _db.CompletedApplications.Add(completed);
+
+                _db.ApplicationsInProgress.Remove(App);
+
+                _db.SaveChanges();
+            }
 
             return View();
         }

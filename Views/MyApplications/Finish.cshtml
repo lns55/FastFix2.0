@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Finish";
+    
+    Layout = "~/Views/MyApplications/_MyApplicationLayout/_MyApplicationLayout.cshtml";
+}
+<body class="vertical-layout vertical-menu 2-columns   fixed-navbar" data-open="click" data-menu="vertical-menu" data-col="2-columns">
+
+    <div class="app-content content">
+        <div class="content-overlay"></div>
+        <div class="content-wrapper">
+            <div class="content-header row">
+            </div>
+            <div class="card-content">
+                <div>
+                    <h1>Thank you for working with us!</h1>
+                    <h2>Now we will send approvment to car repair.</h2>
+                    <a asp-controller="MyApplications" asp-action="MyApplications" class="btn white bg-primary align-middle">Return to the home page</a>
+                    <a asp-controller="MyApplications" asp-action="New" class="btn white bg-primary align-middle">Create a new application</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
