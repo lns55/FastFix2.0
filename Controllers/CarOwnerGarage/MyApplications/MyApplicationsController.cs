@@ -127,6 +127,18 @@ namespace FastFix2._0.Controllers.CarOwnerGarage.MyApplications
             return View(app);
         }
 
-        public IActionResult Completed() => View();
+        public IActionResult Finish(int Id) {
+
+            var getApp = _db.ApplicationsInProgress.Where(a => a.Id == Id).First();
+
+            if(getApp.IsFinished == false)
+            {
+                return RedirectToAction("InProgress", "MyApplications");
+            }
+
+            
+
+            return View();
+        }
     }
 }

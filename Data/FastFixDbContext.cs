@@ -18,6 +18,8 @@ namespace FastFix2._0.Data
 
         public DbSet<ApplicationsInProgress> ApplicationsInProgress { get; set; }
 
+        public DbSet<CompletedApplications> CompletedApplications { get; set; }
+
         public FastFixDbContext(DbContextOptions<FastFixDbContext> options)
             : base(options)
         {
