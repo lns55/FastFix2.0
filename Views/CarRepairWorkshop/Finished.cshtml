@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "InProgress";
+    Layout = "~/Views/CarRepairWorkshop/_LayoutCarRepairWorkshop/_CarRepairWorkshopLayout.cshtml";
+}
+<body class="vertical-layout vertical-menu 2-columns   fixed-navbar" data-open="click" data-menu="vertical-menu" data-col="2-columns">
+
+    <div class="app-content content">
+        <div class="content-overlay"></div>
+        <div class="content-wrapper">
+            <div class="content-header row">
+            </div>
+            <div class="card-content">
+                <div>
+                    <h1>Thank you for work you made!</h1>
+                    <h2>Now we will wait car owner to approve that work is done.</h2>
+                    <a asp-controller="CarRepairWorkshop" asp-action="CarRepairWorkshop" class="btn white bg-primary align-middle">Return to the home page</a>
+                    <a asp-controller="CarRepairWorkshop" asp-action="New" class="btn white bg-primary align-middle">Look for the new applications</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
