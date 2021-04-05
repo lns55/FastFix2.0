@@ -136,6 +136,13 @@ namespace FastFix2._0.Controllers.CarOwnerGarage.MyApplications
         }
         #endregion
 
+        #region Method which invokes when carowner press finish application, but carrepair didnt finished work.
+        public IActionResult FalseFinish()
+        {
+            return View();
+        }
+        #endregion
+
         #region Method which invokes when carowner approve of finished work(after carrepair pressed finished).
         public IActionResult Finish(int Id) {
 
@@ -143,7 +150,7 @@ namespace FastFix2._0.Controllers.CarOwnerGarage.MyApplications
 
             if(App.IsFinished == false)
             {
-                return RedirectToAction("InProgress", "MyApplications");
+                return RedirectToAction("FalseFinish", "MyApplications");
             } 
             if(App.IsFinished == true)
             {

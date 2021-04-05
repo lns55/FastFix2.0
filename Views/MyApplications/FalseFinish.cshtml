@@ -1,0 +1,20 @@
+﻿@{
+    Layout = "~/Views/MyApplications/_MyApplicationLayout/_MyApplicationLayout.cshtml";
+}
+<body class="vertical-layout vertical-menu 2-columns   fixed-navbar" data-open="click" data-menu="vertical-menu" data-col="2-columns">
+
+    <div class="app-content content">
+        <div class="content-overlay"></div>
+        <div class="content-wrapper">
+            <div class="content-header row">
+            </div>
+            <div class="card-content">
+                <div>
+                    <h1>You cant finish application now. Wait for car repair to finish the work. If you have troubles feel free to contact us.</h1>
+                    <a asp-controller="MyApplications" asp-action="InProgress" class="btn white bg-primary align-middle">Return</a>
+                    <a asp-controller="CarOwnerGarage" asp-action="CarOwnerGarage" class="btn white bg-primary align-middle">Go to the home page</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

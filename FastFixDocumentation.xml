@@ -29,11 +29,6 @@
             Returns View of CarOwners personal area.
             </summary>
         </member>
-        <member name="M:FastFix2._0.Controllers.CarOwnerGarage.MyApplications.MyApplicationsController.New">
-            <summary>
-            This method is resopnsible for creating new applications from CarOwners to CarReparis.
-            </summary>
-        </member>
         <member name="T:FastFix2._0.Controllers.CarRepair.CarRepairDataRegistrationController">
             <summary>
             Responsibility of this controller is validating data from second step of CarRepairShop registration and add this data to database.
