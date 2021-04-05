@@ -19,9 +19,7 @@ namespace FastFix2._0.Controllers.CarOwnerGarage.MyApplications
             _UserManager = UserManager;
         }
 
-        /// <summary>
-        /// This method is resopnsible for creating new applications from CarOwners to CarReparis.
-        /// </summary>
+        #region Page where carowners can leave new applications for carrepairs.
         public IActionResult New() => View(new CreateApplicationViewModel());
 
         [HttpPost, ValidateAntiForgeryToken]
@@ -58,7 +56,9 @@ namespace FastFix2._0.Controllers.CarOwnerGarage.MyApplications
 
             return RedirectToAction("CarOwnerGarage", "CarOwnerGarage");
         }
+        #endregion
 
+        #region Page where carowners look for applicaitons that are waiting for answers from carrepairs.
         public IActionResult Waiting()
         {
             var userId = _UserManager.GetUserId(User);
@@ -69,7 +69,9 @@ namespace FastFix2._0.Controllers.CarOwnerGarage.MyApplications
 
             return View(app.ToList());
         }
+        #endregion
 
+        #region Method to see answers for concrete applications on Waiting Page.
         public IActionResult LookAnswers(int Id)
         {
             var answers = from a in _db.AnswersForApps
@@ -78,7 +80,9 @@ namespace FastFix2._0.Controllers.CarOwnerGarage.MyApplications
 
             return View(answers.ToList());
         }
+        #endregion
 
+        #region Method to accept proper answer for applicaiton.
         public IActionResult Accept(int AppID)
         {
             var app = _db.NewApplications.Where(a => a.Id == AppID).FirstOrDefault();
@@ -110,7 +114,9 @@ namespace FastFix2._0.Controllers.CarOwnerGarage.MyApplications
 
                 return RedirectToAction("InProgress", "MyApplications");
         }
-      
+        #endregion
+
+        #region Page to see applications that are in progress.
         public IActionResult InProgress()
         {
             var getUserId = _UserManager.GetUserId(User);
@@ -119,14 +125,18 @@ namespace FastFix2._0.Controllers.CarOwnerGarage.MyApplications
 
             return View(app.ToList());
         }
+        #endregion
 
+        #region Method where carowners can see details of apps that are in progress.
         public IActionResult SeeApp(int Id)
         {
             var app = _db.ApplicationsInProgress.Where(a => a.Id == Id).FirstOrDefault();
 
             return View(app);
         }
+        #endregion
 
+        #region Method which invokes when carowner approve of finished work(after carrepair pressed finished).
         public IActionResult Finish(int Id) {
 
             var App = _db.ApplicationsInProgress.Where(a => a.Id == Id).First();
@@ -161,7 +171,9 @@ namespace FastFix2._0.Controllers.CarOwnerGarage.MyApplications
 
             return View();
         }
+        #endregion
 
+        #region Page where carowner can see all completed applications.
         public IActionResult Completed()
         {
             var userId = _UserManager.GetUserId(User);
@@ -170,5 +182,6 @@ namespace FastFix2._0.Controllers.CarOwnerGarage.MyApplications
 
             return View(getApps.ToList());
         }
+        #endregion
     }
 }

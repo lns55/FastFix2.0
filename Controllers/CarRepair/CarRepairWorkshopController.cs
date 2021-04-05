@@ -40,7 +40,7 @@ namespace FastFix2._0.Controllers
 
             return View(app.ToList());
         }
-
+        #region Displaying new applications for CarRepair.
         public IActionResult New()
         {
             var getUserId = _UserManager.GetUserId(User);
@@ -51,8 +51,9 @@ namespace FastFix2._0.Controllers
 
             return View(apps.ToList());
         }
+        #endregion
 
-
+        #region Page to leave answer for new applications.
         public IActionResult AnswerPage() => View(new AnswerForAppViewModel());
 
         [HttpPost, ValidateAntiForgeryToken]
@@ -73,7 +74,9 @@ namespace FastFix2._0.Controllers
 
             return RedirectToAction("Waiting", "CarRepairWorkshop");
         }
+        #endregion
 
+        #region Page where CarRepairs can see apps for which they answered.
         public IActionResult Waiting()
         {
             var getUserId = _UserManager.GetUserId(User);
@@ -84,7 +87,9 @@ namespace FastFix2._0.Controllers
 
             return View(getApps.ToList());
         }
-        
+        #endregion
+
+        #region Page to see details of answers for new apps.
         public IActionResult LookAnswer(int Id)
         {
             var getUserId = _UserManager.GetUserId(User);
@@ -93,7 +98,9 @@ namespace FastFix2._0.Controllers
 
             return View(answer);
         }
+        #endregion
 
+        #region Page where displays apps which are in work(they appear on this page after car owner accept answer of car repair).
         public IActionResult InProgress()
         {
             var getUserId = _UserManager.GetUserId(User);
@@ -107,13 +114,18 @@ namespace FastFix2._0.Controllers
 
             return View();
         }
+        #endregion
+
+        #region Page where carrepair can see details of apps which are in progress.
         public IActionResult SeeApp(int Id)
         {
             var app = _db.ApplicationsInProgress.Where(a => a.Id == Id).FirstOrDefault();
 
             return View(app);
         }
+        #endregion
 
+        #region Method that invokes when carrepair finished work and press button Finished App. After that carrepair wait for approvement from carowner.
         public IActionResult Finished(int Id)
         {
             var getApp = _db.ApplicationsInProgress.Where(c => c.Id == Id).First();
@@ -127,7 +139,9 @@ namespace FastFix2._0.Controllers
 
             return View();
         }
+        #endregion
 
+        #region Page where displays all completed applications.
         public IActionResult Completed()
         {
             var userId = _UserManager.GetUserId(User);
@@ -136,5 +150,6 @@ namespace FastFix2._0.Controllers
 
             return View(getApps.ToList());
         }
+        #endregion
     }
 }
