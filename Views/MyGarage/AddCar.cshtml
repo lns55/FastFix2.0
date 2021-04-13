@@ -1,0 +1,96 @@
+﻿
+@{
+    ViewData["Title"] = "AddCar";
+    Layout = "~/Views/MyGarage/_MyGarageLayout/_MyGarageLayout.cshtml";
+}
+<body class=" overflow-hidden vertical-layout vertical-menu 2-column fixed-navbar" data-open="click" data-menu="vertical-menu" data-col="2-column">
+    <div class="app-content content">
+        <div class="content-overlay"></div>
+        <div class="content-wrapper">
+            <div class="content-body">
+                <section id="horizontal-form-layouts">
+                    <div class="row justify-content-md-center">
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title" id="horz-layout-card-center">Add Car</h4>
+                                </div>
+                                <div class="card-content collpase show">
+                                    <div class="card-body">
+                                        <div class="card-text">
+                                            <p>Added car will be dispalyed in your pesonal cabinet. It will make easier for you to fill applications. Your car plate and vin code will be visible for car repairs only if you will aprove it.</p>
+                                        </div>
+                                        <form class="form form-horizontal">
+                                            <div class="form-body">
+                                                <div class="form-group row">
+                                                    <label class="col-md-3 label-control" for="carModel">Car Model</label>
+                                                    <div class="col-md-9">
+                                                        <input type="text" id="carModel" class="form-control" placeholder="e.g. BMW, AUDI" name="carModel">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <label class="col-md-3 label-control" for="engine">Engine</label>
+                                                    <div class="col-md-9">
+                                                        <input type="text" id="engine" class="form-control" placeholder="e.g. 3.0 D" name="engine">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <label class="col-md-3 label-control" for="year">Year</label>
+                                                    <div class="col-md-9">
+                                                        <input type="text" id="year" class="form-control" placeholder="Year" name="year">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <label class="col-md-3 label-control" for="carPlate">Car Plate</label>
+                                                    <div class="col-md-9">
+                                                        <input type="email" id="carPlate" class="form-control" placeholder="e.g. 747 LZN" name="carPlate">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <label class="col-md-3 label-control" for="vinCode">VIN Code</label>
+                                                    <div class="col-md-9">
+                                                        <input type="tel" id="vinCode" class="form-control" name="vinCode" placeholder="e.g. 2CNBJ134146900067">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <label class="col-md-3 label-control">I allow car repairs to see my plates and vin code</label>
+                                                    <div class="col-md-9">
+                                                        <div class="input-group">
+                                                            <div class="d-inline-block custom-control custom-radio mr-1">
+                                                                <input type="radio" name="customer1" class="custom-control-input" checked id="yes">
+                                                                <label class="custom-control-label" for="yes">Yes</label>
+                                                            </div>
+                                                            <div class="d-inline-block custom-control custom-radio">
+                                                                <input type="radio" name="customer1" class="custom-control-input" id="no">
+                                                                <label class="custom-control-label" for="no">No</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-actions center">
+                                                <button type="button" class="btn btn-warning mr-1">
+                                                    <i class="feather icon-x"></i> Cancel
+                                                </button>
+                                                <button type="submit" class="btn btn-primary">
+                                                    <i class="fa fa-check-square-o"></i> Save
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <partial name="Partial/_Footer" />
+</body>
