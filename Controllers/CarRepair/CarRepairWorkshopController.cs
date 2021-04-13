@@ -40,6 +40,7 @@ namespace FastFix2._0.Controllers
 
             return View(app.ToList());
         }
+
         #region Displaying new applications for CarRepair.
         public IActionResult New()
         {
@@ -81,9 +82,13 @@ namespace FastFix2._0.Controllers
         {
             var getUserId = _UserManager.GetUserId(User);
 
-            var getUserAnswer = _db.AnswersForApps.Where(a => a.UserId == getUserId).Select(a => a.AppID);
+            var getUserAnswer = from a in _db.AnswersForApps
+                                where a.UserId == getUserId
+                                select a.AppID;
 
-            var getApps = _db.NewApplications.Where(a => a.Id.ToString() == getUserAnswer.ToString());
+            var getApps = from a in _db.NewApplications
+                          where a.Id.ToString() == getUserAnswer.ToString()
+                          select a;
 
             return View(getApps.ToList());
         }
