@@ -1,4 +1,4 @@
-﻿
+﻿@model FastFix2._0.ViewModels.Garage.AddCarViewModel;
 @{
     ViewData["Title"] = "AddCar";
     Layout = "~/Views/MyGarage/_MyGarageLayout/_MyGarageLayout.cshtml";
@@ -20,40 +20,46 @@
                                         <div class="card-text">
                                             <p>Added car will be dispalyed in your pesonal cabinet. It will make easier for you to fill applications. Your car plate and vin code will be visible for car repairs only if you will aprove it.</p>
                                         </div>
-                                        <form class="form form-horizontal">
+                                        <form class="form form-horizontal" asp-action="AddCar" asp-antiforgery="true">
                                             <div class="form-body">
+                                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
                                                 <div class="form-group row">
-                                                    <label class="col-md-3 label-control" for="carModel">Car Model</label>
+                                                    <label asp-for="CarModel" class="col-md-3 label-control" for="carModel">Car Model</label>
                                                     <div class="col-md-9">
-                                                        <input type="text" id="carModel" class="form-control" placeholder="e.g. BMW, AUDI" name="carModel">
+                                                        <input asp-for="CarModel" type="text" id="carModel" class="form-control" placeholder="e.g. BMW, AUDI" name="carModel">
                                                     </div>
+                                                    <span asp-validation-for="CarModel" class="text-danger"></span>
                                                 </div>
 
                                                 <div class="form-group row">
-                                                    <label class="col-md-3 label-control" for="engine">Engine</label>
+                                                    <label asp-for="Engine" class="col-md-3 label-control" for="engine">Engine</label>
                                                     <div class="col-md-9">
-                                                        <input type="text" id="engine" class="form-control" placeholder="e.g. 3.0 D" name="engine">
+                                                        <input asp-for="Engine" type="text" id="engine" class="form-control" placeholder="e.g. 3.0 D" name="engine">
                                                     </div>
+                                                    <span asp-validation-for="Engine" class="text-danger"></span>
                                                 </div>
 
                                                 <div class="form-group row">
-                                                    <label class="col-md-3 label-control" for="year">Year</label>
+                                                    <label asp-for="Year" class="col-md-3 label-control" for="year">Year</label>
                                                     <div class="col-md-9">
-                                                        <input type="text" id="year" class="form-control" placeholder="Year" name="year">
+                                                        <input asp-for="Year" type="text" id="year" class="form-control" placeholder="Year" name="year">
                                                     </div>
+                                                    <span asp-validation-for="Year" class="text-danger"></span>
                                                 </div>
 
                                                 <div class="form-group row">
-                                                    <label class="col-md-3 label-control" for="carPlate">Car Plate</label>
+                                                    <label asp-for="CarPlate" class="col-md-3 label-control" for="carPlate">Car Plate</label>
                                                     <div class="col-md-9">
-                                                        <input type="email" id="carPlate" class="form-control" placeholder="e.g. 747 LZN" name="carPlate">
+                                                        <input asp-for="CarPlate" type="email" id="carPlate" class="form-control" placeholder="e.g. 747 LZN" name="carPlate">
                                                     </div>
+                                                    <span asp-validation-for="CarPlate" class="text-danger"></span>
                                                 </div>
 
                                                 <div class="form-group row">
-                                                    <label class="col-md-3 label-control" for="vinCode">VIN Code</label>
+                                                    <label asp-for="VinCode" class="col-md-3 label-control" for="vinCode">VIN Code</label>
                                                     <div class="col-md-9">
-                                                        <input type="tel" id="vinCode" class="form-control" name="vinCode" placeholder="e.g. 2CNBJ134146900067">
+                                                        <input asp-for="VinCode" type="tel" id="vinCode" class="form-control" name="vinCode" placeholder="e.g. 2CNBJ134146900067">
                                                     </div>
                                                 </div>
 
@@ -62,12 +68,12 @@
                                                     <div class="col-md-9">
                                                         <div class="input-group">
                                                             <div class="d-inline-block custom-control custom-radio mr-1">
-                                                                <input type="radio" name="customer1" class="custom-control-input" checked id="yes">
-                                                                <label class="custom-control-label" for="yes">Yes</label>
+                                                                <input asp-for="IsVisible" type="radio" value="yes" class="custom-control-input" checked id="yes">
+                                                                <label asp-for="IsVisible" class="custom-control-label" for="yes">Yes</label>
                                                             </div>
                                                             <div class="d-inline-block custom-control custom-radio">
-                                                                <input type="radio" name="customer1" class="custom-control-input" id="no">
-                                                                <label class="custom-control-label" for="no">No</label>
+                                                                <input asp-for="IsVisible" type="radio" value="no" class="custom-control-input" id="no">
+                                                                <label asp-for="IsVisible" class="custom-control-label" for="no">No</label>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -75,7 +81,7 @@
                                             </div>
 
                                             <div class="form-actions center">
-                                                <button type="button" class="btn btn-warning mr-1">
+                                                <button asp-controller="CarOwnerGarage" asp-action="CarOwnerGarage" class="btn btn-warning mr-1">
                                                     <i class="feather icon-x"></i> Cancel
                                                 </button>
                                                 <button type="submit" class="btn btn-primary">
