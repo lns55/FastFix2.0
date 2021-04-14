@@ -1,14 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace FastFix2._0.ViewModels.Applications
 {
     public class AnswerForAppViewModel : CreateApplicationViewModel
-    { 
+    {
         [HiddenInput(DisplayValue = false)]
         public new int Id { get; set; }
 
