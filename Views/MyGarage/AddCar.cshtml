@@ -23,11 +23,11 @@
                                         <form class="form form-horizontal" asp-action="AddCar" asp-antiforgery="true">
                                             <div class="form-body">
                                                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
+                                                <input asp-for="Id" type="hidden" />
                                                 <div class="form-group row">
                                                     <label asp-for="CarModel" class="col-md-3 label-control" for="carModel">Car Model</label>
                                                     <div class="col-md-9">
-                                                        <input asp-for="CarModel" type="text" id="carModel" class="form-control" placeholder="e.g. BMW, AUDI" name="carModel">
+                                                        <input asp-for="CarModel" id="carModel" class="form-control" placeholder="e.g. BMW, AUDI">
                                                     </div>
                                                     <span asp-validation-for="CarModel" class="text-danger"></span>
                                                 </div>
@@ -35,7 +35,7 @@
                                                 <div class="form-group row">
                                                     <label asp-for="Engine" class="col-md-3 label-control" for="engine">Engine</label>
                                                     <div class="col-md-9">
-                                                        <input asp-for="Engine" type="text" id="engine" class="form-control" placeholder="e.g. 3.0 D" name="engine">
+                                                        <input asp-for="Engine" id="engine" class="form-control" placeholder="e.g. 3.0 D">
                                                     </div>
                                                     <span asp-validation-for="Engine" class="text-danger"></span>
                                                 </div>
@@ -43,7 +43,7 @@
                                                 <div class="form-group row">
                                                     <label asp-for="Year" class="col-md-3 label-control" for="year">Year</label>
                                                     <div class="col-md-9">
-                                                        <input asp-for="Year" type="text" id="year" class="form-control" placeholder="Year" name="year">
+                                                        <input asp-for="Year" id="year" class="form-control" placeholder="Year">
                                                     </div>
                                                     <span asp-validation-for="Year" class="text-danger"></span>
                                                 </div>
@@ -51,7 +51,7 @@
                                                 <div class="form-group row">
                                                     <label asp-for="CarPlate" class="col-md-3 label-control" for="carPlate">Car Plate</label>
                                                     <div class="col-md-9">
-                                                        <input asp-for="CarPlate" type="email" id="carPlate" class="form-control" placeholder="e.g. 747 LZN" name="carPlate">
+                                                        <input asp-for="CarPlate" id="carPlate" class="form-control" placeholder="e.g. 747 LZN">
                                                     </div>
                                                     <span asp-validation-for="CarPlate" class="text-danger"></span>
                                                 </div>
@@ -59,7 +59,7 @@
                                                 <div class="form-group row">
                                                     <label asp-for="VinCode" class="col-md-3 label-control" for="vinCode">VIN Code</label>
                                                     <div class="col-md-9">
-                                                        <input asp-for="VinCode" type="tel" id="vinCode" class="form-control" name="vinCode" placeholder="e.g. 2CNBJ134146900067">
+                                                        <input asp-for="VinCode" id="vinCode" class="form-control" placeholder="e.g. 2CNBJ134146900067">
                                                     </div>
                                                 </div>
 
@@ -68,11 +68,11 @@
                                                     <div class="col-md-9">
                                                         <div class="input-group">
                                                             <div class="d-inline-block custom-control custom-radio mr-1">
-                                                                <input asp-for="IsVisible" type="radio" value="yes" class="custom-control-input" checked id="yes">
+                                                                <input asp-for="IsVisible" type="radio" value="true" class="custom-control-input" checked id="yes">
                                                                 <label asp-for="IsVisible" class="custom-control-label" for="yes">Yes</label>
                                                             </div>
                                                             <div class="d-inline-block custom-control custom-radio">
-                                                                <input asp-for="IsVisible" type="radio" value="no" class="custom-control-input" id="no">
+                                                                <input asp-for="IsVisible" type="radio" value="false" class="custom-control-input" id="no">
                                                                 <label asp-for="IsVisible" class="custom-control-label" for="no">No</label>
                                                             </div>
                                                         </div>

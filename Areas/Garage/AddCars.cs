@@ -7,7 +7,7 @@ namespace FastFix2._0.Areas.Garage
 {
     public class AddCars
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string UserId { get; set; }
         public string CarModel { get; set; }
         public string Engine { get; set; }
