@@ -4,10 +4,7 @@ using FastFix2._0.Data;
 using FastFix2._0.ViewModels.Garage;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace FastFix2._0.Controllers.CarOwnerGarage.Garage
 {
@@ -51,11 +48,20 @@ namespace FastFix2._0.Controllers.CarOwnerGarage.Garage
 
             _db.SaveChanges();
 
-            return RedirectToAction("MyCars","MyGarage");
+            return RedirectToAction("MyCars", "MyGarage");
         }
 
         public IActionResult MyCars()
         {
+            var userId = _UserManager.GetUserId(User);
+
+            var car = _db.UsersCars.Where(a => a.UserId == userId).ToList();
+
+            if (car != null)
+            {
+                return View(car);
+            }
+
             return View();
         }
     }

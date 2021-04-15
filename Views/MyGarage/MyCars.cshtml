@@ -1,4 +1,4 @@
-﻿
+﻿@model List<FastFix2._0.Areas.Garage.AddCars> 
 @{
     ViewData["Title"] = "MyCars";
     Layout = "~/Views/MyGarage/_MyGarageLayout/_MyGarageLayout.cshtml";
@@ -13,25 +13,28 @@
                     <div class="col-12">
                         <h1 class="text-uppercase mb-3">My Cars</h1>
                     </div>
-                    <div class="col-xl-3 col-md-6 col-12">
-                        <div class="card">
-                            <div class="text-center">
-                                <div class="card-body">
-                                    <img src="/images/logo/BMW.png" class="rounded-circle  height-150" alt="Card image">
-                                </div>
-                                <div class="card-body">
-                                    <h4 class="card-title">BMW</h4>
-                                    <h6 class="text-muted">530 D 2007</h6>
-                                    <h6 class="text-muted">967 PCF</h6>
-                                    <h6 class="text-muted">YS3AK35E4M5002999</h6>
-                                </div>
-                                <div class="text-center">
-                                    <a href="#" class="btn btn-outline-cyan mr-1 mb-1">Edit</a>
-                                    <a href="#" class="btn btn-red mr-1 mb-1">Delete</a>
-                                </div>
+                    @foreach (var car in Model)
+                    {
+                        <div class="col-xl-3 col-md-6 col-12">
+                            <div class="card">
+                                    <div class="text-center">
+                                        <div class="card-body">
+                                            <img src="/images/logo/BMW.png" class="rounded-circle  height-150" alt="Card image">
+                                        </div>
+                                        <div class="card-body">
+                                            <h4 class="card-title">@car.CarModel</h4>
+                                            <h6 class="text-muted">@car.Engine @car.Year</h6>
+                                            <h6 class="text-muted">@car.Year</h6>
+                                            <h6 class="text-muted">@car.VinCode</h6>
+                                        </div>
+                                        <div class="text-center">
+                                            <a href="#" class="btn btn-outline-cyan mr-1 mb-1">Edit</a>
+                                            <a href="#" class="btn btn-red mr-1 mb-1">Delete</a>
+                                        </div>
+                                    </div>
                             </div>
                         </div>
-                    </div>
+                    }
                 </section>
             </div>
         </div>
