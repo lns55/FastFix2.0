@@ -27,7 +27,7 @@ namespace FastFix2._0.Controllers.CarOwnerGarage.Garage
             if (!ModelState.IsValid)
                 return View(model);
 
-            var user = _UserManager.GetUserId(User);
+            string user = _UserManager.GetUserId(User);
 
             var car = new AddCars
             {
@@ -53,7 +53,7 @@ namespace FastFix2._0.Controllers.CarOwnerGarage.Garage
 
         public IActionResult MyCars()
         {
-            var userId = _UserManager.GetUserId(User);
+            string userId = _UserManager.GetUserId(User);
 
             var car = _db.UsersCars.Where(a => a.UserId == userId).ToList();
 
