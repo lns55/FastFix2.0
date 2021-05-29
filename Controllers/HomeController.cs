@@ -1,12 +1,10 @@
 ﻿using FastFix2._0.Areas.Identity;
-using FastFix2._0.Data;
 using FastFix2._0.Infrastructure.Services;
 using FastFix2._0.Models;
 using FastFix2._0.ViewModels.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Diagnostics;
 using System.Threading.Tasks;
 
@@ -104,7 +102,7 @@ namespace FastFix2._0.Controllers
                 var CallbackUrl = Url.Action(
                     "ConfirmEmail",
                     "Home",
-                    new { userId = user.Id, code = Code, isCarRepair = user.IsCarRepair, rememberMe = user.RememberMe},
+                    new { userId = user.Id, code = Code, isCarRepair = user.IsCarRepair, rememberMe = user.RememberMe },
                     protocol: HttpContext.Request.Scheme);
 
                 EmailService emailService = new EmailService();

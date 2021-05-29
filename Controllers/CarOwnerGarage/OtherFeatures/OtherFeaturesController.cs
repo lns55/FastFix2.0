@@ -2,10 +2,6 @@
 using FastFix2._0.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace FastFix2._0.Controllers.CarOwnerGarage.OtherFeatures
 {
@@ -20,7 +16,8 @@ namespace FastFix2._0.Controllers.CarOwnerGarage.OtherFeatures
             _UserManager = UserManager;
         }
 
-        public IActionResult AccountSettings() {
+        public IActionResult AccountSettings()
+        {
 
             return View();
         }

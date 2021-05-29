@@ -28,11 +28,11 @@ namespace FastFix2._0.Controllers.CarOwnerGarage.MyApplications
             if (!ModelState.IsValid)
                 return View(model);
 
-            var user = _UserManager.GetUserId(User);
+            string user = _UserManager.GetUserId(User);
 
-            var date = model.RepairFrom.ToShortDateString();
+            string date = model.RepairFrom.ToShortDateString();
 
-            var Date = date.ToString();
+            string Date = date.ToString();
 
             var app = new NewApplications
             {
@@ -61,7 +61,7 @@ namespace FastFix2._0.Controllers.CarOwnerGarage.MyApplications
         #region Page where carowners look for applicaitons that are waiting for answers from carrepairs.
         public IActionResult Waiting()
         {
-            var userId = _UserManager.GetUserId(User);
+            string userId = _UserManager.GetUserId(User);
 
             var app = from a in _db.NewApplications
                       where userId == a.UserId
@@ -75,8 +75,8 @@ namespace FastFix2._0.Controllers.CarOwnerGarage.MyApplications
         public IActionResult LookAnswers(int Id)
         {
             var answers = from a in _db.AnswersForApps
-                         where a.AppID == Id
-                         select a;
+                          where a.AppID == Id
+                          select a;
 
             return View(answers.ToList());
         }
@@ -88,38 +88,38 @@ namespace FastFix2._0.Controllers.CarOwnerGarage.MyApplications
             var app = _db.NewApplications.Where(a => a.Id == AppID).FirstOrDefault();
 
             var answer = _db.AnswersForApps.Where(a => a.AppID == AppID).FirstOrDefault();
-            
-                ApplicationsInProgress inProgress = new ApplicationsInProgress
-                {
-                    Car = app.Car,
-                    City = app.City,
-                    Description = app.Description,
-                    IssueTitle = app.IssueTitle,
-                    RepairFrom = app.RepairFrom,
-                    RepairTill = app.RepairTill,
-                    TypeOfWork = app.TypeOfWork,
-                    UserId = app.UserId,
-                    Message = answer.Message,
-                    Price = answer.Price,
-                    CarRepairId = answer.UserId
-                };
 
-                _db.ApplicationsInProgress.Add(inProgress);
+            ApplicationsInProgress inProgress = new ApplicationsInProgress
+            {
+                Car = app.Car,
+                City = app.City,
+                Description = app.Description,
+                IssueTitle = app.IssueTitle,
+                RepairFrom = app.RepairFrom,
+                RepairTill = app.RepairTill,
+                TypeOfWork = app.TypeOfWork,
+                UserId = app.UserId,
+                Message = answer.Message,
+                Price = answer.Price,
+                CarRepairId = answer.UserId
+            };
 
-                _db.NewApplications.Remove(app);
+            _db.ApplicationsInProgress.Add(inProgress);
 
-                _db.AnswersForApps.Remove(answer);
+            _db.NewApplications.Remove(app);
 
-                _db.SaveChanges();
+            _db.AnswersForApps.Remove(answer);
 
-                return RedirectToAction("InProgress", "MyApplications");
+            _db.SaveChanges();
+
+            return RedirectToAction("InProgress", "MyApplications");
         }
         #endregion
 
         #region Page to see applications that are in progress.
         public IActionResult InProgress()
         {
-            var getUserId = _UserManager.GetUserId(User);
+            string getUserId = _UserManager.GetUserId(User);
 
             var app = _db.ApplicationsInProgress.Where(a => a.UserId == getUserId);
 
@@ -144,15 +144,16 @@ namespace FastFix2._0.Controllers.CarOwnerGarage.MyApplications
         #endregion
 
         #region Method which invokes when carowner approve of finished work(after carrepair pressed finished).
-        public IActionResult Finish(int Id) {
+        public IActionResult Finish(int Id)
+        {
 
             var App = _db.ApplicationsInProgress.Where(a => a.Id == Id).First();
 
-            if(App.IsFinished == false)
+            if (App.IsFinished == false)
             {
                 return RedirectToAction("FalseFinish", "MyApplications");
-            } 
-            if(App.IsFinished == true)
+            }
+            if (App.IsFinished == true)
             {
                 CompletedApplications completed = new CompletedApplications
                 {
@@ -183,7 +184,7 @@ namespace FastFix2._0.Controllers.CarOwnerGarage.MyApplications
         #region Page where carowner can see all completed applications.
         public IActionResult Completed()
         {
-            var userId = _UserManager.GetUserId(User);
+            string userId = _UserManager.GetUserId(User);
 
             var getApps = _db.CompletedApplications.Where(a => a.UserId == userId);
 

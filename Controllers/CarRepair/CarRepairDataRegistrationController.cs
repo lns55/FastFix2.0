@@ -4,10 +4,6 @@ using FastFix2._0.Infrastructure.Interfaces;
 using FastFix2._0.ViewModels.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace FastFix2._0.Controllers.CarRepair
 {
@@ -55,7 +51,7 @@ namespace FastFix2._0.Controllers.CarRepair
             if (!ModelState.IsValid)
                 return View(model);
 
-            var userId = _UserManager.GetUserId(User);
+            string userId = _UserManager.GetUserId(User);
 
             var carRepairData = new CarRepairUser
             {

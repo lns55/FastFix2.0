@@ -1,14 +1,8 @@
-﻿using FastFix2._0.Data;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Internal;
-using FastFix2._0.Areas.Identity;
-using System.Linq;
-using System.Collections.Generic;
-using System;
+﻿using FastFix2._0.Areas.Identity;
+using FastFix2._0.Data;
 using Microsoft.AspNetCore.Identity;
-using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace FastFix2._0.Controllers.CarOwnerGarage
 {
@@ -31,11 +25,11 @@ namespace FastFix2._0.Controllers.CarOwnerGarage
 
         public IActionResult CarOwnerGarage()
         {
-            var user = _UserManager.GetUserId(User);
+            string user = _UserManager.GetUserId(User);
 
             var app = from a in _db.NewApplications
-                       where a.UserId == user
-                       select a;
+                      where a.UserId == user
+                      select a;
 
             return View(app.ToList());
         }

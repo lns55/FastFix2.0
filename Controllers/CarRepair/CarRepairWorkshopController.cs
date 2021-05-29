@@ -4,9 +4,7 @@ using FastFix2._0.Data;
 using FastFix2._0.ViewModels.Applications;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System.Web;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace FastFix2._0.Controllers
 {
@@ -28,11 +26,11 @@ namespace FastFix2._0.Controllers
 
         public IActionResult CarRepairWorkshop()
         {
-            var user = _UserManager.GetUserId(User);
+            string user = _UserManager.GetUserId(User);
 
             var findUser = _db.Users.Find(user);
 
-            var userCity = findUser.City;
+            string userCity = findUser.City;
 
             var app = from a in _db.NewApplications
                       where a.City == userCity
@@ -44,7 +42,7 @@ namespace FastFix2._0.Controllers
         #region Displaying new applications for CarRepair.
         public IActionResult New()
         {
-            var getUserId = _UserManager.GetUserId(User);
+            string getUserId = _UserManager.GetUserId(User);
 
             var getUser = _db.Users.Where(u => u.IsCarRepair == true && u.Id == getUserId).FirstOrDefault();
 
@@ -60,8 +58,8 @@ namespace FastFix2._0.Controllers
         [HttpPost, ValidateAntiForgeryToken]
         public IActionResult AnswerPage(AnswerForAppViewModel model, int Id)
         {
-            var userId = _UserManager.GetUserId(User);
-            
+            string userId = _UserManager.GetUserId(User);
+
             var answer = new AnswersForApps
             {
                 AppID = Id,
@@ -80,7 +78,7 @@ namespace FastFix2._0.Controllers
         #region Page where CarRepairs can see apps for which they answered.
         public IActionResult Waiting()
         {
-            var getUserId = _UserManager.GetUserId(User);
+            string getUserId = _UserManager.GetUserId(User);
 
             var getUserAnswer = from a in _db.AnswersForApps
                                 where a.UserId == getUserId
@@ -97,7 +95,7 @@ namespace FastFix2._0.Controllers
         #region Page to see details of answers for new apps.
         public IActionResult LookAnswer(int Id)
         {
-            var getUserId = _UserManager.GetUserId(User);
+            string getUserId = _UserManager.GetUserId(User);
 
             var answer = _db.AnswersForApps.Where(a => a.AppID == Id && a.UserId == getUserId).First();
 
@@ -108,11 +106,11 @@ namespace FastFix2._0.Controllers
         #region Page where displays apps which are in work(they appear on this page after car owner accept answer of car repair).
         public IActionResult InProgress()
         {
-            var getUserId = _UserManager.GetUserId(User);
+            string getUserId = _UserManager.GetUserId(User);
 
             var checkAppStatus = _db.ApplicationsInProgress.Where(s => s.CarRepairId == getUserId);
 
-            if(checkAppStatus != null)
+            if (checkAppStatus != null)
             {
                 return View(checkAppStatus.ToList());
             }
@@ -135,7 +133,7 @@ namespace FastFix2._0.Controllers
         {
             var getApp = _db.ApplicationsInProgress.Where(c => c.Id == Id).First();
 
-            if(getApp != null)
+            if (getApp != null)
             {
                 getApp.IsFinished = true;
 
@@ -149,7 +147,7 @@ namespace FastFix2._0.Controllers
         #region Page where displays all completed applications.
         public IActionResult Completed()
         {
-            var userId = _UserManager.GetUserId(User);
+            string userId = _UserManager.GetUserId(User);
 
             var getApps = _db.CompletedApplications.Where(a => a.CarRepairId == userId);
 
