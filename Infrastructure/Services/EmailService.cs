@@ -24,7 +24,7 @@ namespace FastFix2._0.Infrastructure.Services
             using (var client = new SmtpClient())
             {
                 await client.ConnectAsync("smtp.sendgrid.net", 587, false);
-                await client.AuthenticateAsync("apikey", "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");
+                await client.AuthenticateAsync("apikey", "");
                 await client.SendAsync(emailMessage);
 
                 await client.DisconnectAsync(true);
