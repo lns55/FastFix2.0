@@ -29,7 +29,7 @@ namespace FastFix2._0.Hubs
                          where u.UserId == appId.ToString()
                          select u.UserId;
 
-            //Need to do sorting by city and type of work. Leaving that tries here...hope you will find a better way...21.03.2021
+            //Need to do sorting by city and type of work. Leaving that tries here.21.03.2021
             //var sortByCity = from r in _db.carRepairUsers
             //                 where r.City == city
             //                 select r.UserId.ToString();
